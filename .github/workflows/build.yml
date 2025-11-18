@@ -1,25 +1,54 @@
-name: Build
+name: Build & Deploy
+
 on:
   push:
     branches:
-      - next
+      - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Required for Lunaria. Ensures the full git history is cloned.
           fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Install depends
+      - name: Install system deps
         run: sudo apt update -y && sudo apt install -y git
 
-      - name: Build
-        run: bun install --frozen-lockfile --production && bun run build
+      - name: Install dependencies
+        run: bun install --frozen-lockfile --production
+
+      - name: Build site
+        run: bun run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

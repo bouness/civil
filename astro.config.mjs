@@ -23,11 +23,11 @@ if (import.meta.env.PROD) {
   );
 }
 
-const site = undefined;
+const site = 'https://bouness.github.io/civil/';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bouness.github.io/civil/',
+  site,
   base: '/civil/',
   vite: {
     plugins: [tailwindcss()],
