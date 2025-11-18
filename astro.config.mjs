@@ -44,7 +44,7 @@ export default defineConfig({
         src: '/src/assets/logo.svg',
       },
       editLink: {
-        baseUrl: 'https://github.com/bouness/civil/edit/next/',
+        baseUrl: 'https://github.com/bouness/civil/edit/main/',
       },
       expressiveCode: {
         themes: ['ayu-dark', 'light-plus'],
