@@ -79,7 +79,7 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'Practive Questions',
+          label: 'Practice Questions',
           items: [
             {
               label: 'Beams',
