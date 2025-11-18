@@ -1,0 +1,59 @@
+---
+title: Prestressed Concrete Beam Stress Check
+description: Prestressed Concrete Beam Stress Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A pretensioned concrete beam has section properties: $A_g = 560~\text{in}^2$, $I_g = 50,000~\text{in}^4$, $y_b = 15~\text{in}$, $y_t = 10~\text{in}$. Prestressing force $P_i = 350~\text{kips}$ at $e = 8~\text{in}$ from centroid. Service loads: $M_D = 400~\text{kip-in}$, $M_L = 600~\text{kip-in}$. $f'_c = 5000~\text{psi}$. Check extreme fiber stresses at midspan.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Prestressed Beam Stress Check**
+
+**Step 1: Calculate section moduli**
+$S_b = \frac{I_g}{y_b} = \frac{50,000}{15} = 3,333~\text{in}^3$
+$S_t = \frac{I_g}{y_t} = \frac{50,000}{10} = 5,000~\text{in}^3$
+
+**Step 2: Calculate stresses at transfer (initial)**
+$f_t = \frac{P_i}{A_g} - \frac{P_i e}{S_t} + \frac{M_D}{S_t}$ (top fiber)
+$f_b = \frac{P_i}{A_g} + \frac{P_i e}{S_b} - \frac{M_D}{S_b}$ (bottom fiber)
+
+$\frac{P_i}{A_g} = \frac{350,000}{560} = 625~\text{psi}$
+$\frac{P_i e}{S_t} = \frac{350,000 \times 8}{5,000} = 560~\text{psi}$
+$\frac{P_i e}{S_b} = \frac{350,000 \times 8}{3,333} = 840~\text{psi}$
+$\frac{M_D}{S_t} = \frac{400,000}{5,000} = 80~\text{psi}$
+$\frac{M_D}{S_b} = \frac{400,000}{3,333} = 120~\text{psi}$
+
+At transfer:
+$f_t = 625 - 560 + 80 = 145~\text{psi}$ (compression)
+$f_b = 625 + 840 - 120 = 1,345~\text{psi}$ (compression)
+
+Allowable at transfer: $0.60f'_{ci} \approx 0.60\times4000 = 2400~\text{psi}$ ✓
+
+**Step 3: Calculate stresses at service**
+Assume $P_e = 0.90P_i = 315~\text{kips}$ (10% losses)
+
+$\frac{P_e}{A_g} = \frac{315,000}{560} = 563~\text{psi}$
+$\frac{P_e e}{S_t} = \frac{315,000 \times 8}{5,000} = 504~\text{psi}$
+$\frac{P_e e}{S_b} = \frac{315,000 \times 8}{3,333} = 756~\text{psi}$
+
+Total moment $M_T = M_D + M_L = 400 + 600 = 1000~\text{kip-in}$
+
+$\frac{M_T}{S_t} = \frac{1,000,000}{5,000} = 200~\text{psi}$
+$\frac{M_T}{S_b} = \frac{1,000,000}{3,333} = 300~\text{psi}$
+
+At service:
+$f_t = 563 - 504 + 200 = 259~\text{psi}$ (compression)
+$f_b = 563 + 756 - 300 = 1,019~\text{psi}$ (compression)
+
+Allowable at service: $0.45f'_c = 0.45\times5000 = 2250~\text{psi}$ ✓
+
+**All stresses are within allowable limits**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,26 @@
+---
+title: Axial Stress in Steel Column
+description: Axial Stress in Steel Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Steel**]
+A column transmits axial load $P = 150~\text{kips}$ and has gross cross-sectional area $A_g = 7.0~\text{in}^2$. Compute the average axial stress in ksi and check against $F_y = 50~\text{ksi}$ (is the stress less than $F_y$?).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Convert load to pounds: $P = 150~\text{kips} = 150,000~\text{lb}$.
+Axial stress:
+
+$$
+\sigma = \frac{P}{A_g} = \frac{150,000}{7.0} = 21,428.5714~\text{psi} = 21.43~\text{ksi}
+$$
+
+Compare to $F_y = 50~\text{ksi}$: $21.43 < 50$, so **stress is less than yield** (acceptable for gross stress check).
+:::
+</TabItem>
+</Tabs>

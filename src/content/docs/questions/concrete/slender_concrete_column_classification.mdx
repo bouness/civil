@@ -1,0 +1,25 @@
+---
+title: Slender Concrete Column Classification
+description: Slender Concrete Column Classification
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A reinforced concrete column has unsupported length $L = 14~\text{ft}$ and radius of gyration $r = 3~\text{in}$. Check if it is slender for non-sway condition per ACI 318 ($k = 1.0$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute slenderness ratio:
+
+$$
+\frac{kL}{r} = \frac{1.0(14 \times 12)}{3} = 56
+$$
+
+ACI 318: column is **slender** if $\frac{kL}{r} > 22$. Thus, it is **slender** and requires moment magnification.
+:::
+</TabItem>
+</Tabs>

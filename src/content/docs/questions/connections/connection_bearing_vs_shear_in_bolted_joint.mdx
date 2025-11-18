@@ -1,0 +1,40 @@
+---
+title: Connection Bearing vs. Shear in Bolted Joint
+description: Connection Bearing vs. Shear in Bolted Joint
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A 5/8" bolt (hole diameter 21/32") bearing on 3/8" thick plate sees shear force per bolt of $V = 10~\text{kips}$. Gross area of bolt shank $A_b = 0.31~\text{in}^2$. Bearing allowable on connected material is $F_{br} = 30~\text{ksi}$. Which mode governs: bolt shear or bearing? (Compare shear stress $V/A_b$ with bearing stress $V/(t d_h)$ where $t = 0.375~\text{in}$ and hole diameter $d_h = 21/32 = 0.65625~\text{in}$.)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute bolt shear stress:
+
+$$
+\tau = \frac{V}{A_b} = \frac{10~\text{kips}}{0.31~\text{in}^2} = \frac{10,000}{0.31} = 32,258.0645~\text{psi} = 32.26~\text{ksi}
+$$
+
+Compute bearing stress (bearing area = $t d_h$):
+
+$$
+t d_h = 0.375\times0.65625 = 0.24609375~\text{in}^2
+$$
+
+Bearing stress:
+
+$$
+\sigma_{br} = \frac{10,000}{0.24609375} = 40,607.8431~\text{psi} = 40.61~\text{ksi}
+$$
+
+Compare to allowable:
+- Shear: $32.26~\text{ksi}$ vs typical bolt shear allowable (depends) — not given.  
+- Bearing: $40.61~\text{ksi}$ > $F_{br}=30~\text{ksi}$ → **bearing exceeds allowable**.  
+Conclusion: **bearing failure governs (bearing exceeds allowable), so connection is not acceptable for bearing; reduce load or increase plate thickness/bolt spacing.**
+:::
+</TabItem>
+</Tabs>

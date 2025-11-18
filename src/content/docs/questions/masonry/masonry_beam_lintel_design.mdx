@@ -1,0 +1,47 @@
+---
+title: Masonry Beam Lintel Design
+description: Masonry Beam Lintel Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Masonry**]
+A masonry lintel spans 8 ft over an opening and supports a triangular load from masonry above. The total factored load is $w_u = 1200~\text{plf}$. The lintel is 8 in wide with $d = 20~\text{in}$. $f'_m = 2000~\text{psi}$, $f_y = 60000~\text{psi}$. Determine the required flexural reinforcement.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Masonry Lintel Design**
+
+**Step 1: Calculate design moment**
+For triangular load on simple span:
+$M_u = \frac{w_u L^2}{12} = \frac{1200\times(8)^2}{12} = \frac{1200\times64}{12} = 6400~\text{lb-ft} = 76,800~\text{lb-in}$
+
+**Step 2: Assume reinforcement and calculate capacity**
+Try 2-#5 bars: $A_s = 2\times0.31 = 0.62~\text{in}^2$
+
+$a = \frac{A_s f_y}{0.80f'_m b} = \frac{0.62\times60,000}{0.80\times2000\times8} = \frac{37,200}{12,800} = 2.91~\text{in}$
+
+**Step 3: Calculate nominal moment capacity**
+$M_n = A_s f_y (d - \frac{a}{2}) = 0.62\times60,000\times(20 - \frac{2.91}{2})$
+
+$M_n = 37,200\times(20 - 1.455) = 37,200\times18.545 = 689,000~\text{lb-in}$
+
+**Step 4: Apply strength reduction factor**
+$\phi = 0.90$ for flexure
+$\phi M_n = 0.90\times689,000 = 620,000~\text{lb-in}$
+
+**Step 5: Check adequacy**
+$M_u = 76,800~\text{lb-in} < \phi M_n = 620,000~\text{lb-in}$ ✓
+
+**Step 6: Check minimum reinforcement**
+$A_{s,min} = 0.002A_g = 0.002\times8\times24 = 0.384~\text{in}^2$
+
+$0.62~\text{in}^2 > 0.384~\text{in}^2$ ✓
+
+**Required: 2-#5 bars (adequate with significant reserve capacity)**
+:::
+</TabItem>
+</Tabs>

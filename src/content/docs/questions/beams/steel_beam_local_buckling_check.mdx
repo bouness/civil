@@ -1,0 +1,45 @@
+---
+title: Steel Beam Local Buckling Check
+description: Steel Beam Local Buckling Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Beams**]
+A W14x90 beam ($b_f/2t_f = 10.2$, $h/t_w = 25.9$) of A992 steel is used as a simply supported beam. Determine if the section is compact, noncompact, or slender for flexure.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Local Buckling Classification**
+
+**Step 1: Flange compactness limit**
+For A992 steel ($F_y = 50~\text{ksi}$):
+$\lambda_p = 0.38\sqrt{\frac{E}{F_y}} = 0.38\sqrt{\frac{29,000}{50}} = 0.38\times24.08 = 9.15$
+
+Given $b_f/2t_f = 10.2 > 9.15$
+
+**Therefore, flanges are NONCOMPACT**
+
+**Step 2: Web compactness limit**
+$\lambda_p = 3.76\sqrt{\frac{E}{F_y}} = 3.76\times24.08 = 90.5$
+
+Given $h/t_w = 25.9 < 90.5$
+
+**Therefore, web is COMPACT**
+
+**Step 3: Overall section classification**
+Since the flanges are noncompact, the entire section is classified as **NONCOMPACT**.
+
+**Step 4: Implications for design**
+For noncompact sections:
+- The section cannot develop full plastic moment capacity $M_p$
+- Local buckling may limit the moment capacity
+- Use AISC Equation F3-1 for flexural strength
+
+**Section classification: NONCOMPACT**
+:::
+</TabItem>
+</Tabs>

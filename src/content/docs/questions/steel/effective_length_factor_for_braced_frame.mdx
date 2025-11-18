@@ -1,0 +1,28 @@
+---
+title: Effective Length Factor for Braced Frame
+description: Effective Length Factor for Braced Frame
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+A steel column is part of a **braced frame** with pinned ends in both directions. Determine the appropriate effective length factor $K$ for buckling about the weak axis.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Concept and Solution:**
+For a **braced frame**, the lateral translation is prevented at both ends.
+When both ends are pinned (no rotational restraint):
+
+$$
+K = 1.0
+$$
+
+This value corresponds to the classical pinned–pinned column buckling condition.
+Thus, **$K = 1.0$ for buckling about the weak axis.**
+:::
+</TabItem>
+</Tabs>

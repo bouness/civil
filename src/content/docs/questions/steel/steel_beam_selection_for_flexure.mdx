@@ -1,0 +1,51 @@
+---
+title: Steel Beam Selection for Flexure
+description: Steel Beam Selection for Flexure
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Steel**]
+Select the lightest W-shape beam for a simply supported span of 30 ft that carries a uniform dead load of 0.8 kips/ft (including self-weight) and live load of 1.2 kips/ft. Use A992 steel ($F_y = 50~\text{ksi}$) and assume full lateral support. The beam must satisfy strength and deflection criteria (live load deflection limit: $L/360$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Steel Beam Selection**
+
+**Step 1: Calculate factored moment**
+$w_u = 1.2(0.8) + 1.6(1.2) = 0.96 + 1.92 = 2.88~\text{kips/ft}$
+
+$M_u = \frac{w_u L^2}{8} = \frac{2.88 \times 30^2}{8} = \frac{2592}{8} = 324~\text{kip-ft}$
+
+**Step 2: Required plastic section modulus**
+$\phi = 0.90$ (for flexure)
+$M_n = M_p = F_y Z_x$
+
+$Z_{req} = \frac{M_u}{\phi F_y} = \frac{324 \times 12}{0.90 \times 50} = \frac{3888}{45} = 86.4~\text{in}^3$
+
+**Step 3: Try W21×62**
+$Z_x = 127~\text{in}^3 > 86.4~\text{in}^3$ ✓
+$I_x = 1330~\text{in}^4$
+
+**Step 4: Check deflection**
+$\Delta_{LL} = \frac{5w_L L^4}{384EI} = \frac{5(1.2/12)(30 \times 12)^4}{384(29,000)(1330)}$
+
+$\Delta_{LL} = \frac{5(0.1)(1,296,000)}{14,918,400} = \frac{64,800}{14,918,400} = 0.00434 \times 12 = 1.20~\text{in}$
+
+$\Delta_{allow} = \frac{L}{360} = \frac{30 \times 12}{360} = 1.00~\text{in}$
+
+$1.20~\text{in} > 1.00~\text{in}$ → Try deeper section
+
+**Step 5: Try W24×55**
+$Z_x = 114~\text{in}^3 > 86.4~\text{in}^3$ ✓
+$I_x = 1350~\text{in}^4$
+
+$\Delta_{LL} = \frac{64,800}{384(29,000)(1350)} = 0.95~\text{in} < 1.00~\text{in}$ ✓
+
+**Select W24×55**
+:::
+</TabItem>
+</Tabs>

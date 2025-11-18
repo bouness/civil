@@ -1,0 +1,40 @@
+---
+title: Concrete Two-Way Slab Minimum Thickness
+description: Concrete Two-Way Slab Minimum Thickness
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A two-way flat plate slab with panels 24 ft x 28 ft is supported by interior columns. The slab has Grade 60 reinforcement and no edge beams. Determine the minimum slab thickness required by ACI 318 for deflection control.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Two-Way Slab Minimum Thickness**
+
+**Step 1: Identify slab type and parameters**
+This is a flat plate slab (no beams between supports).
+$f_y = 60,000~\text{psi}$
+Longer clear span $\ell_n = 28~\text{ft} = 336~\text{in}$
+
+**Step 2: Apply ACI Table 8.3.1.1**
+For flat plates without edge beams:
+Minimum $h = \frac{\ell_n}{30}$ for $f_y = 60,000~\text{psi}$
+
+**Step 3: Calculate minimum thickness**
+$h_{min} = \frac{336}{30} = 11.2~\text{in}$
+
+**Step 4: Check absolute minimum**
+ACI 8.3.1.1 requires $h \geq 5~\text{in}$ for slabs without drops.
+$11.2~\text{in} > 5~\text{in}$ ✓
+
+**Step 5: Final selection**
+Use $h = 11.5~\text{in}$ (round up to nearest 0.5 in for practicality)
+
+**Minimum slab thickness: 11.5 inches**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,31 @@
+---
+title: Development Length Misconception
+description: Development Length Misconception
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A design engineer asserts that using higher-strength concrete **precludes** the need to increase development length when using epoxy-coated bars. Is this statement correct?
+
+A) Yes, because higher $f'_c$ always offsets the epoxy coating factor.
+
+B) No, because epoxy-coated bars require a development length increase regardless of $f'_c$.
+
+C) Yes, provided the bar is not top-cast.
+
+D) Only if $f'_c > 6000~\text{psi}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Correct Answer: B**
+
+ACI 318-14 Table 25.4.2.4(a) requires epoxy-coated bars to use $\psi_e = 1.2$ or $1.5$, depending on spacing and cover. Increasing $f'_c$ reduces development length via the $1/\sqrt{f'_c}$ term, but it **does not negate (preclude)** the epoxy modification factor.
+
+- **Trap:** The phrase *precludes the need to increase* may mislead test-takers into thinking $f'_c$ can override $\psi_e$. It cannot — factors multiply independently.
+:::
+</TabItem>
+</Tabs>

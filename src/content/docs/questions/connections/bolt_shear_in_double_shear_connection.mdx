@@ -1,0 +1,33 @@
+---
+title: Bolt Shear in Double Shear Connection
+description: Bolt Shear in Double Shear Connection
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A single 3/4" A325 bolt is loaded in double shear carrying a service shear $V_s = 15~\text{kips}$. Determine the shear stress in the bolt (use gross shank area $A_b = 0.44~\text{in}^2$ for 3/4"), and comment whether the bolt is acceptable if allowable shear is $F_{v,allow} = 18~\text{ksi}$ (single shear; for double shear allowable doubles).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Double shear — load is resisted by two shear planes so per-plane shear = $V_s/2$:**
+Per shear plane:
+
+$$
+V_{plane} = 15/2 = 7.5~\text{kips}
+$$
+
+**Shear stress per plane:**
+
+$$
+\tau = \frac{V_{plane}}{A_b} = \frac{7.5}{0.44} = 17.04545...~\text{ksi}
+$$
+
+Allowable shear for double-shear connection (if single-shear allowable = 18 ksi, double-shear allowable = 36 ksi): compare to single-plane stress or total? Conservatively compare to single-shear allowable per plane: $18~\text{ksi}$. Since $17.05 < 18$, **bolt is acceptable per plane**.
+Alternatively total shear / gross area: $15/0.44 = 34.09~\text{ksi}$ which compared to 36 ksi allowable (double-shear) is acceptable. Conclusion: **bolt is OK.**
+:::
+</TabItem>
+</Tabs>

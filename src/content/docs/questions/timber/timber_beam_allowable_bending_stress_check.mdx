@@ -1,0 +1,32 @@
+---
+title: Timber Beam Allowable Bending Stress Check
+description: Timber Beam Allowable Bending Stress Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Timber**]
+A simply supported glulam beam span $L = 16~\text{ft}$ carries a uniform load (service) of $w = 1.2~\text{k/ft}$. Maximum moment is $M = wL^2/8$. The beam section modulus $S = 120~\text{in}^3$. Compute the bending stress in psi and compare it to allowable bending $F_b = 1200~\text{psi}$. Is it acceptable? (Use $M$ in in-lb: $1~\text{k-ft}=12,000~\text{in-lb}$.)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute maximum moment in kip-ft:
+
+$$
+M = \frac{wL^2}{8} = \frac{1.2(16^2)}{8} = \frac{1.2(256)}{8} = \frac{307.2}{8} = 38.4~\text{kip-ft}
+$$
+
+Convert to in-lb: $38.4\times12,000 = 460,800~\text{in-lb}$.
+Bending stress:
+
+$$
+\sigma_b = \frac{M}{S} = \frac{460,800}{120} = 3,840~\text{psi}
+$$
+
+Compare to $F_b = 1,200~\text{psi}$: $3,840 > 1,200$, so **beam is overstressed** (not acceptable).
+:::
+</TabItem>
+</Tabs>

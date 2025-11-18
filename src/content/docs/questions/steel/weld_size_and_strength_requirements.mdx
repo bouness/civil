@@ -1,0 +1,72 @@
+---
+title: Weld Size and Strength Requirements
+description: Weld Size and Strength Requirements
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+A fillet weld connection requires a design strength of 12 kips/in. A 5/16-in fillet weld using E70XX electrodes provides a strength of 11.2 kips/in. Does the weld size furnished comport with the strength demand?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Fillet Weld Strength Analysis**
+
+**Step 1: Understanding 'comport with'**
+'Comport with' means to **agree with**, **comply with**, or **be in accordance with**.
+
+The question asks: Does the weld comply with the demand?
+
+**Step 2: Given information**
+Required strength: $R_u = 12~\text{kips/in}$
+
+Provided strength: $\phi R_n = 11.2~\text{kips/in}$
+
+**Step 3: Compare capacity to demand**
+$11.2~\text{kips/in} < 12~\text{kips/in}$
+
+Provided strength is **LESS THAN** required strength.
+
+Deficiency: $12 - 11.2 = 0.8~\text{kips/in}$ (6.7% short)
+
+**Step 4: Interpret the comparison**
+The weld is **INADEQUATE** for the design load.
+
+**Step 5: Answer the question**
+Does the 5/16-in weld comport with (comply with) the 12 kips/in demand?
+
+**NO** - The weld size does NOT comport with the strength demand.
+
+The provided capacity (11.2 kips/in) falls short of the required strength (12 kips/in), so it does not comply with or satisfy the requirement.
+
+**Common trap:** Numbers are close (11.2 vs 12), and 'comport with' is unfamiliar vocabulary. Under pressure, candidates might think 'close enough' or misinterpret the vocabulary.
+
+**Step 6: Required weld size**
+For E70XX: $\phi R_n = 1.392D$ (kips/in per AISC, where $D$ = weld size in sixteenths)
+
+$D_{req} = \frac{12}{1.392} = 8.62~\text{sixteenths}$
+
+Need $D = 9/16~\text{in}$ minimum (or use double 5/16-in welds)
+
+Actual: $5/16~\text{in} = 5~\text{sixteenths} < 8.62$ ✗
+
+**Step 7: Alternative solution**
+Use 3/8-in fillet weld:
+$\phi R_n = 1.392(6) = 8.35~\text{kips/in}$ (still inadequate)
+
+Use 7/16-in fillet weld:
+$\phi R_n = 1.392(7) = 9.74~\text{kips/in}$ (still inadequate)
+
+Use 1/2-in fillet weld:
+$\phi R_n = 1.392(8) = 11.14~\text{kips/in}$ (still inadequate)
+
+Use 9/16-in fillet weld:
+$\phi R_n = 1.392(9) = 12.53~\text{kips/in}$ ✓
+
+**Answer: NO, the 5/16-in weld (11.2 kips/in) does NOT comport with (comply with) the 12 kips/in demand. Use 9/16-in minimum.**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,33 @@
+---
+title: One-Way Slab Minimum Reinforcement Area
+description: One-Way Slab Minimum Reinforcement Area
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+For a non-prestressed one-way slab with $f'_c = 4000~\text{psi}$ and $f_y = 60,000~\text{psi}$, compute the ACI minimum reinforcement ratio $\rho_{min} = \max(3\sqrt{f'_c}/f_y, 200/f_y)$. Provide $\rho_{min}$ (decimal) and percent.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute first term:
+
+$$
+3\sqrt{f'_c}/f_y = \frac{3\sqrt{4000}}{60,000}
+$$
+
+$\sqrt{4000} = 63.2455532$ so numerator $3\times63.2455532 = 189.7366596$.
+So first term = $189.7366596/60,000 = 0.00316227766$.
+Second term:
+
+$$
+200/f_y = 200/60,000 = 0.00333333333
+$$
+
+Take maximum: $\rho_{min} = 0.00333333333$ which is **0.00333 (0.333%)**.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,58 @@
+---
+title: Deep Beam Shear Design
+description: Deep Beam Shear Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A concrete deep beam has overall height $h = 8~\text{ft}$, length $L_n = 12~\text{ft}$, and thickness $b_w = 12~\text{in}$. The factored shear force is $V_u = 300~\text{kips}$. $f'_c = 5000~\text{psi}$, $f_y = 60000~\text{psi}$. Check if the beam qualifies as a deep beam and determine the required shear reinforcement.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Deep Beam Shear Design**
+
+**Step 1: Check deep beam criteria**
+Clear span $L_n = 12~\text{ft}$, height $h = 8~\text{ft}$
+
+$\frac{L_n}{h} = \frac{12}{8} = 1.5 < 4.0$ ✓
+$\frac{h}{b_w} = \frac{96}{12} = 8.0 < 10.0$ ✓
+
+**Therefore, the beam qualifies as a deep beam.**
+
+**Step 2: Calculate shear strength limits**
+For deep beams: $\phi V_n = \phi 10\sqrt{f'_c} b_w d$
+
+Assume $d = 0.9h = 0.9 \times 96 = 86.4~\text{in}$
+
+$\phi V_n = 0.75 \times 10 \times \sqrt{5000} \times 12 \times 86.4 / 1000$
+$\phi V_n = 0.75 \times 10 \times 70.7 \times 12 \times 86.4 / 1000 = 0.75 \times 732,000 / 1000 = 549~\text{kips}$
+
+$V_u = 300~\text{kips} < 549~\text{kips}$ ✓
+
+**Step 3: Calculate required shear reinforcement**
+For deep beams: $V_n = V_c + V_s$
+
+$V_c = 2\sqrt{f'_c} b_w d = 2 \times 70.7 \times 12 \times 86.4 / 1000 = 146.6~\text{kips}$
+
+$V_s = \frac{V_u}{\phi} - V_c = \frac{300}{0.75} - 146.6 = 400 - 146.6 = 253.4~\text{kips}$
+
+**Step 4: Determine vertical and horizontal reinforcement**
+For deep beams, provide both vertical and horizontal shear reinforcement:
+
+$A_v = \frac{V_s s}{f_y d}$ and $A_{vh} = \frac{V_s s_h}{f_y d}$
+
+Try $s = s_h = 12~\text{in}$
+
+$A_v = \frac{253.4 \times 12}{60 \times 86.4} = \frac{3041}{5184} = 0.587~\text{in}^2$
+
+Use #5 @ 12 in vertical ($A_v = 0.62~\text{in}^2$)
+Use #5 @ 12 in horizontal ($A_{vh} = 0.62~\text{in}^2$)
+
+**Required: #5 @ 12 in both vertical and horizontal**
+:::
+</TabItem>
+</Tabs>

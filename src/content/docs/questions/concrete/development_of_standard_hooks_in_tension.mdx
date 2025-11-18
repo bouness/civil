@@ -1,0 +1,49 @@
+---
+title: Development of Standard Hooks in Tension
+description: Development of Standard Hooks in Tension
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A #8 bar ($d_b = 1.0~\text{in}$) with a standard 90-degree hook is embedded in normal-weight concrete with $f'_c = 4000~\text{psi}$. The bar is epoxy-coated. Side cover = $2\frac{1}{2}$~in, cover on bar extension = 2 in. Calculate the required development length $\ell_{dh}$ for the hook in tension.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Development Length for Standard Hook**
+
+**Step 1: Basic development length**
+Per ACI 318: $\ell_{dh} = \left(\frac{0.02\psi_e\psi_r\psi_o\psi_c f_y}{\lambda\sqrt{f'_c}}\right) d_b$
+
+Given:
+- $\psi_e = 1.2$ (epoxy-coated factor)
+- $\psi_r = 1.0$ (reinforcement location factor)
+- $\psi_o = 1.0$ (coating factor - already accounted in $\psi_e$)
+- $\psi_c = 1.0$ (cover factor - will check modifiers)
+- $\lambda = 1.0$ (normal-weight concrete)
+- $f_y = 60,000~\text{psi}$
+- $f'_c = 4000~\text{psi}$
+
+Basic $\ell_{dh} = \frac{0.02 \times 1.2 \times 1.0 \times 1.0 \times 1.0 \times 60,000}{1.0 \times \sqrt{4000}} \times 1.0$
+
+$\ell_{dh} = \frac{1440}{63.25} = 22.8~\text{in}$
+
+**Step 2: Apply modifiers**
+Check side cover: $2.5~\text{in} > 2.5d_b = 2.5~\text{in}$ ✓ (exactly meets minimum)
+
+Check cover on bar extension: $2.0~\text{in} < 2.0~\text{in}$? Actually $2.0~\text{in} = 2d_b$, so no reduction
+
+Since side cover = $2.5d_b$ (exactly) and tie cover = $2d_b$ (exactly), no modifiers apply.
+
+**Step 3: Check minimum length**
+Minimum $\ell_{dh} = \max(8d_b, 6~\text{in}) = \max(8, 6) = 8~\text{in}$
+
+$22.8~\text{in} > 8~\text{in}$ ✓
+
+**Required development length for hook: $\ell_{dh} = 23~\text{in}$**
+:::
+</TabItem>
+</Tabs>

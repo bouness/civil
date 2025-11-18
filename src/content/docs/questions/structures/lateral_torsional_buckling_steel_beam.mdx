@@ -1,0 +1,71 @@
+---
+title: Lateral Torsional Buckling - Steel Beam
+description: Lateral Torsional Buckling - Steel Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A W21x50 beam ($Z_x = 110~\text{in}^3$, $L_p = 4.6~\text{ft}$, $L_r = 13.6~\text{ft}$) of A992 steel is laterally braced at 10 ft intervals. The beam is subject to a uniform factored moment of 280 kip-ft. Check if the beam is adequate for lateral-torsional buckling.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Lateral-Torsional Buckling Check**
+
+**Step 1: Determine unbraced length classification**
+Given: $L_b = 10~\text{ft}$
+$L_p = 4.6~\text{ft}$ (limit for plastic bending)
+$L_r = 13.6~\text{ft}$ (limit for inelastic LTB)
+
+Since $L_p < L_b < L_r$, the beam is in the **inelastic LTB** region.
+
+**Step 2: Calculate nominal flexural strength $M_n$**
+For $L_p < L_b \leq L_r$:
+
+$$
+M_n = C_b[M_p - (M_p - 0.7F_yS_x)(\frac{L_b - L_p}{L_r - L_p})] \leq M_p
+$$
+
+
+**Step 3: Calculate section properties**
+$F_y = 50~\text{ksi}$
+$M_p = F_yZ_x = 50 \times 110 = 5500~\text{kip-in} = 458.3~\text{kip-ft}$
+
+For W21x50: $S_x \approx 94.5~\text{in}^3$ (from manual)
+$0.7F_yS_x = 0.7 \times 50 \times 94.5 = 3308~\text{kip-in} = 275.7~\text{kip-ft}$
+
+**Step 4: Calculate $M_n$ (assume $C_b = 1.0$ for uniform moment)**
+
+$$
+M_n = 1.0[458.3 - (458.3 - 275.7)(\frac{10 - 4.6}{13.6 - 4.6})]
+$$
+
+
+$$
+M_n = 458.3 - (182.6)(\frac{5.4}{9.0})
+$$
+
+
+$$
+M_n = 458.3 - (182.6)(0.60) = 458.3 - 109.6 = 348.7~\text{kip-ft}
+$$
+
+
+**Step 5: Calculate design strength**
+$\phi = 0.90$
+
+$$
+\phi M_n = 0.90 \times 348.7 = 313.8~\text{kip-ft}
+$$
+
+
+**Step 6: Check adequacy**
+$M_u = 280~\text{kip-ft} < \phi M_n = 313.8~\text{kip-ft}$
+
+**The beam is ADEQUATE for lateral-torsional buckling.**
+:::
+</TabItem>
+</Tabs>

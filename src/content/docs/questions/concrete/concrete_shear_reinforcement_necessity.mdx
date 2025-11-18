@@ -1,0 +1,66 @@
+---
+title: Concrete Shear Reinforcement Necessity
+description: Concrete Shear Reinforcement Necessity
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A beam section has $V_u = 32~\text{kips}$ at the critical section. The concrete shear capacity is $\phi V_c = 45~\text{kips}$. Per ACI 318, minimum shear reinforcement is required when $V_u > \phi V_c/2$. Does the factored shear demand mandate the provision of minimum shear reinforcement?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Minimum Shear Reinforcement Analysis**
+
+**Step 1: Understanding 'mandate'**
+'Mandate' means to **require** or **make obligatory**.
+
+The question asks: Is minimum shear reinforcement **required**?
+
+**Step 2: Given information**
+$V_u = 32~\text{kips}$
+
+$\phi V_c = 45~\text{kips}$
+
+**Step 3: Check primary condition**
+Is $V_u > \phi V_c$?
+
+$32~\text{kips} < 45~\text{kips}$
+
+No stirrups required for strength. But check minimum requirements...
+
+**Step 4: Check minimum reinforcement threshold**
+Per ACI 318: Minimum shear reinforcement required when:
+
+$V_u > \frac{\phi V_c}{2}$
+
+Calculate threshold:
+$\frac{\phi V_c}{2} = \frac{45}{2} = 22.5~\text{kips}$
+
+**Step 5: Compare demand to threshold**
+$V_u = 32~\text{kips} > 22.5~\text{kips}$
+
+The demand **EXCEEDS** the threshold for minimum reinforcement.
+
+**Step 6: Answer the question**
+Does $V_u$ mandate (require) minimum shear reinforcement?
+
+**YES** - The shear demand DOES mandate minimum shear reinforcement.
+
+Even though $V_u < \phi V_c$ (concrete alone is adequate for strength), the provision $V_u > \phi V_c/2$ triggers the minimum reinforcement requirement.
+
+**Common trap:** Candidates might see that $V_u < \phi V_c$ and conclude no stirrups are needed, forgetting the ACI minimum reinforcement provision. The word 'mandate' emphasizes this is a code requirement, not optional.
+
+**Step 7: Minimum reinforcement details**
+$A_{v,min} = \max\left(0.75\sqrt{f'_c}\frac{b_w s}{f_{yt}}, 50\frac{b_w s}{f_{yt}}\right)$
+
+Or use maximum spacing provisions:
+$s_{max} = \min\left(\frac{d}{2}, 24~\text{in}\right)$
+
+**Answer: YES, the shear demand (32 kips) mandates (requires) minimum shear reinforcement because 32 kips > 22.5 kips (which is ϕVc/2).**
+:::
+</TabItem>
+</Tabs>

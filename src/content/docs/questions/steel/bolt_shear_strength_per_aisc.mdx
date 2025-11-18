@@ -1,0 +1,31 @@
+---
+title: Bolt Shear Strength per AISC
+description: Bolt Shear Strength per AISC
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+Determine the design shear strength $\phi R_n$ of a single 3/4-inch A325-N bolt in single shear with threads included in shear plane. Use $F_{nv} = 54~\text{ksi}$ and $A_b = 0.442~\text{in}^2$, $\phi = 0.75$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Nominal shear strength:
+
+$$
+R_n = F_{nv} A_b = 54(0.442) = 23.9~\text{kips}
+$$
+
+Design strength:
+
+$$
+\phi R_n = 0.75(23.9) = 17.9~\text{kips}
+$$
+
+Thus, the bolt has a design shear strength of **17.9 kips**.
+:::
+</TabItem>
+</Tabs>

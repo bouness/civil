@@ -1,0 +1,25 @@
+---
+title: Tendon Fatigue — Stress Range Example
+description: Tendon Fatigue — Stress Range Example
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Prestressed Concrete**]
+A tendon cycles between 160 ksi (peak) and 40 ksi (minimum) under repetitive loading. Compute the stress range Δσ and briefly explain why limiting stress range matters for tendon fatigue and relaxation concerns.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Stress range:
+
+$$
+\Delta\sigma = 160 - 40 = 120~\text{ksi}.
+$$
+
+Large cyclic stress ranges accelerate fatigue damage in prestressing steel and can increase effective relaxation and loss of prestress over the life of the structure. Designers limit stress ranges and detail to avoid high local stress reversals in tendons (use appropriate prestress profiles, redundancy, and fatigue-resistant materials).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,54 @@
+---
+title: Bolted Connection Slip-Critical Design
+description: Bolted Connection Slip-Critical Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A slip-critical connection uses 3/4-in diameter A325 bolts in standard holes. The connected plates are clean mill-scale steel. The factored slip load is $P_u = 60~\text{kips}$. Determine the number of bolts required for slip resistance at serviceability and strength limit states.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Slip-Critical Connection Design**
+
+**Step 1: Determine slip resistance per bolt**
+For A325 bolts in standard holes, Class A surface (mill-scale):
+
+$\mu = 0.30$ (Class A surface)
+$D_u = 1.13$ (factor for mean slip resistance)
+$T_b = 28~\text{kips}$ (minimum bolt tension for 3/4" A325)
+
+Nominal slip resistance: $R_n = \mu D_u h_{sc} T_b N_s$
+
+$h_{sc} = 1.00$ (factor for standard holes)
+$N_s = 1$ (number of slip planes)
+
+$R_n = 0.30\times1.13\times1.00\times28\times1 = 9.49~\text{kips/bolt}$
+
+**Step 2: Serviceability limit state**
+$\phi = 1.00$ for serviceability
+Number of bolts = $\frac{P_u}{\phi R_n} = \frac{60}{1.00\times9.49} = 6.32$
+
+**Step 3: Strength limit state**
+$\phi = 0.85$ for strength
+$\phi R_n = 0.85\times9.49 = 8.07~\text{kips/bolt}$
+
+Number of bolts = $\frac{60}{8.07} = 7.43$
+
+**Step 4: Check bolt shear capacity**
+$A_b = 0.4418~\text{in}^2$
+$F_{nv} = 54~\text{ksi}$ (for A325-N bolts)
+
+$\phi R_n = 0.75\times0.4418\times54 = 17.9~\text{kips/bolt} > 8.07~\text{kips/bolt}$ ✓
+
+**Step 5: Final design**
+Governed by strength limit state: Use 8 bolts
+
+**Required: 8 bolts (slip-critical governs over shear)**
+:::
+</TabItem>
+</Tabs>

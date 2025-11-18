@@ -1,0 +1,70 @@
+{
+  "$schema": "./node_modules/@lunariajs/core/config.schema.json",
+  "repository": {
+    "name": "CachyOS/wiki",
+    "branch": "next"
+  },
+  "files": [
+    {
+      "location": "src/content/docs/**/*.{md,mdx}",
+      "pattern": "src/content/docs/@lang/@path",
+      "type": "universal",
+      "ignore": ["node_modules", "src/content/**/changelogs/**"]
+    }
+  ],
+  "dashboard": {
+    "title": "CachyOS Wiki Localization Status",
+    "description": "Localization status dashboard for the CachyOS Wiki.",
+    "basesToHide": ["src/content/docs/"],
+    "favicon": {
+      "external": [
+        {
+          "link": "https://wiki.cachyos.org/favicon.svg",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  },
+  "defaultLocale": {
+    "label": "English",
+    "lang": "en"
+  },
+  "locales": [
+    {
+      "label": "Čeština",
+      "lang": "cs"
+    },
+    {
+      "label": "Deutsch",
+      "lang": "de"
+    },
+    {
+      "label": "Eesti",
+      "lang": "et"
+    },
+    {
+      "label": "Español",
+      "lang": "es"
+    },
+    {
+      "label": "Français",
+      "lang": "fr"
+    },
+    {
+      "label": "Indonesian",
+      "lang": "id"
+    },
+    {
+      "label": "Polski",
+      "lang": "pl"
+    },
+    {
+      "label": "Русский",
+      "lang": "ru"
+    },
+    {
+      "label": "Slovensky",
+      "lang": "sk"
+    }
+  ]
+}

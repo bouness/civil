@@ -1,0 +1,52 @@
+---
+title: Beam Web Yielding and Crippling
+description: Beam Web Yielding and Crippling
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A W16x40 beam ($t_w = 0.305~\text{in}$, $t_f = 0.505~\text{in}$, $k = 0.827~\text{in}$) supports a concentrated load of $R_u = 45~\text{kips}$ through a bearing plate $N = 6~\text{in}$. Check web yielding and web crippling at the support. ($F_y = 50~\text{ksi}$, $F_u = 65~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Web Yielding and Crippling Check**
+
+**Step 1: Check web yielding**
+At support: $\phi R_n = \phi F_y t_w (2.5k + N)$
+
+$\phi = 1.00$
+$\phi R_n = 1.00 \times 50 \times 0.305 \times (2.5\times0.827 + 6.0)$
+$\phi R_n = 15.25 \times (2.068 + 6.0) = 15.25 \times 8.068 = 123~\text{kips}$
+
+$R_u = 45~\text{kips} < 123~\text{kips}$ ✓
+
+**Step 2: Check web crippling**
+At support: $\phi R_n = \phi 0.80t_w^2 [1 + 3(\frac{N}{d})(\frac{t_w}{t_f})^{1.5}] \sqrt{\frac{E F_y t_f}{t_w}}$
+
+$\phi = 0.75$
+$d \approx 16.0~\text{in}$ (for W16x40)
+
+First compute the bracket:
+$[1 + 3(\frac{6.0}{16.0})(\frac{0.305}{0.505})^{1.5}] = [1 + 3\times0.375\times(0.604)^{1.5}]$
+
+$(0.604)^{1.5} = 0.604 \times \sqrt{0.604} = 0.604 \times 0.777 = 0.469$
+
+Bracket = $[1 + 3\times0.375\times0.469] = [1 + 0.527] = 1.527$
+
+Now compute the square root:
+$\sqrt{\frac{E F_y t_f}{t_w}} = \sqrt{\frac{29,000 \times 50 \times 0.505}{0.305}} = \sqrt{\frac{732,250}{0.305}} = \sqrt{2,400,000} = 1549$
+
+$R_n = 0.80 \times (0.305)^2 \times 1.527 \times 1549 = 0.80 \times 0.0930 \times 1.527 \times 1549 = 175.6~\text{kips}$
+
+$\phi R_n = 0.75 \times 175.6 = 131.7~\text{kips}$
+
+$R_u = 45~\text{kips} < 131.7~\text{kips}$ ✓
+
+**Both web yielding and web crippling are ADEQUATE**
+:::
+</TabItem>
+</Tabs>

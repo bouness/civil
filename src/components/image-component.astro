@@ -1,0 +1,14 @@
+---
+import getImgPath from './images';
+import Image from './Image.tsx';
+
+interface Props {
+  imgsrc: string | object;
+}
+
+const { imgsrc } = Astro.props;
+
+const convertedImg = await getImgPath(imgsrc);
+---
+
+<Image client:visible imgsrc={convertedImg} />

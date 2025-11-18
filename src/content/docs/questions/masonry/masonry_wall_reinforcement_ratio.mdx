@@ -1,0 +1,25 @@
+---
+title: Masonry Wall Reinforcement Ratio
+description: Masonry Wall Reinforcement Ratio
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Masonry**]
+A reinforced masonry wall 8 inches thick is reinforced with #5 vertical bars at 32 inches on center. Determine the steel ratio $\rho = A_s / (b s)$ where $A_s$ is bar area and $s$ is spacing.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Area of #5 bar: $A_s = 0.31~\text{in}^2$.
+
+$$
+\rho = \frac{A_s}{b s} = \frac{0.31}{8 \times 32} = 0.00121
+$$
+
+Thus, $\rho = 0.0012$. This meets typical minimum reinforcement ratios for reinforced masonry ($\rho_{min} \approx 0.001$).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,31 @@
+---
+title: Effective Flange Width - Composite Beam
+description: Effective Flange Width - Composite Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A W24x55 steel beam ($d=23.6~\text{in}$) is part of an interior floor system with a 5-inch thick concrete slab ($f'_c=4~\text{ksi}$). The beams are spaced at 8 ft on center and span 36 ft. Determine the effective flange width for composite design per AISC 360.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Effective Flange Width Calculation**
+
+According to AISC 360 Section I3.1, the effective width of the concrete slab on each side of the beam centerline is the minimum of:
+
+1. One-eighth of the beam span: $\frac{L}{8} = \frac{36\times12}{8} = 54~\text{in}$
+2. One-half the distance to the adjacent beam: $\frac{S}{2} = \frac{8\times12}{2} = 48~\text{in}$
+3. The distance to the edge of the slab: Not applicable for interior beam
+
+**Therefore, the effective width on each side is 48 inches.**
+
+The total effective flange width is: $b_{eff} = 2 \times 48 = 96~\text{in}$
+
+This width is used to calculate the composite section properties for moment capacity and deflection calculations.
+:::
+</TabItem>
+</Tabs>

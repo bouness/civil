@@ -1,0 +1,40 @@
+---
+title: Minimum Reinforcement Requirement – Flexural Members
+description: Minimum Reinforcement Requirement – Flexural Members
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A reinforced concrete beam is designed with a factored moment that just reaches the **nominal moment capacity** $M_n$ computed with provided reinforcement. The designer notes that the beam satisfies $M_u \leq \phi M_n$. Which of the following statements **most accurately** describes whether the member satisfies the **minimum flexural reinforcement** requirement per ACI 318?
+
+A) If $M_u = \phi M_n$, the minimum reinforcement requirement is automatically satisfied.
+
+B) If $M_u$ is small, the minimum reinforcement can be **precluded** by increasing the beam depth.
+
+C) The beam **must** have reinforcement not less than that required to produce a moment capacity equal to the cracking moment.
+
+D) The minimum reinforcement requirement only applies to prestressed members.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Correct Answer: C**
+
+Per ACI 318-14 Section 9.6.1.2, the **minimum flexural reinforcement** for nonprestressed concrete beams ensures the section will exhibit tension-controlled behavior after cracking. The area of steel must be sufficient that $M_n \geq 1.2 M_{cr}$ or per code formula:
+
+$$
+A_{s,\min} = \frac{3\sqrt{f'_c}}{f_y}b d
+$$
+
+
+Option C correctly states this requirement.
+
+- **Trap:** Option B uses the word *preclude* misleadingly — increasing beam depth **does not preclude** minimum reinforcement requirements; it might reduce steel demand but **minimum steel still applies**.
+- Option D is incorrect because it applies to **nonprestressed** members as well.
+- Option A confuses strength design with minimum steel provision.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,74 @@
+---
+title: Steel Connection Bolt Shear Capacity
+description: Steel Connection Bolt Shear Capacity
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A connection uses eight 3/4-in diameter A325-N bolts in single shear. Each bolt has a design shear strength of 15.9 kips. The factored load on the connection is 140 kips. Does the bolt configuration want for adequate capacity?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Bolt Connection Capacity Analysis**
+
+**Step 1: Understanding 'want for'**
+'Want for' is archaic phrasing meaning to **lack** or **be deficient in** something.
+
+This is OLD English usage rarely seen in modern technical writing. The question asks: Does the connection lack adequate capacity?
+
+**Step 2: Calculate total bolt capacity**
+Number of bolts: $n = 8$
+
+Capacity per bolt: $\phi R_n = 15.9~\text{kips}$
+
+Total capacity: $\phi R_{n,total} = 8(15.9) = 127.2~\text{kips}$
+
+**Step 3: Compare to demand**
+Factored load: $P_u = 140~\text{kips}$
+
+Provided capacity: $\phi R_{n,total} = 127.2~\text{kips}$
+
+$127.2~\text{kips} < 140~\text{kips}$
+
+**Step 4: Determine adequacy**
+Capacity is **INSUFFICIENT** by:
+$140 - 127.2 = 12.8~\text{kips}$ (9.1% deficient)
+
+Ratio: $\frac{\phi R_n}{P_u} = \frac{127.2}{140} = 0.91 < 1.0$ ✗
+
+**Step 5: Answer the question**
+Does the connection want for (lack) adequate capacity?
+
+**YES** - The connection DOES want for adequate capacity.
+
+The connection lacks sufficient capacity because 127.2 kips < 140 kips. The phrasing 'want for' means the connection is deficient/lacking.
+
+**Common trap:** 'Want for' is extremely archaic. Modern usage would say 'lack' or 'is deficient in.' Under exam stress, this phrasing can cause significant confusion. Some might misinterpret it as 'desire' or 'need' in a different context.
+
+**Step 6: Required number of bolts**
+$n_{req} = \frac{P_u}{\phi R_n} = \frac{140}{15.9} = 8.81$
+
+Round up: Need 9 bolts minimum
+
+Or strengthen to A325-X (threads excluded from shear plane) for higher capacity per bolt.
+
+**Step 7: Alternative solutions**
+**Option 1:** Add 1 more bolt (total = 9)
+$\phi R_{n,total} = 9(15.9) = 143.1~\text{kips} > 140~\text{kips}$ ✓
+
+**Option 2:** Use 7/8-in diameter bolts
+$\phi R_n = 21.6~\text{kips/bolt}$ (A325-N, single shear)
+$\phi R_{n,total} = 8(21.6) = 172.8~\text{kips} > 140~\text{kips}$ ✓
+
+**Option 3:** Use A490 bolts (higher strength)
+3/4-in A490-N: $\phi R_n = 19.9~\text{kips/bolt}$
+$\phi R_{n,total} = 8(19.9) = 159.2~\text{kips} > 140~\text{kips}$ ✓
+
+**Answer: YES, the connection wants for (lacks) adequate capacity. With 127.2 kips capacity vs. 140 kips demand, the connection is deficient.**
+:::
+</TabItem>
+</Tabs>

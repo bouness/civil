@@ -1,0 +1,45 @@
+---
+title: One-Way Shear in a Concrete Beam
+description: One-Way Shear in a Concrete Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A simply supported beam 12 inches wide and 24 inches deep is subjected to a factored shear of $V_u = 75~\text{kips}$ at the support. The beam is made of concrete with $f'_c = 4000~\text{psi}$ and has no shear reinforcement. Determine if the beam satisfies ACI 318 one-way shear requirements.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** Compute nominal shear strength provided by concrete:
+
+$$
+V_c = 2 \sqrt{f'_c} b d / 1000
+$$
+
+
+$$
+V_c = 2(\sqrt{4000})(12)(24)/1000 = 2(63.25)(288)/1000 = 36.4~\text{kips}
+$$
+
+
+**Step 2.** Design strength:
+
+$$
+\phi V_c = 0.75(36.4) = 27.3~\text{kips}
+$$
+
+
+**Step 3.** Compare with applied shear:
+
+$$
+V_u = 75~\text{kips} > \phi V_c = 27.3~\text{kips}
+$$
+
+
+**Conclusion:** The beam **does not satisfy** one-way shear without shear reinforcement. Stirrups are required.
+:::
+</TabItem>
+</Tabs>

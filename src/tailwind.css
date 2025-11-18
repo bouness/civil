@@ -1,0 +1,224 @@
+/* https://starlight.astro.build/guides/css-and-tailwind/#add-tailwind-to-an-existing-project */
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+@theme {
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
+  --color-accent-200: #82dccc;
+  --color-accent-600: #007d6f;
+  --color-accent-900: #003c34;
+  --color-accent-950: #002b25;
+
+  --color-gray-100: #f2f6ff;
+  --color-gray-200: #e6eeff;
+  --color-gray-300: #b8c2d7;
+  --color-gray-400: #798bb2;
+  --color-gray-500: #47577b;
+  --color-gray-700: #283758;
+  --color-gray-800: #182545;
+  --color-gray-900: #111826;
+}
+
+:root {
+  --sl-color-text: var(--color-white);
+
+  /* lg */
+  @media (width >= 64rem) {
+    --sl-sidebar-width: 16rem;
+    --sl-content-width: 45rem;
+  }
+
+  /* xl */
+  @media (width >= 80rem) {
+    --sl-sidebar-width: 18rem;
+    --sl-content-width: 50rem;
+  }
+
+  /* 2xl */
+  @media (width >= 96rem) {
+    --sl-sidebar-width: 19.75rem;
+    --sl-content-width: 55rem;
+  }
+
+  /* 3xl */
+  @media (width >= 112rem) {
+    --sl-sidebar-width: 19.75rem;
+    --sl-content-width: 70rem;
+  }
+}
+
+:root[data-theme='light'] {
+  --sl-color-text: var(--color-gray-900);
+}
+
+.hero {
+  @apply py-10;
+  .sl-link-button {
+    @apply transition hover:scale-110 hover:animate-pulse;
+  }
+}
+
+.social-icons {
+  a {
+    @apply transition hover:scale-130 text-2xl;
+  }
+}
+
+/* Changes seen in Installation on Root */
+
+starlight-tabs {
+  & > div > .sl-steps > li > ul {
+    @apply mt-0.5 pl-3.5;
+  }
+
+  & > div > .sl-steps > li > ul > li > div {
+    @apply mb-3;
+  }
+
+  & > div > ul {
+    @apply pl-4 mt-1;
+  }
+
+  & > div > ul > li > ul {
+    @apply pl-4 mt-0;
+  }
+}
+
+.sl-markdown-content {
+  /* Bullet point spacing */
+  & > ul {
+    @apply m-1 pl-3;
+  }
+
+  /* Numbered list */
+  & > ol.sl-steps {
+    @apply mt-3 pl-1;
+  }
+
+  /* Nested bullet point spacing */
+  & > ul > li > ul {
+    @apply mt-0.5 pl-2;
+  }
+
+  & > ul > li > ul > li > p {
+    @apply mb-1;
+  }
+
+  & > ul > li > ul > li > ul {
+    @apply mt-0.5 pl-2;
+  }
+}
+
+[data-theme='dark'] {
+  /* Left sidebar */
+  [aria-current='page'] {
+    /* Active page */
+    @apply bg-teal-300 hover:bg-teal-200 text-black;
+  }
+  [aria-current='false'] {
+    @apply hover:bg-emerald-300 hover:text-black;
+  }
+  .caret {
+    /* Arrows */
+    @apply text-cyan-400;
+  }
+
+  /* Right sidebar */
+  starlight-toc {
+    [aria-current='true'] {
+      @apply bg-accent-600/40 hover:animate-pulse text-white;
+    }
+    a {
+      @apply hover:text-[#00eeff] text-white;
+    }
+  }
+  .sl-markdown-content {
+    /* Code */
+    code:not(:where(.not-content *)) {
+      @apply text-base;
+    }
+
+    /* Content header */
+    :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
+      @apply text-white/90;
+    }
+  }
+
+  /* Caution blocks */
+
+  .starlight-aside--caution code {
+    @apply bg-[#22304E];
+  }
+  .starlight-aside--caution {
+    @apply text-white;
+  }
+  .starlight-aside--caution strong {
+    @apply text-[#e5ff00];
+  }
+
+  /* Note blocks */
+  .starlight-aside--note > div > p code {
+    @apply bg-[#474215];
+  }
+
+  /*  Tip blocks */
+
+  .starlight-aside--tip > div > p code {
+    @apply bg-[#2C471F];
+  }
+
+  /* Strong tag style */
+  strong {
+    @apply text-accent-200;
+  }
+
+  .tab {
+    [aria-selected='false'] {
+      @apply transition-colors duration-300 ease-in-out;
+      @apply text-cyan-400 hover:bg-cyan-700 hover:text-white font-normal text-lg;
+    }
+    [aria-selected='true'] {
+      @apply border-2 border-accent-200 bg-cyan-900 font-normal text-lg;
+    }
+  }
+}
+
+[data-theme='light'] {
+  /* Left sidebar */
+  [aria-current='page'] {
+    /* Active page */
+    @apply bg-accent-600/90 hover:bg-accent-600 text-white;
+  }
+  [aria-current='false'] {
+    @apply hover:bg-accent-200;
+  }
+
+  /* Right sidebar */
+  starlight-toc {
+    [aria-current='true'] {
+      @apply bg-accent-200/50 hover:bg-accent-200/70 font-bold;
+    }
+    a {
+      @apply hover:bg-accent-200/50 text-gray-900;
+    }
+  }
+
+  .tab {
+    [aria-selected='false'] {
+      @apply transition-colors duration-300 ease-in-out;
+      @apply text-lg text-gray-900 font-normal;
+    }
+    [aria-selected='false'] {
+      @apply hover:text-gray-900 hover:bg-accent-200;
+    }
+    [aria-selected='true'] {
+      @apply text-white bg-accent-600/90 hover:bg-accent-600 border-r-0 text-lg font-normal;
+    }
+  }
+}

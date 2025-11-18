@@ -1,0 +1,50 @@
+---
+title: Moment Redistribution in Continuous Beam
+description: Moment Redistribution in Continuous Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A two-span continuous concrete beam has support moment $M_u = 450~\text{kip-ft}$ and midspan moment $M_u = 300~\text{kip-ft}$ from elastic analysis. The tension reinforcement ratio at the support is $\rho = 0.015$. Determine the maximum permissible moment redistribution per ACI 318.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Moment Redistribution**
+
+**Step 1: Check applicability**
+ACI 318 permits moment redistribution when:
+- $f_y \leq 60,000~\text{psi}$ ✓ (typical)
+- $\rho - \rho' \leq 0.50\rho_b$ ✓
+- Members are primarily flexural ✓
+
+**Step 2: Calculate net tensile strain $\epsilon_t$**
+For $\rho = 0.015$, $f'_c = 4000~\text{psi}$, $f_y = 60000~\text{psi}$
+
+$\rho_b = \frac{0.85\beta_1 f'_c}{f_y} \cdot \frac{87,000}{87,000 + f_y} = \frac{0.85\times0.85\times4}{60} \cdot \frac{87,000}{147,000} = 0.0289$
+
+$\frac{\rho}{\rho_b} = \frac{0.015}{0.0289} = 0.519$
+
+From strain compatibility: $\epsilon_t = 0.003(\frac{1}{c/d} - 1)$
+
+For $\rho = 0.015$: $c = \frac{A_s f_y}{0.85f'_c b \beta_1} = \frac{0.015 b d \times 60}{0.85\times4\times b\times0.85} = \frac{0.9 d}{2.89} = 0.311d$
+
+$\epsilon_t = 0.003(\frac{1}{0.311} - 1) = 0.003(3.215 - 1) = 0.003\times2.215 = 0.00665$
+
+**Step 3: Calculate permissible redistribution**
+$1000\epsilon_t = 6.65$
+
+Maximum redistribution = $20(1 - \frac{1000\epsilon_t - 2.5}{7.5})\% = 20(1 - \frac{6.65 - 2.5}{7.5})\% = 20(1 - \frac{4.15}{7.5})\% = 20(1 - 0.553)\% = 20\times0.447\% = 8.94\%$
+
+**Step 4: Apply redistribution**
+Maximum reduction at support = $450 \times 0.0894 = 40.2~\text{kip-ft}$
+
+Reduced support moment = $450 - 40.2 = 409.8~\text{kip-ft}$
+
+**Permissible redistribution: 8.9% (40 kip-ft reduction at support)**
+:::
+</TabItem>
+</Tabs>

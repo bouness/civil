@@ -1,0 +1,50 @@
+---
+title: Simply Supported Beam Shear Design
+description: Simply Supported Beam Shear Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A simply supported reinforced concrete beam has a span of 24 ft and carries a uniform dead load of 1.2 kips/ft (including self-weight) and a live load of 1.8 kips/ft. The beam cross-section is 14 in wide by 24 in deep with $f'_c = 4000~\text{psi}$ and $f_y = 60,000~\text{psi}$. The effective depth $d = 21.5~\text{in}$. Design the required shear reinforcement at the critical section.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Shear Design for Reinforced Concrete Beam**
+
+**Step 1: Calculate factored loads and shear**
+$w_u = 1.2(1.2) + 1.6(1.8) = 1.44 + 2.88 = 4.32~\text{kips/ft}$
+
+$V_u = \frac{w_u L}{2} = \frac{4.32 \times 24}{2} = 51.8~\text{kips}$
+
+Critical section at $d$ from face of support:
+$V_u(\text{at }d) = 51.8 - 4.32 \times \frac{21.5}{12} = 51.8 - 7.7 = 44.1~\text{kips}$
+
+**Step 2: Calculate concrete shear capacity**
+$\phi = 0.75$
+$V_c = 2\lambda\sqrt{f'_c}b_w d = 2(1.0)\sqrt{4000}(14)(21.5)$
+$V_c = 2(63.25)(14)(21.5) = 38,024~\text{lbs} = 38.0~\text{kips}$
+$\phi V_c = 0.75(38.0) = 28.5~\text{kips}$
+
+**Step 3: Check if stirrups are required**
+$V_u = 44.1~\text{kips} > \phi V_c = 28.5~\text{kips}$ → Stirrups required
+
+**Step 4: Design stirrups**
+$V_s = \frac{V_u}{\phi} - V_c = \frac{44.1}{0.75} - 38.0 = 58.8 - 38.0 = 20.8~\text{kips}$
+
+Using #4 double-leg stirrups: $A_v = 2(0.20) = 0.40~\text{in}^2$
+
+$s = \frac{A_v f_y d}{V_s} = \frac{0.40 \times 60,000 \times 21.5}{20,800} = \frac{516,000}{20,800} = 24.8~\text{in}$
+
+**Step 5: Check maximum spacing**
+$s_{\max} = \min\left(\frac{d}{2}, 24~\text{in}\right) = \min(10.75, 24) = 10.75~\text{in}$
+
+Since $V_s = 20.8~\text{kips} < 4\sqrt{f'_c}b_w d = 76.0~\text{kips}$
+
+**Use #4 stirrups @ 10 in o.c. near support**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,65 @@
+---
+title: Concrete Durability and Air Content
+description: Concrete Durability and Air Content
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+Concrete exposed to severe freeze-thaw conditions in a wet environment requires 6% air content per ACI 318. Testing shows the concrete has 4.5% air content. Does this air content vitiate the concrete's suitability for the exposure condition?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Concrete Air Content Analysis**
+
+**Step 1: Understanding 'vitiate'**
+'Vitiate' means to **spoil**, **impair**, or **make defective/invalid**.
+
+This is sophisticated vocabulary rarely used in practice. It means to make something ineffective or unsuitable.
+
+**Step 2: Compare values**
+Required air content: 6%
+
+Actual air content: 4.5%
+
+$4.5\% < 6\%$
+
+**Step 3: Analyze deficiency**
+The concrete is deficient by: $6\% - 4.5\% = 1.5\%$
+
+This is a **25% shortfall** from the required amount: $\frac{1.5}{6} = 0.25$
+
+**Step 4: Freeze-thaw durability implications**
+Air entrainment provides:
+- Space for water expansion during freezing
+- Protection against freeze-thaw damage
+- Critical for durability in severe exposure
+
+Insufficient air content leads to:
+- Scaling and spalling
+- Reduced service life
+- Premature deterioration
+
+**Step 5: Answer the question**
+Does 4.5% air content vitiate (impair/make unsuitable) the concrete's suitability?
+
+**YES** - The insufficient air content DOES vitiate the concrete's suitability.
+
+The concrete does not meet the specified requirement for severe freeze-thaw exposure and is therefore unsuitable/defective for this application.
+
+**Common trap:** 'Vitiate' sounds like it might mean 'validate' or 'verify,' but it means the opposite - to invalidate or impair.
+
+**Step 6: Remedial action**
+Options:
+- Reject the concrete
+- Add air-entraining admixture (if still plastic)
+- Re-batch with proper air content
+- Use in less severe exposure (if permitted)
+
+**Answer: YES, the air content (4.5%) vitiates (impairs/invalidates) the concrete's suitability for severe freeze-thaw exposure (requires 6%).**
+:::
+</TabItem>
+</Tabs>

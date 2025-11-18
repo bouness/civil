@@ -1,0 +1,63 @@
+---
+title: Timber Beam Lateral Bracing Requirement
+description: Timber Beam Lateral Bracing Requirement
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Timber**]
+A 4×12 Douglas Fir beam spans 18 ft with full bearing at supports. The beam depth is 11.25 in and width is 3.5 in. Per NDS, lateral bracing is not required when $\ell_u/d \leq 7$. The unbraced length is 9 ft. Does the unbraced length obviate the necessity for lateral bracing?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Timber Beam Lateral Stability Analysis**
+
+**Step 1: Understanding the double-negative**
+'Obviate the necessity' means to **eliminate the need for** something.
+
+This is a DOUBLE CONCEPT:
+- 'Obviate' = eliminate
+- 'Necessity' = requirement
+
+So: Does the unbraced length eliminate the need for bracing?
+
+**Step 2: Calculate slenderness ratio**
+$\frac{\ell_u}{d} = \frac{9 \times 12}{11.25} = \frac{108}{11.25} = 9.6$
+
+**Step 3: Compare to NDS limit**
+Bracing not required when: $\frac{\ell_u}{d} \leq 7$
+
+Actual ratio: $\frac{\ell_u}{d} = 9.6$
+
+$9.6 > 7$
+
+**Step 4: Determine bracing requirement**
+Since $9.6 > 7$, the beam **EXCEEDS** the limit where bracing can be omitted.
+
+Therefore, lateral bracing **IS REQUIRED**.
+
+**Step 5: Answer the question (carefully!)**
+Does the unbraced length obviate (eliminate) the necessity (need) for bracing?
+
+**NO** - The unbraced length does NOT obviate the necessity for lateral bracing.
+
+The beam ratio exceeds the limit, so bracing **CANNOT** be eliminated. Bracing is necessary and required.
+
+**Common trap:** The complex phrasing with 'obviate the necessity' creates a double-negative situation that can cause confusion. Breaking down the vocabulary is critical:
+- Question essentially asks: 'Can we skip bracing?'
+- Answer: 'No, we cannot skip bracing.'
+
+**Step 6: Beam stability factor**
+Since bracing is required, must calculate $C_L$:
+
+$R_B = \sqrt{\frac{\ell_u d}{b^2}} = \sqrt{\frac{108 \times 11.25}{3.5^2}} = \sqrt{\frac{1215}{12.25}} = \sqrt{99.2} = 9.96$
+
+This requires beam stability factor reduction in design.
+
+**Answer: NO, the unbraced length (ℓu/d = 9.6 > 7) does NOT obviate (eliminate) the necessity for lateral bracing. Bracing IS REQUIRED.**
+:::
+</TabItem>
+</Tabs>

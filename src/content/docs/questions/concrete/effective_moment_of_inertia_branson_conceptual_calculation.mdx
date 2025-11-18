@@ -1,0 +1,30 @@
+---
+title: Effective Moment of Inertia (Branson) — Conceptual Calculation
+description: Effective Moment of Inertia (Branson) — Conceptual Calculation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+Explain the Branson effective moment of inertia $I_e$ used for deflection calculations of reinforced concrete members, and write the Branson expression. Describe when $I_e$ approaches $I_g$ and when it approaches $I_{cr}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Branson’s effective moment of inertia formula interpolates between the gross (uncracked) inertia $I_g$ and the cracked inertia $I_{cr}$ based on the ratio of cracking moment $M_{cr}$ to applied moment $M_a$:
+
+$$
+\displaystyle I_e = \left(\frac{M_{cr}}{M_a}\right)^3 I_g + \left[1-\left(\frac{M_{cr}}{M_a}\right)^3\right] I_{cr},\quad M_a\ge M_{cr}.
+$$
+
+Behavior:
+- When $M_a$ is small and close to $M_{cr}$, $M_{cr}/M_a\to1$ so $I_e\to I_g$ (uncracked behavior).  
+- When $M_a\gg M_{cr}$, $M_{cr}/M_a\to0$ so $I_e\to I_{cr}$ (fully cracked behavior).  
+Use $I_e=I_g$ if $M_a\le M_{cr}$.
+
+This formula improves serviceability predictions by accounting for partial cracking rather than assuming fully cracked or fully uncracked section stiffness.
+:::
+</TabItem>
+</Tabs>

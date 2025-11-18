@@ -1,0 +1,52 @@
+---
+title: Two-Way Shear (Punching Shear) Check
+description: Two-Way Shear (Punching Shear) Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A square column $16 \times 16~\text{in}$ supports a flat slab with an effective depth $d = 8~\text{in}$. The factored column load is $P_u = 250~\text{kips}$. The concrete strength is $f'_c = 4000~\text{psi}$. Determine if punching shear is adequate per ACI 318 (use $\phi = 0.75$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** Critical perimeter $b_o$ (at $d/2$ from column face):
+
+$$
+b_o = 4(c + d) = 4(16 + 8) = 96~\text{in}
+$$
+
+
+**Step 2.** Shear stress:
+
+$$
+v_u = \frac{P_u}{b_o d} = \frac{250,000}{96(8)} = 325~\text{psi}
+$$
+
+
+**Step 3.** Nominal punching shear capacity:
+
+$$
+v_c = 4 \sqrt{f'_c} = 4(63.25) = 253~\text{psi}
+$$
+
+
+$$
+\phi v_c = 0.75(253) = 190~\text{psi}
+$$
+
+
+**Step 4.** Check:
+
+$$
+v_u = 325 > \phi v_c = 190~\text{psi}
+$$
+
+
+**Conclusion:** The slab **fails** punching shear; additional reinforcement or increased thickness is required.
+:::
+</TabItem>
+</Tabs>

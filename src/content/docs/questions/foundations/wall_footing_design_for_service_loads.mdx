@@ -1,0 +1,68 @@
+---
+title: Wall Footing Design for Service Loads
+description: Wall Footing Design for Service Loads
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Foundations**]
+A 12-in concrete wall carries service loads: $D = 12~\text{kips/ft}$, $L = 8~\text{kips/ft}$. The allowable soil bearing pressure is 4000 psf. $f'_c = 3000~\text{psi}$, $f_y = 60000~\text{psi}$. Design the wall footing width and depth.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Wall Footing Design**
+
+**Step 1: Determine footing width**
+Total service load = $D + L = 12 + 8 = 20~\text{kips/ft}$
+
+Assume 1-ft thick footing initially:
+Footing weight = $1 \times 1 \times 0.150 = 0.150~\text{kips/ft}$
+
+Total load on soil = $20 + 0.150 = 20.15~\text{kips/ft}$
+
+Required width $B = \frac{20.15}{4.0} = 5.04~\text{ft}$
+
+Use $B = 5~\text{ft} = 60~\text{in}$
+
+**Step 2: Check factored loads for depth**
+$w_u = 1.2D + 1.6L = 1.2 \times 12 + 1.6 \times 8 = 14.4 + 12.8 = 27.2~\text{kips/ft}$
+
+Soil pressure $q_u = \frac{27.2}{5.0} = 5.44~\text{ksf}$
+
+Critical section for moment at face of wall:
+Cantilever length = $\frac{5.0 - 1.0}{2} = 2.0~\text{ft}$
+
+$M_u = \frac{q_u \times (\text{cantilever})^2}{2} = \frac{5.44 \times (2.0)^2}{2} = \frac{5.44 \times 4}{2} = 10.88~\text{kip-ft/ft}$
+
+**Step 3: Determine required depth**
+Assume #5 bars, $d \approx t - 3~\text{in}$
+
+Try $t = 12~\text{in}$, $d = 12 - 3 = 9~\text{in}$
+
+$R_n = \frac{M_u}{\phi b d^2} = \frac{10.88 \times 12,000}{0.9 \times 12 \times (9)^2} = \frac{130,600}{874.8} = 149~\text{psi}$
+
+$\rho = \frac{0.85f'_c}{f_y} [1 - \sqrt{1 - \frac{2R_n}{0.85f'_c}}] = \frac{0.85\times3}{60} [1 - \sqrt{1 - \frac{2\times149}{0.85\times3000}}]$
+
+$\rho = 0.0425 [1 - \sqrt{1 - \frac{298}{2550}}] = 0.0425 [1 - \sqrt{1 - 0.1169}] = 0.0425 [1 - \sqrt{0.8831}] = 0.0425 [1 - 0.9397] = 0.00256$
+
+Minimum $\rho = 0.0018$ ✓
+
+$A_s = \rho b d = 0.00256 \times 12 \times 9 = 0.277~\text{in}^2/ft$
+
+Use #5 @ 12 in ($A_s = 0.31~\text{in}^2/ft$)
+
+**Step 4: Check one-way shear**
+Critical section at $d$ from wall face:
+Distance = $2.0 - \frac{9}{12} = 2.0 - 0.75 = 1.25~\text{ft}$
+
+$V_u = 5.44 \times 1.25 = 6.8~\text{kips/ft}$
+
+$\phi V_c = 0.75 \times 2 \sqrt{f'_c} b d = 0.75 \times 2 \sqrt{3000} \times 12 \times 9 / 1000 = 0.75 \times 2 \times 54.8 \times 108 / 1000 = 8.88~\text{kips/ft} > 6.8~\text{kips/ft}$ ✓
+
+**Final design: 5-ft wide x 12-in deep wall footing with #5 @ 12 in**
+:::
+</TabItem>
+</Tabs>

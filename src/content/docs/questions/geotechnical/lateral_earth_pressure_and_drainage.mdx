@@ -1,0 +1,56 @@
+---
+title: Lateral Earth Pressure and Drainage
+description: Lateral Earth Pressure and Drainage
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Geotechnical**]
+A retaining wall design uses active earth pressure with $K_a = 0.33$. The backfill has a saturated unit weight of $\gamma_{sat} = 125~\text{pcf}$ and moist unit weight of $\gamma_{moist} = 115~\text{pcf}$. A functional drainage system is installed behind the wall. Does the presence of drainage preclude using the moist unit weight in earth pressure calculations?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Earth Pressure and Drainage Analysis**
+
+**Step 1: Understanding 'preclude'**
+'Preclude' means to **prevent** or **make impossible**.
+
+The question asks: Does drainage **prevent** the use of moist unit weight?
+
+**Step 2: Role of drainage systems**
+A functional drainage system:
+- Removes water from behind the wall
+- Prevents buildup of hydrostatic pressure
+- Keeps backfill in a drained (unsaturated) condition
+
+**Step 3: Appropriate unit weight selection**
+With effective drainage:
+- Use **moist (drained) unit weight**: $\gamma_{moist} = 115~\text{pcf}$ ✓
+- Do NOT use saturated unit weight: $\gamma_{sat} = 125~\text{pcf}$
+
+Without drainage or with saturated conditions:
+- Use saturated unit weight: $\gamma_{sat} = 125~\text{pcf}$
+- May need to add hydrostatic pressure separately
+
+**Step 4: Answer the question**
+Does drainage **preclude** (prevent) using moist unit weight?
+
+**NO** - Drainage does NOT preclude using moist unit weight.
+
+In fact, drainage **allows** or **requires** using the moist unit weight. The presence of drainage makes it **appropriate** to use $\gamma_{moist}$.
+
+**Common trap:** The tricky language suggests drainage might prevent using moist weight, when actually drainage is the reason we **CAN** use moist weight.
+
+**Step 5: Calculation impact**
+$P_a = \frac{1}{2}\gamma H^2 K_a$
+
+With drainage: Use $\gamma = 115~\text{pcf}$ (lower pressure) ✓
+Without drainage: Use $\gamma = 125~\text{pcf}$ + hydrostatic (higher pressure)
+
+**Answer: NO, drainage does NOT preclude (prevent) using moist unit weight. Drainage actually ALLOWS its use.**
+:::
+</TabItem>
+</Tabs>

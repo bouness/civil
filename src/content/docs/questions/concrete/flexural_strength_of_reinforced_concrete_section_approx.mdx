@@ -1,0 +1,48 @@
+---
+title: Flexural Strength of Reinforced Concrete Section (Approx.)
+description: Flexural Strength of Reinforced Concrete Section (Approx.)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A rectangular beam has width $b = 12~\text{in}$, effective depth $d = 20~\text{in}$, concrete strength $f'_c = 4000~\text{psi}$, tension reinforcement: two #6 bars (area each $A_b = 0.44~\text{in}^2$). Use $f_y = 60,000~\text{psi}$. Using a simplified ACI-approximate approach compute the nominal moment capacity $M_n$ in **kip-ft** ignoring strain compatibility iterations (use $a = \frac{A_s f_y}{0.85 f'_c b}$ and $M_n = A_s f_y (d - a/2)$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Total steel area: $A_s = 2(0.44) = 0.88~\text{in}^2$.
+Compute $a$:
+
+$$
+a = \frac{A_s f_y}{0.85 f'_c b} = \frac{0.88(60,000)}{0.85(4000)(12)}
+$$
+
+Numerator: $0.88\times60,000 = 52,800$.
+Denominator: $0.85\times4000\times12 = 0.85\times48,000 = 40,800$.
+So
+
+$$
+a = \frac{52,800}{40,800} = 1.294117647...~\text{in}
+$$
+
+Compute $d - a/2$: $a/2 = 0.6470588235$, so $d - a/2 = 20 - 0.6470588235 = 19.3529411765~\text{in}$.
+Compute $M_n$ in in-lb:
+
+$$
+M_n = A_s f_y (d - a/2) = 0.88(60,000)(19.3529411765)
+$$
+
+First $0.88\times60,000 = 52,800$. Then $52,800\times19.3529411765 = 1,021,823.5294~\text{in-lb}$ (approx).
+Convert to kip-ft: 1 kip-ft = 12,000 in-lb.
+
+$$
+M_n = \frac{1,021,823.5294}{12,000} = 85.15196078~\text{kip-ft}
+$$
+
+Round: **$M_n \approx 85.15~\text{kip-ft}$.**
+:::
+</TabItem>
+</Tabs>

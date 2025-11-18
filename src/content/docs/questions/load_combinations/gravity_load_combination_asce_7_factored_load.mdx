@@ -1,0 +1,36 @@
+---
+title: Gravity Load Combination (ASCE 7) — Factored Load
+description: Gravity Load Combination (ASCE 7) — Factored Load
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Load Combinations**]
+For LRFD (ASCE 7) the gravity load combination is $1.2D + 1.6L + 0.5W$. A beam has dead load $D = 2.5~\text{k/ft}$ over a 20 ft span and live load $L = 1.5~\text{k/ft}$. There is no wind $W = 0$. Compute the factored uniform load $w_u$ (k/ft).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute factored load per unit length:**
+
+$$
+w_u = 1.2D + 1.6L + 0.5W
+$$
+
+Substitute values:
+
+$$
+w_u = 1.2(2.5) + 1.6(1.5) + 0.5(0)
+$$
+
+
+$$
+w_u = 3.0 + 2.4 = 5.4~\text{k/ft}
+$$
+
+Thus, **$w_u = 5.4~\text{k/ft}$.**
+:::
+</TabItem>
+</Tabs>

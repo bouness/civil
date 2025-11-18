@@ -1,0 +1,74 @@
+---
+title: Interaction Diagram Point Calculation
+description: Interaction Diagram Point Calculation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+For a rectangular column section 14 × 20 in with eight #8 bars equally distributed, $f'_c = 4000~\text{psi}$ and $f_y = 60,000~\text{psi}$, compute the nominal axial load $P_n$ and moment $M_n$ when the steel strain just reaches yield in tension ($\epsilon_t = 0.002$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** Assume a linear strain distribution with $\epsilon_c = 0.003$ at the compression fiber.
+From strain compatibility:
+
+$$
+\frac{c - d_t}{c} = \frac{\epsilon_t}{\epsilon_c} = \frac{0.002}{0.003} = 0.667 \Rightarrow d_t = 0.333c
+$$
+
+Assume $d_t = 18.5~\text{in}$ (top to tension steel), so:
+
+$$
+c = \frac{18.5}{0.333} = 55.6~\text{in}
+$$
+
+
+**Step 2.** Calculate equivalent stress block depth:
+
+$$
+a = \beta_1 c = 0.85(55.6) = 47.3~\text{in}
+$$
+
+
+$$
+A_s = 8(0.79) = 6.32~\text{in}^2,\quad A_g = 14(20) = 280~\text{in}^2
+$$
+
+
+**Step 3.** Nominal axial strength:
+
+$$
+P_n = 0.85f'_c(b a) + A_s f_y (tension)
+$$
+
+
+$$
+P_n = 0.85(4000)(14)(47.3) - 6.32(60,000)
+$$
+
+
+$$
+P_n = 2.26 \times 10^6 - 379,200 = 1.88 \times 10^6~\text{lb} = 1880~\text{kips}
+$$
+
+
+**Step 4.** Nominal moment:
+
+$$
+M_n = A_s f_y (d - a/2) = 6.32(60,000)(18.5 - 23.65)
+$$
+
+
+$$
+M_n = -1.96 \times 10^6~\text{lb-in} = 163~\text{kip-ft}
+$$
+
+
+**Answer:** $P_n = 1880~\text{kips}$, $M_n = 163~\text{kip-ft}$.
+:::
+</TabItem>
+</Tabs>

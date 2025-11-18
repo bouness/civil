@@ -1,0 +1,69 @@
+---
+title: Foundation Settlement Tolerance
+description: Foundation Settlement Tolerance
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Geotechnical**]
+Two adjacent footings supporting columns are predicted to settle 1.8 inches and 2.6 inches respectively, resulting in a differential settlement of 0.8 inches over a span of 25 ft. The maximum tolerable differential settlement for the structure is $\Delta/L = 1/300$. Does the predicted differential settlement transgress the tolerable limit?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Differential Settlement Analysis**
+
+**Step 1: Understanding 'transgress'**
+'Transgress' means to **violate**, **exceed**, or **go beyond** a limit or boundary.
+
+This is formal/literary vocabulary meaning to break a rule or cross a line.
+
+**Step 2: Calculate tolerable differential settlement**
+$\Delta_{allow} = \frac{L}{300} = \frac{25 \times 12}{300} = \frac{300}{300} = 1.0~\text{in}$
+
+**Step 3: Compare predicted to tolerable**
+Predicted differential: $\Delta = 0.8~\text{in}$
+
+Tolerable limit: $\Delta_{allow} = 1.0~\text{in}$
+
+$0.8~\text{in} < 1.0~\text{in}$
+
+**Step 4: Interpretation**
+Does 0.8 in transgress (violate/exceed) the 1.0 in limit?
+
+**NO** - The predicted settlement does NOT transgress the tolerable limit.
+
+The differential settlement is within acceptable limits and does not violate the criterion.
+
+**Common trap:** 'Transgress' is uncommon vocabulary that sounds severe, potentially causing candidates to second-guess their calculations. The numbers being close (0.8 vs 1.0) adds to potential confusion.
+
+**Step 5: Safety margin**
+Margin: $1.0 - 0.8 = 0.2~\text{in}$
+
+Percentage utilized: $\frac{0.8}{1.0} = 80\%$ of allowable
+
+20% margin remains.
+
+**Step 6: Angular distortion check**
+$\text{Angular distortion} = \frac{\Delta}{L} = \frac{0.8}{25 \times 12} = \frac{0.8}{300} = \frac{1}{375}$
+
+$\frac{1}{375} < \frac{1}{300}$ ✓ (smaller fraction = less distortion)
+
+**Step 7: Structural implications**
+Angular distortion of 1/375:
+- Acceptable for most building frames
+- Well within safe limits
+- Unlikely to cause cracking or damage
+
+For reference:
+- 1/150: Visible damage to structure
+- 1/250: Difficulty with machinery
+- 1/300: Safe limit for flexible buildings
+- 1/500: Safe for rigid structures
+
+**Answer: NO, the differential settlement (0.8 in, or 1/375) does NOT transgress (violate) the tolerable limit (1.0 in, or 1/300). Settlement is acceptable.**
+:::
+</TabItem>
+</Tabs>

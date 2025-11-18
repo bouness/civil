@@ -1,0 +1,64 @@
+---
+title: Steel Column Unbraced Length
+description: Steel Column Unbraced Length
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A W10×49 column has an unbraced length of 18 ft about the weak axis. Intermediate bracing is provided at 9 ft from the base. The column base and top are pinned. Does the presence of intermediate bracing mitigate the effective length for weak-axis buckling to less than 18 ft?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Effective Length Analysis**
+
+**Step 1: Understanding 'mitigate'**
+'Mitigate' means to **reduce** or **make less severe**.
+
+The question asks: Does bracing **reduce** the effective length to less than 18 ft?
+
+**Step 2: Analyze bracing condition**
+Column configuration:
+- Total height: 18 ft
+- Base: pinned
+- Top: pinned
+- Intermediate brace at: 9 ft from base
+
+**Step 3: Effective length factor**
+For pinned-pinned column: $K = 1.0$
+
+With intermediate bracing at midpoint:
+- Column is divided into two segments
+- Each segment: $L = 9~\text{ft}$
+- Effective length per segment: $KL = 1.0(9) = 9~\text{ft}$
+
+**Step 4: Compare to original length**
+Without intermediate brace: $KL = 1.0(18) = 18~\text{ft}$
+
+With intermediate brace: $KL = 1.0(9) = 9~\text{ft}$
+
+$9~\text{ft} < 18~\text{ft}$
+
+**Step 5: Answer the question**
+Does bracing mitigate (reduce) the effective length to **less than** 18 ft?
+
+**YES** - The intermediate bracing DOES mitigate the effective length.
+
+The effective length is reduced from 18 ft to 9 ft, which is indeed less than 18 ft.
+
+**Common trap:** Candidates might focus on whether the effective length equals exactly half (9 ft) rather than answering whether it's 'less than 18 ft.' The question uses specific wording.
+
+**Step 6: Design impact**
+$\frac{KL}{r_y}$ is reduced by half, significantly increasing column capacity:
+
+$P_n = F_{cr} A_g$ where $F_{cr}$ depends on $\frac{KL}{r}$
+
+Smaller slenderness ratio → higher critical stress
+
+**Answer: YES, intermediate bracing mitigates (reduces) the effective length to 9 ft, which is less than 18 ft.**
+:::
+</TabItem>
+</Tabs>

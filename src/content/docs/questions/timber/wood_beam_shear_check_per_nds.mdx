@@ -1,0 +1,51 @@
+---
+title: Wood Beam Shear Check per NDS
+description: Wood Beam Shear Check per NDS
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Timber**]
+A **2×10** Southern Pine beam (actual size 1.5 in × 9.25 in) is simply supported over 12 ft and carries a uniform load of $800~\text{lb/ft}$. Determine if the beam is adequate for **shear** assuming $F_v' = 135~\text{psi}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1. Compute maximum shear:**
+
+$$
+V_{max} = \frac{wL}{2} = \frac{800(12)}{2} = 4800~\text{lb}
+$$
+
+
+**Step 2. Shear stress:**
+
+$$
+\tau = \frac{1.5V}{b d} = \frac{1.5(4800)}{1.5(9.25)} = 518~\text{psi}
+$$
+
+(Wait! That’s too high — convert properly)
+Actually:
+
+$$
+\tau = \frac{1.5V}{b d} = \frac{1.5(4800)}{1.5(9.25)} \times \frac{1}{(1.5)(9.25)}
+$$
+
+Let’s compute correctly:
+
+$$
+A = b d = 1.5 \times 9.25 = 13.875~\text{in}^2
+$$
+
+
+$$
+\tau = \frac{1.5V}{A} = \frac{1.5(4800)}{13.875} = 519~\text{psi}
+$$
+
+**Compare:** $519 > 135~\text{psi}$ → **Beam fails in shear.**
+Thus, larger section or reduced load required.
+:::
+</TabItem>
+</Tabs>

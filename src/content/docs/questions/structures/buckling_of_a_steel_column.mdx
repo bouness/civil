@@ -1,0 +1,43 @@
+---
+title: Buckling of a Steel Column
+description: Buckling of a Steel Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A **W10x60** steel column $A = 17.6~\text{in}^2$, $r_{\text{min}} = 2.57~\text{in}$ has an unbraced length of $18~\text{ft}$. The column is pinned at both ends. Assume $F_y = 50~\text{ksi}$ and $E = 29,000~\text{ksi}$.
+Calculate:
+The critical buckling load, $P_{cr}$, using Euler's formula.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Critical Buckling Load**
+First, find the slenderness ratio $KL/r$.
+$K = 1.0$ for pinned-pinned ends.
+$L = 18~\text{ft} \times 12~\text{in/ft} = 216~\text{in}$.
+$r_{\text{min}} = 2.57~\text{in}$.
+
+$$
+\frac{KL}{r} = \frac{1.0 \times 216}{2.57} = 84.0
+$$
+
+The Euler buckling stress is:
+
+$$
+F_e = \frac{\pi^2 E}{(KL/r)^2} = \frac{\pi^2 \times 29,000~\text{ksi}}{(84.0)^2} = \frac{286,489}{7056} = 40.6~\text{ksi}
+$$
+
+The critical buckling load is:
+
+$$
+P_{cr} = F_e \times A = 40.6~\text{ksi} \times 17.6~\text{in}^2 = 714.6~\text{kips}
+$$
+
+The critical buckling load is $715~\text{kips}$.
+:::
+</TabItem>
+</Tabs>

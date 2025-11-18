@@ -1,0 +1,48 @@
+---
+title: Beam Bearing Plate Design
+description: Beam Bearing Plate Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A W18x35 beam ($b_f = 6.0~\text{in}$, $t_f = 0.425~\text{in}$, $k = 0.827~\text{in}$) bears on a concrete wall ($f'_c = 3000~\text{psi}$). The end reaction is $R_u = 45~\text{kips}$. Design a bearing plate assuming the beam bears on the full wall thickness of 8 in.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Beam Bearing Plate Design**
+
+**Step 1: Determine required bearing area**
+Concrete bearing strength: $\phi P_p = \phi 0.85 f'_c A_1$
+$\phi = 0.65$ for bearing on concrete
+
+$A_1 \geq \frac{R_u}{\phi 0.85 f'_c} = \frac{45}{0.65 \times 0.85 \times 3} = \frac{45}{1.658} = 27.1~\text{in}^2$
+
+**Step 2: Select plate dimensions**
+Try plate width $B = b_f + 2\Delta$ where $\Delta$ provides edge distance
+Try $B = 6.0 + 2\times1.0 = 8.0~\text{in}$
+
+Required length: $N = \frac{A_1}{B} = \frac{27.1}{8.0} = 3.39~\text{in}$
+
+Use $N = 4~\text{in}$ (provides some additional capacity)
+Actual $A_1 = 8 \times 4 = 32~\text{in}^2 > 27.1~\text{in}^2$ ✓
+
+**Step 3: Check plate thickness**
+Bearing pressure: $f_p = \frac{R_u}{A_1} = \frac{45}{32} = 1.41~\text{ksi}$
+
+Critical cantilever distance: $n = \frac{B - 2k}{2} = \frac{8.0 - 2\times0.827}{2} = \frac{6.346}{2} = 3.17~\text{in}$
+
+Required thickness: $t_{min} = \sqrt{\frac{2.22 f_p n^2}{F_y}}$ (assuming $F_y = 36~\text{ksi}$)
+
+$t_{min} = \sqrt{\frac{2.22 \times 1.41 \times (3.17)^2}{36}} = \sqrt{\frac{2.22 \times 1.41 \times 10.05}{36}} = \sqrt{\frac{31.5}{36}} = \sqrt{0.875} = 0.935~\text{in}$
+
+**Step 4: Select plate size**
+Use PL $1$~in $\times 4$~in $\times 8$~in
+
+**Final design: 1-inch thick bearing plate, 4 in long × 8 in wide**
+:::
+</TabItem>
+</Tabs>

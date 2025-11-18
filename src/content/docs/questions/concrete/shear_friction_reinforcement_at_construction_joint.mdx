@@ -1,0 +1,42 @@
+---
+title: Shear Friction Reinforcement at Construction Joint
+description: Shear Friction Reinforcement at Construction Joint
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A construction joint in a concrete wall is subjected to a factored shear force $V_u = 60~\text{kips}$ across the joint. The joint surface is intentionally roughened to $\frac{1}{4}$~in amplitude. $f'_c = 4000~\text{psi}$, $f_y = 60000~\text{psi}$. Determine the required area of shear-friction reinforcement $A_{vf}$ per ACI 318.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Shear Friction Reinforcement Design**
+
+**Step 1: Determine friction coefficient $\mu$**
+For intentionally roughened surface to $\frac{1}{4}$~in amplitude:
+$\mu = 1.0$ (per ACI 318 Table 22.9.4.2)
+
+**Step 2: Calculate required $A_{vf}$**
+Shear-friction principle: $V_n = A_{vf} f_y \mu$
+
+$\phi V_n \geq V_u$ where $\phi = 0.75$ for shear
+
+$A_{vf} = \frac{V_u}{\phi f_y \mu} = \frac{60}{0.75 \times 60 \times 1.0} = \frac{60}{45} = 1.33~\text{in}^2$
+
+**Step 3: Check maximum shear strength limit**
+Maximum $V_n = 0.2f'_c A_c$ or $800A_c$ (whichever is smaller)
+For typical wall section, this limit is rarely governing for construction joints.
+
+**Step 4: Check minimum reinforcement**
+Minimum $A_{vf} = \frac{0.75\sqrt{f'_c}}{f_y} b_w d$ but not less than $\frac{200b_w d}{f_y}$
+This provides minimum shear reinforcement requirements.
+
+**Required shear-friction reinforcement: $A_{vf} = 1.33~\text{in}^2$**
+
+This reinforcement must be properly anchored on both sides of the joint to develop $f_y$ in tension.
+:::
+</TabItem>
+</Tabs>

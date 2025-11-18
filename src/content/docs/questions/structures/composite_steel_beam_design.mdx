@@ -1,0 +1,64 @@
+---
+title: Composite Steel Beam Design
+description: Composite Steel Beam Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A composite floor beam consists of a W18×50 steel section supporting a 4-inch normal-weight concrete slab. The beam spans 30 feet with simple supports and is subjected to a uniform service dead load of 0.8 kip/ft (including beam self-weight) and service live load of 1.2 kip/ft.
+
+Given: $f'_c = 4000~\text{psi}$, $F_y = 50~\text{ksi}$, $E_c = 3605~\text{ksi}$
+
+Determine the number of 3/4-inch diameter shear studs required for full composite action between the point of maximum moment and the support. Assume each stud has a strength of $Q_n = 21.0~\text{kips}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Determine factored load**
+
+$$
+w_u = 1.2(0.8) + 1.6(1.2) = 0.96 + 1.92 = 2.88~\text{kip/ft}
+$$
+
+
+**Step 2: Calculate compressive force in concrete**
+
+For W18×50: $A_s = 14.7~\text{in}^2$
+
+Compressive force in concrete (for full composite action):
+
+$$
+C = \min(A_s F_y, 0.85 f'_c b t)
+$$
+
+
+Assuming effective width $b = 90~\text{in}$ (typical for interior beam):
+
+$$
+C_c = 0.85 \times 4 \times 90 \times 4 = 1224~\text{kips}
+$$
+
+
+$$
+C_s = 14.7 \times 50 = 735~\text{kips}
+$$
+
+
+Therefore, $C = 735~\text{kips}$ (steel yields first)
+
+**Step 3: Calculate number of studs**
+
+Number of studs from maximum moment to support (half span):
+
+$$
+N = \frac{C}{Q_n} = \frac{735}{21.0} = 35~\text{studs}
+$$
+
+
+Since this is for half the span, **35 studs per half span** are required (70 total for full beam).
+:::
+</TabItem>
+</Tabs>

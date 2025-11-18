@@ -1,0 +1,37 @@
+---
+title: Pile Settlement — Elastic Compression (Simplified)
+description: Pile Settlement — Elastic Compression (Simplified)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Foundations**]
+A driven pile of length $L_p = 40~\text{ft}$ and cross-sectional area $A_p = 1.0~\text{ft}^2$ is carrying axial load $Q = 80~\text{kips}$. Assume pile material modulus $E_p = 3,000~\text{ksi}$. Estimate elastic shortening of the pile (in inches) using $\Delta = QL/(AE)$ (use consistent units).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Convert units: $Q = 80~\text{kips} = 80,000~\text{lb}$.  
+Area $A_p = 1.0~\text{ft}^2 = 144~\text{in}^2$.  
+Length $L = 40~\text{ft} = 480~\text{in}$.  
+$E = 3,000~\text{ksi} = 3,000,000~\text{psi}$.
+Compute shortening:
+
+$$
+\Delta = \frac{QL}{AE} = \frac{80,000\times480}{144\times3,000,000}
+$$
+
+Numerator: $80,000\times480 = 38,400,000$.
+Denominator: $144\times3,000,000 = 432,000,000$.
+So
+
+$$
+\Delta = \frac{38,400,000}{432,000,000} = 0.0888888889~\text{in}
+$$
+
+Round: **$\Delta \approx 0.0889~\text{in}$** (about 0.089 in).
+:::
+</TabItem>
+</Tabs>

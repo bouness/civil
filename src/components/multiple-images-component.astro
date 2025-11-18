@@ -1,0 +1,17 @@
+---
+import getImgPath from './images';
+import MultipleImages from './MultipleImages.tsx';
+
+interface Props {
+  images: object[];
+}
+
+const { images } = Astro.props;
+
+let requestedImages = [];
+for (const image of images) {
+  requestedImages.push(await getImgPath(image));
+}
+---
+
+<MultipleImages client:visible images={requestedImages} />

@@ -1,0 +1,43 @@
+---
+title: Wood Beam Shear Design per NDS
+description: Wood Beam Shear Design per NDS
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Timber**]
+A sawn lumber beam (No. 2 Douglas Fir-Larch) is $3.5~\text{in}$ wide and $9.25~\text{in}$ deep, spanning $12~\text{ft}$ simply supported, carrying a uniformly distributed load of $400~\text{lb/ft}$. The allowable shear stress $F_v' = 180~\text{psi}$. Check adequacy in shear.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Maximum shear:
+
+$$
+V_{max} = \frac{wL}{2} = \frac{400(12)}{2} = 2400~\text{lb}
+$$
+
+Beam area for shear:
+
+$$
+A = b \times d = 3.5 \times 9.25 = 32.4~\text{in}^2
+$$
+
+Nominal shear stress:
+
+$$
+v = \frac{V_{max}}{A} = \frac{2400}{32.4} = 74.1~\text{psi}
+$$
+
+Compare to allowable:
+
+$$
+74.1 < 180~\text{psi}
+$$
+
+Thus, the beam is **adequate in shear**.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,55 @@
+---
+title: Torsional Reinforcement in Spandrel Beam
+description: Torsional Reinforcement in Spandrel Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A spandrel beam ($b_w = 14~\text{in}$, $h = 24~\text{in}$) is subjected to factored torsion $T_u = 120~\text{kip-in}$. $f'_c = 5000~\text{psi}$, $f_y = 60000~\text{psi}$, clear cover = 1.5 in, #4 stirrups. Determine if torsion reinforcement is required and calculate the required closed stirrup area for torsion per ACI 318.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Torsional Reinforcement Design**
+
+**Step 1: Check if torsion can be neglected**
+Threshold torsion: $\phi T_{th} = \phi \lambda \sqrt{f'_c} (\frac{A_{cp}^2}{p_{cp}})$
+
+$A_{cp} = b_w h = 14 \times 24 = 336~\text{in}^2$
+$p_{cp} = 2(b_w + h) = 2(14 + 24) = 76~\text{in}$
+
+$T_{th} = 1.0 \times \sqrt{5000} \times (\frac{336^2}{76}) = 70.7 \times \frac{112,896}{76} = 70.7 \times 1485 = 105,000~\text{lb-in} = 105~\text{kip-in}$
+
+$\phi T_{th} = 0.75 \times 105 = 78.8~\text{kip-in}$
+
+Since $T_u = 120~\text{kip-in} > \phi T_{th} = 78.8~\text{kip-in}$, torsion must be considered.
+
+**Step 2: Calculate section properties for torsion**
+Assume #4 stirrups, #4 longitudinal bars
+$x_1 = 14 - 2(1.5 + 0.25) = 14 - 3.5 = 10.5~\text{in}$
+$y_1 = 24 - 2(1.5 + 0.25) = 24 - 3.5 = 20.5~\text{in}$
+
+$A_0 = 0.85A_{oh} = 0.85 \times x_1 y_1 = 0.85 \times 10.5 \times 20.5 = 0.85 \times 215 = 183~\text{in}^2$
+$p_h = 2(x_1 + y_1) = 2(10.5 + 20.5) = 62~\text{in}$
+
+**Step 3: Calculate required closed stirrups**
+$\theta = 45^\circ$, $\cot\theta = 1.0$
+
+$\frac{A_t}{s} = \frac{T_u}{\phi 2A_0 f_y \cot\theta} = \frac{120}{0.75 \times 2 \times 183 \times 60 \times 1.0} = \frac{120}{16,470} = 0.00729~\text{in}^2/\text{in}$
+
+**Step 4: Check maximum spacing**
+$s_{max} = \min(\frac{p_h}{8}, 12~\text{in}) = \min(\frac{62}{8}, 12) = \min(7.75, 12) = 7.75~\text{in}$
+
+Use $s = 6~\text{in}$
+$A_t = 0.00729 \times 6 = 0.0437~\text{in}^2$
+
+For 2 legs: $A_{t,per-leg} = 0.0219~\text{in}^2$
+#3 bar: $A_b = 0.11~\text{in}^2 > 0.0219~\text{in}^2$ ✓
+
+**Required: #3 closed stirrups at 6 in spacing for torsion**
+:::
+</TabItem>
+</Tabs>

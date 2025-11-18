@@ -1,0 +1,31 @@
+---
+title: Lateral Earth Pressure at Rest — Empirical Estimate
+description: Lateral Earth Pressure at Rest — Empirical Estimate
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::tip[Difficulty: **Conceptual** - Category: **Geotechnical**]
+State a commonly used empirical estimate for the at-rest lateral earth pressure coefficient $K_0$ in normally consolidated clays as a function of $\phi'$, and give a numeric value for $\phi'=30^\circ$ using $K_0 = 1 - \sin\phi'$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Common empirical estimate for normally consolidated soils (Jaky's formula):
+
+$$
+K_0 = 1 - \sin\phi'
+$$
+
+For $\phi' = 30^\circ$, $\sin30^\circ = 0.5$, so
+
+$$
+K_0 = 1 - 0.5 = 0.5
+$$
+
+Thus $K_0\approx0.5$ for $\phi'=30^\circ$.
+:::
+</TabItem>
+</Tabs>

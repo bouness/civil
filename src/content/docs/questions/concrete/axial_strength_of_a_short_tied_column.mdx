@@ -1,0 +1,45 @@
+---
+title: Axial Strength of a Short Tied Column
+description: Axial Strength of a Short Tied Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A short tied column has a cross-section of $16 \times 16~\text{in}$ with eight #8 bars ($A_s = 8 \times 0.79 = 6.32~\text{in}^2$). The concrete strength is $f'_c = 4000~\text{psi}$ and steel yield strength is $f_y = 60,000~\text{psi}$. Determine the nominal and design axial strength per ACI 318 for a tied column.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** Nominal axial strength for a tied column:
+
+$$
+P_n = 0.85 f'_c (A_g - A_s) + f_y A_s
+$$
+
+Given $A_g = 16 \times 16 = 256~\text{in}^2$.
+
+$$
+P_n = 0.85(4000)(256 - 6.32) + 60,000(6.32)
+$$
+
+
+$$
+P_n = 0.85(4000)(249.68) + 379,200 = 849,000 + 379,200 = 1.23 \times 10^6~\text{lb} = 1230~\text{kips}
+$$
+
+
+**Step 2.** Design axial strength:
+For tied columns, $\phi = 0.65$:
+
+$$
+\phi P_n = 0.65(1230) = 800~\text{kips}
+$$
+
+
+**Answer:** $P_n = 1230~\text{kips}$, $\phi P_n = 800~\text{kips}$.
+:::
+</TabItem>
+</Tabs>

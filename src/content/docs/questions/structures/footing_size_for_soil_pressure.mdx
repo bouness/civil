@@ -1,0 +1,31 @@
+---
+title: Footing Size for Soil Pressure
+description: Footing Size for Soil Pressure
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Structures**]
+A **square spread footing** must support a total service dead and live load of $250~\text{kips}$. The allowable soil bearing pressure is $4000~\text{psf}$.
+Determine:
+The required width of the footing.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Required Footing Width**
+Total load $P = 250~\text{kips} = 250,000~\text{lbs}$.
+Allowable soil pressure $q_{\text{allow}} = 4000~\text{psf}$.
+Required area $A = \frac{P}{q_{\text{allow}}} = \frac{250,000~\text{lb}}{4000~\text{lb/ft}^2} = 62.5~\text{ft}^2$.
+For a square footing:
+
+$$
+B = \sqrt{A} = \sqrt{62.5~\text{ft}^2} = 7.91~\text{ft}
+$$
+
+Use a footing width of $8~\text{ft}$.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,66 @@
+---
+title: Reinforced Concrete Beam Minimum Reinforcement
+description: Reinforced Concrete Beam Minimum Reinforcement
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A rectangular concrete beam ($b = 12~\text{in}$, $d = 20~\text{in}$, $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$) contains 3-#8 bars ($A_s = 2.37~\text{in}^2$). Per ACI 318, minimum reinforcement is $A_{s,min} = \max\left(\frac{3\sqrt{f'_c}}{f_y}bd, \frac{200bd}{f_y}\right)$. Does the provided reinforcement area subsist below the minimum requirement?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Minimum Reinforcement Analysis**
+
+**Step 1: Understanding 'subsist below'**
+'Subsist below' means to **exist at a level less than** or **fall below** a threshold.
+
+This is unusual phrasing. The question asks: Is the provided reinforcement less than the minimum?
+
+**Step 2: Calculate minimum reinforcement (first criterion)**
+$A_{s,min,1} = \frac{3\sqrt{f'_c}}{f_y}bd = \frac{3\sqrt{4000}}{60,000}(12)(20)$
+
+$A_{s,min,1} = \frac{3(63.25)}{60,000}(240) = \frac{189.75}{60,000}(240) = 0.00316(240) = 0.76~\text{in}^2$
+
+**Step 3: Calculate minimum reinforcement (second criterion)**
+$A_{s,min,2} = \frac{200bd}{f_y} = \frac{200(12)(20)}{60,000} = \frac{48,000}{60,000} = 0.80~\text{in}^2$
+
+**Step 4: Determine controlling minimum**
+$A_{s,min} = \max(0.76, 0.80) = 0.80~\text{in}^2$
+
+**Step 5: Compare provided to minimum**
+Provided: $A_s = 2.37~\text{in}^2$
+
+Minimum required: $A_{s,min} = 0.80~\text{in}^2$
+
+$2.37~\text{in}^2 > 0.80~\text{in}^2$
+
+**Step 6: Answer the question**
+Does the provided reinforcement (2.37 in²) subsist below (fall below) the minimum (0.80 in²)?
+
+**NO** - The provided reinforcement does NOT subsist below the minimum requirement.
+
+The provided area greatly exceeds the minimum (by nearly 3 times), so it does not fall below the threshold.
+
+**Common trap:** The phrase 'subsist below' is awkward and archaic. 'Subsist' usually means 'to exist' or 'to survive,' making this phrasing confusing. Combined with 'below,' it creates unusual syntax that can cause misinterpretation.
+
+**Step 7: Adequacy check**
+Ratio: $\frac{A_s}{A_{s,min}} = \frac{2.37}{0.80} = 2.96$
+
+Provided reinforcement is 296% of minimum (nearly triple).
+
+Excess: $2.37 - 0.80 = 1.57~\text{in}^2$ above minimum ✓
+
+**Step 8: Design consideration**
+With $A_s = 2.37~\text{in}^2$:
+$\rho = \frac{A_s}{bd} = \frac{2.37}{12(20)} = \frac{2.37}{240} = 0.00988 = 0.988\%$
+
+This is reasonable reinforcement ratio, well above minimum and likely below maximum.
+
+**Answer: NO, the provided reinforcement (2.37 in²) does NOT subsist below (fall below) the minimum requirement (0.80 in²). Reinforcement is adequate.**
+:::
+</TabItem>
+</Tabs>

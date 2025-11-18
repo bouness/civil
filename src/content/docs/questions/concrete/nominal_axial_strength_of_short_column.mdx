@@ -1,0 +1,34 @@
+---
+title: Nominal Axial Strength of Short Column
+description: Nominal Axial Strength of Short Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A short tied concrete column $b = 16~\text{in}$, $h = 16~\text{in}$, with 4% steel reinforcement and $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$. Find the nominal axial strength $P_n$ (ignore slenderness).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Total steel area:
+
+$$
+A_g = 16 \times 16 = 256~\text{in}^2
+$$
+
+
+$$
+A_s = 0.04(256) = 10.24~\text{in}^2
+$$
+
+
+$$
+P_n = 0.85 f'_c (A_g - A_s) + f_y A_s = 0.85(4000)(245.8) + 60,000(10.24) = 836~\text{kips} + 614~\text{kips} = 1450~\text{kips}
+$$
+
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,38 @@
+---
+title: Active Earth Pressure — Rankine (Triangular Distribution)
+description: Active Earth Pressure — Rankine (Triangular Distribution)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Geotechnical**]
+A vertical, smooth retaining wall retains dry sand to height $H = 10~\text{ft}$ with unit weight $\gamma = 120~\text{pcf}$ and $\phi = 30^\circ$. Use Rankine's theory to compute the **resultant active thrust per ft of wall** (kips/ft). Use $K_a = \frac{1-\sin\phi}{1+\sin\phi}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute $\sin\phi$ for $\phi=30^\circ$: $\sin30^\circ = 0.5$.
+So
+
+$$
+K_a = \frac{1-0.5}{1+0.5} = \frac{0.5}{1.5} = 0.333333...
+$$
+
+The pressure at the base is:
+
+$$
+p_b = K_a \gamma H = 0.333333... \times 120 \times 10 = 400~\text{psf}
+$$
+
+Resultant per unit length (triangular distribution):
+
+$$
+P_a = \tfrac{1}{2} p_b H = 0.5 \times 400 \times 10 = 2000~\text{lb/ft} = 2.0~\text{kips/ft}
+$$
+
+Thus the active thrust is **$2.0~\text{kips/ft}$.**
+:::
+</TabItem>
+</Tabs>

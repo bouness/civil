@@ -1,0 +1,56 @@
+---
+title: Steel Connection Eccentricity
+description: Steel Connection Eccentricity
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Connections**]
+A bracket is connected to a column using six 3/4-in A325-N bolts in a 3x2 pattern with 3 in spacing. The load $P_u = 40~\text{kips}$ is applied 8 in from the bolt group centroid. Determine the critical bolt force using the instantaneous center of rotation method.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Eccentric Connection - Instantaneous Center Method**
+
+**Step 1: Bolt group properties**
+Bolt coordinates from centroid:
+Row 1: (1.5, 3), (1.5, 0), (1.5, -3)
+Row 2: (-1.5, 3), (-1.5, 0), (-1.5, -3)
+
+**Step 2: Assume trial instantaneous center**
+Try location at (x, 0) to the left of centroid
+
+**Step 3: Calculate bolt forces**
+For A325-N bolts: $R_n = 0.563F_{nt} = 0.563\times90 = 50.7~\text{kips}$
+
+Using iterative process or tables:
+From AISC Table 7-7 for 3x2 pattern, s=3", g=3", e=8":
+
+Coefficient C = 2.67
+
+**Step 4: Calculate available strength**
+$\phi R_n = \phi C r_n = 0.75 \times 2.67 \times 17.9 = 35.8~\text{kips}$
+
+Wait - correction: For 3/4" A325-N bolts, $r_n = 17.9~\text{kips}$
+
+$\phi R_n = 0.75 \times 2.67 \times 17.9 = 35.8~\text{kips}$
+
+**Step 5: Check against applied load**
+$P_u = 40~\text{kips} > 35.8~\text{kips}$
+
+**Connection is INADEQUATE**
+
+**Step 6: Critical bolt force**
+Critical bolt is top right bolt (farthest from IC)
+
+$r_{max} = \sqrt{(1.5+3.0)^2 + 3^2} = \sqrt{4.5^2 + 3^2} = \sqrt{20.25 + 9} = \sqrt{29.25} = 5.41~\text{in}$
+
+$\Delta_{max} = \frac{r_{max}}{\sum r^2} \times P_u \times e = \frac{5.41}{6\times7.0} \times 40 \times 8 = \frac{5.41}{42} \times 320 = 41.2~\text{kips}$
+
+**Critical bolt force: 41.2 kips (exceeds bolt capacity)**
+:::
+</TabItem>
+</Tabs>

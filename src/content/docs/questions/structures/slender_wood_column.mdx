@@ -1,0 +1,99 @@
+---
+title: Slender Wood Column
+description: Slender Wood Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A 6×8 (actual dimensions 5.5 in × 7.25 in) Douglas Fir-Larch No. 1 column is 14 feet long with pinned ends. The column is subject to axial dead load of 8 kips and snow load of 12 kips.
+
+Given: $F_c = 1000~\text{psi}$, $E = 1,600,000~\text{psi}$, $C_D = 1.15$ (snow load)
+
+Determine if the column is adequate per NDS.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Calculate factored load**
+
+$$
+P = D + S = 8 + 12 = 20~\text{kips}
+$$
+
+
+**Step 2: Calculate section properties**
+
+$$
+A = 5.5 \times 7.25 = 39.875~\text{in}^2
+$$
+
+
+For buckling about weak axis:
+
+$$
+d = 5.5~\text{in}
+$$
+ (smaller dimension)
+
+**Step 3: Calculate slenderness ratio**
+
+Effective length: $K = 1.0$ (pinned-pinned)
+
+$$
+L_e = KL = 1.0 \times 14 \times 12 = 168~\text{in}
+$$
+
+
+$$
+\frac{L_e}{d} = \frac{168}{5.5} = 30.5
+$$
+
+
+**Step 4: Calculate column stability factor**
+
+$$
+F_{cE} = \frac{0.822 E_{min}}{(L_e/d)^2}
+$$
+
+
+Where $E_{min} = 0.85E = 0.85 \times 1,600,000 = 1,360,000~\text{psi}$
+
+$$
+F_{cE} = \frac{0.822 \times 1,360,000}{30.5^2} = 1,201~\text{psi}
+$$
+
+
+$$
+F'_c = F_c \times C_D = 1000 \times 1.15 = 1150~\text{psi}
+$$
+
+
+$$
+\frac{F_{cE}}{F'_c} = \frac{1201}{1150} = 1.044
+$$
+
+
+$$
+C_P = \frac{1 + 1.044}{2 \times 0.8} - \sqrt{\left(\frac{1 + 1.044}{2 \times 0.8}\right)^2 - \frac{1.044}{0.8}}
+$$
+
+
+$$
+C_P = 1.278 - \sqrt{1.633 - 1.305} = 1.278 - 0.573 = 0.705
+$$
+
+
+**Step 5: Calculate allowable load**
+
+$$
+P_{allow} = F'_c \times C_P \times A = 1150 \times 0.705 \times 39.875 = 32,330~\text{lb} = 32.3~\text{kips}
+$$
+
+
+**Conclusion:** Since $P_{allow} = 32.3~\text{kips} > P = 20~\text{kips}$, the column is **ADEQUATE**.
+:::
+</TabItem>
+</Tabs>

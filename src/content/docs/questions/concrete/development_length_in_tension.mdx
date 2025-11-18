@@ -1,0 +1,44 @@
+---
+title: Development Length in Tension
+description: Development Length in Tension
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+Calculate the required development length in tension for a #8 bar ($d_b = 1.0~\text{in}$) in normal-weight concrete with $f'_c = 4000~\text{psi}$ and $f_y = 60000~\text{psi}$. The bar is spaced with 3 in clear spacing and has 2 in clear cover. Assume no transverse reinforcement.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Tension Development Length**
+
+**Step 1: Basic development length equation**
+Per ACI 318: $l_d = \left(\frac{\psi_t \psi_e \psi_s}{20\lambda\sqrt{f'_c}}\right) \frac{f_y}{1.0} d_b$
+
+**Step 2: Determine modification factors**
+$\psi_t = 1.0$ (bottom bar)
+$\psi_e = 1.0$ (uncoated)
+$\psi_s = 1.0$ (#7 and larger bars)
+$\lambda = 1.0$ (normal-weight)
+
+**Step 3: Check confinement factor**
+Clear cover = 2.0 in = $2.0d_b$
+Clear spacing = 3.0 in = $3.0d_b$
+
+Since both values are $\geq d_b$ and spacing is $\geq 2d_b$, confinement factor = 1.0
+
+**Step 4: Calculate development length**
+$l_d = \left(\frac{1.0 \times 1.0 \times 1.0}{20 \times 1.0 \times \sqrt{4000}}\right) \times 60,000 \times 1.0$
+
+$l_d = \left(\frac{1.0}{20 \times 63.25}\right) \times 60,000 = \left(\frac{1.0}{1265}\right) \times 60,000 = 47.4~\text{in}$
+
+**Step 5: Check minimum development length**
+$12~\text{in} < 47.4~\text{in}$ ✓
+
+**Required development length: 48 inches**
+:::
+</TabItem>
+</Tabs>

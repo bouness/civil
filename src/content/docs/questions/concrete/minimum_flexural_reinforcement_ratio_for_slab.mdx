@@ -1,0 +1,29 @@
+---
+title: Minimum Flexural Reinforcement Ratio for Slab
+description: Minimum Flexural Reinforcement Ratio for Slab
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Concrete**]
+Compute the ACI minimum flexural reinforcement ratio $\rho_{min}$ for nonprestressed concrete with $f'_c = 4000~\text{psi}$ and $f_y = 60,000~\text{psi}$. Use the ACI expression 
+$$
+\rho_{min}=\max\left(\dfrac{3\sqrt{f'_c}}{f_y},\dfrac{200}{f_y}\right).
+$$
+ Give the ratio as a decimal and as percent.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute each term:  
+First term: $3\sqrt{f'_c}/f_y = 3(63.2456)/60,000 = 189.7368/60,000 = 0.0031623.$  
+Second term: $200/60,000 = 0.0033333.$  
+Take the larger: $\rho_{min}=0.0033333$.  
+As percent: $0.0033333\times100=0.33333\%\approx0.333\%$.  
+
+**Answer:** $\rho_{min}=0.00333$ (≈ **0.333%**).
+:::
+</TabItem>
+</Tabs>

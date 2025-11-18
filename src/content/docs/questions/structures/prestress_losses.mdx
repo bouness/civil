@@ -1,0 +1,38 @@
+---
+title: Prestress Losses
+description: Prestress Losses
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A **pretensioned concrete beam** has an initial prestress force of $300~\text{kips}$. Estimate the total prestress losses (in kips) due to elastic shortening, creep, shrinkage, and relaxation.
+Assume the following loss values:
+- Elastic shortening = $10~\text{ksi}$
+- Creep loss = $15~\text{ksi}$
+- Shrinkage loss = $8~\text{ksi}$
+- Relaxation loss = $5~\text{ksi}$
+The area of prestressing steel is $2.5~\text{in}^2$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Total Prestress Losses**
+Total loss in stress:
+
+$$
+\Delta f_{p,\text{total}} = 10 + 15 + 8 + 5 = 38~\text{ksi}
+$$
+
+Total loss in force:
+
+$$
+\Delta F_{p,\text{total}} = \Delta f_{p,\text{total}} \times A_{ps} = 38~\text{ksi} \times 2.5~\text{in}^2 = 95~\text{kips}
+$$
+
+The total prestress loss is $\mathbf{95~\text{kips}}$.
+:::
+</TabItem>
+</Tabs>

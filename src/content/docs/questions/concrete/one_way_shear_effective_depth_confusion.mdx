@@ -1,0 +1,37 @@
+---
+title: One-Way Shear – Effective Depth Confusion
+description: One-Way Shear – Effective Depth Confusion
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+In computing one-way shear strength $V_c$, an engineer mistakenly uses the **overall beam height** $h$ instead of the **effective depth** $d$. Which of the following statements correctly describes the impact?
+
+A) Using $h$ instead of $d$ is conservative and precludes unsafe design.
+
+B) Using $h$ instead of $d$ artificially increases $V_c$, potentially leading to unconservative results.
+
+C) The difference between $h$ and $d$ is negligible for all practical beams.
+
+D) The use of $h$ instead of $d$ is explicitly permitted when shear reinforcement is provided.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Correct Answer: B**
+
+ACI 318 defines shear strength of concrete as:
+
+$$
+V_c = 2 \lambda \sqrt{f'_c} b d
+$$
+
+If $h > d$, substituting $h$ overestimates $V_c$ and reduces required shear steel — this is **unconservative**.
+
+- **Trap:** Option A misleads by implying a conservative bias; the term *precludes unsafe design* is false — it does the opposite.
+:::
+</TabItem>
+</Tabs>

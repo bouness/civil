@@ -1,0 +1,49 @@
+---
+title: Seismic Base Shear
+description: Seismic Base Shear
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Seismic**]
+A **4-story office building** located on **site class D** has a seismic weight of $1200~\text{kips}$ per floor. The structure is in **SDC D** with $S_s = 1.2g$ and $S_1 = 0.45g$. The fundamental period $T_a = 0.6~\text{sec}$.
+Calculate:
+The seismic base shear using the equivalent lateral force procedure.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Seismic Base Shear**
+First, determine $S_{DS}$ and $S_{D1}$.
+$S_{MS} = F_a S_s$. For $S_s=1.2$ and Site Class D, $F_a = 1.0$. So $S_{MS} = 1.2$.
+
+$$
+S_{DS} = \frac{2}{3} S_{MS} = \frac{2}{3} \times 1.2 = 0.8g
+$$
+
+$S_{M1} = F_v S_1$. For $S_1=0.45$ and Site Class D, $F_v = 1.5$. So $S_{M1} = 1.5 \times 0.45 = 0.675$.
+
+$$
+S_{D1} = \frac{2}{3} S_{M1} = \frac{2}{3} \times 0.675 = 0.45g
+$$
+
+Total seismic weight $W = 4 \times 1200 = 4800~\text{kips}$.
+Assuming a **Special Steel Moment Frame** $R=8$, $I_e=1.0$:
+
+$$
+V = \frac{S_{DS} W}{R / I_e} = \frac{0.8 \times 4800}{8 / 1.0} = 0.1 \times 4800 = 480~\text{kips}
+$$
+
+Check upper limit:
+
+$$
+V_{\text{max}} = \frac{S_{D1} W}{T (R / I_e)} = \frac{0.45 \times 4800}{0.6 \times 8} = \frac{2160}{4.8} = 450~\text{kips}
+$$
+
+Since $480 > 450$, use $V = 450~\text{kips}$.
+The seismic base shear is $\mathbf{450~\text{kips}}$.
+:::
+</TabItem>
+</Tabs>

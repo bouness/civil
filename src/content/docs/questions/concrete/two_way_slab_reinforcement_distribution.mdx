@@ -1,0 +1,25 @@
+---
+title: Two-Way Slab Reinforcement Distribution
+description: Two-Way Slab Reinforcement Distribution
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A flat plate slab panel is 20 ft × 20 ft and 8 in thick. Determine if it qualifies as a **two-way slab** per ACI 318 aspect ratio limits.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+ACI 318 defines two-way action when the longer-to-shorter span ratio $\le 2$. Here,
+
+$$
+\frac{L_{long}}{L_{short}} = \frac{20}{20} = 1.0 < 2.0
+$$
+
+Hence, it is a **two-way slab**.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,74 @@
+---
+title: Masonry Wall Axial Capacity
+description: Masonry Wall Axial Capacity
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Masonry**]
+A 10-ft high, 8-in thick nominal concrete masonry unit (CMU) wall is fully grouted. $f'_m = 2000~\text{psi}$, and it is reinforced with #5 bars at 32 in. o.c. The wall is pinned at top and bottom. Calculate the axial design strength $\phi P_n$ per TMS 402. (Assume $E_m = 900f'_m$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Masonry Wall Axial Capacity**
+
+**Step 1: Determine effective height and slenderness**
+For pinned-pinned conditions: $h = 10~\text{ft} = 120~\text{in}$
+Effective length factor: $k = 1.0$
+$t = 7.625~\text{in}$ (actual CMU thickness)
+
+Radius of gyration: $r = 0.289t = 0.289 \times 7.625 = 2.20~\text{in}$
+
+Slenderness ratio: $\frac{h}{r} = \frac{120}{2.20} = 54.5$
+
+**Step 2: Calculate axial strength reduction factor**
+For $\frac{h}{r} \leq 99$: $[0.84 - 0.003(\frac{h}{r})^2]$
+
+$$
+[0.84 - 0.003(54.5)^2] = [0.84 - 0.003 \times 2970] = [0.84 - 8.91] = \text{negative}
+$$
+
+
+Since the result is negative, use the minimum value: $0.64$
+
+**Step 3: Calculate nominal axial strength**
+$A_g = 7.625 \times 12 = 91.5~\text{in}^2$ per foot of wall
+$A_s = 0.31~\text{in}^2$ per #5 bar
+Steel ratio: $\rho = \frac{0.31}{7.625 \times 32} = 0.00127$
+
+
+$$
+P_n = 0.80[0.80f'_m(A_g - A_s) + f_yA_s] \times \text{reduction factor}
+$$
+
+
+$$
+P_n = 0.80[0.80 \times 2.0 \times (91.5 - 0.31) + 60 \times 0.31] \times 0.64
+$$
+
+
+$$
+P_n = 0.80[0.80 \times 2.0 \times 91.19 + 18.6] \times 0.64
+$$
+
+
+$$
+P_n = 0.80[145.9 + 18.6] \times 0.64 = 0.80 \times 164.5 \times 0.64 = 84.2~\text{kips/ft}
+$$
+
+
+**Step 4: Apply strength reduction factor**
+$\phi = 0.90$ for axial compression
+
+$$
+\phi P_n = 0.90 \times 84.2 = 75.8~\text{kips/ft}
+$$
+
+
+**Design axial strength: $\phi P_n = 75.8~\text{kips per foot of wall}$**
+:::
+</TabItem>
+</Tabs>

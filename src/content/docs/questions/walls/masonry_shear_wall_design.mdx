@@ -1,0 +1,53 @@
+---
+title: Masonry Shear Wall Design
+description: Masonry Shear Wall Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Walls**]
+A 10-ft high masonry shear wall is 8 in thick and 16 ft long. The factored shear force is $V_u = 40~\text{kips}$ and factored moment is $M_u = 320~\text{kip-ft}$. $f'_m = 2000~\text{psi}$, $f_y = 60000~\text{psi}$. Determine the required horizontal and vertical reinforcement.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Masonry Shear Wall Design**
+
+**Step 1: Check shear capacity**
+$A_{nv} = 0.8b_w d = 0.8 \times 7.625 \times (16\times12 - 12) = 0.8 \times 7.625 \times 180 = 1098~\text{in}^2$
+
+$V_{nm} = [4 - 1.75(\frac{M_u}{V_u d_v})]A_{nv}\sqrt{f'_m} \leq 2.5A_{nv}\sqrt{f'_m}$
+
+$\frac{M_u}{V_u d_v} = \frac{320\times12}{40\times15} = \frac{3840}{600} = 6.4$
+
+$4 - 1.75\times6.4 = 4 - 11.2 = -7.2$ (use minimum 0)
+
+$V_{nm} = 2.5 \times 1098 \times \sqrt{2000} / 1000 = 2.5 \times 1098 \times 44.7 / 1000 = 122.7~\text{kips}$
+
+$\phi V_n = 0.80 \times 122.7 = 98.2~\text{kips} > 40~\text{kips}$ ✓
+
+**Step 2: Determine required shear reinforcement**
+$V_s = \frac{V_u}{\phi} - V_m = \frac{40}{0.80} - 122.7 = 50 - 122.7 = \text{negative}$
+
+No shear reinforcement required by calculation, but provide minimum.
+
+**Step 3: Minimum reinforcement**
+Horizontal: $\rho_h = 0.0007$
+$A_{vh} = 0.0007 \times 7.625 \times 12 = 0.064~\text{in}^2/ft$
+
+Vertical: $\rho_v = 0.0007$
+$A_{vv} = 0.0007 \times 7.625 \times 12 = 0.064~\text{in}^2/ft$
+
+**Step 4: Select reinforcement**
+Use #4 @ 48 in horizontal ($A_{vh} = 0.20~\text{in}^2/ft$)
+Use #4 @ 48 in vertical ($A_{vv} = 0.20~\text{in}^2/ft$)
+
+**Step 5: Check flexural reinforcement**
+Based on moment demand, additional vertical reinforcement may be needed at wall ends.
+
+**Required: #4 @ 48 in both directions (minimum)**
+:::
+</TabItem>
+</Tabs>

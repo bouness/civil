@@ -1,0 +1,31 @@
+---
+title: Concrete Elastic Shortening — Conceptual Numeric Example
+description: Concrete Elastic Shortening — Conceptual Numeric Example
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+Given a prestressing force $P=100~\text{kips}$ acting on a member with gross area $A_g=400~\text{in}^2$, compute the average compressive stress and the approximate elastic strain in the concrete if $E_c=3.6\times10^6~\text{psi}$. Then explain qualitatively how that strain affects tendon stress (elastic shortening).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Average compressive stress:
+
+$$
+\sigma_c=\frac{P}{A_g} = \frac{100{,}000}{400} = 250~\text{psi} = 0.250~\text{ksi}.
+$$
+
+Concrete elastic strain:
+
+$$
+\varepsilon = \frac{\sigma_c}{E_c} = \frac{250}{3.6\times10^6} = 6.94\times10^{-5}.
+$$
+
+This strain shortens the concrete immediately; bonded tendons experience a corresponding decrease in tensile strain (and thus stress) equal to the concrete strain (modified by relative elastic moduli and tendon bonding), producing an immediate loss of prestress called **elastic shortening**. Elastic shortening is typically one of the first (immediate) losses accounted for in prestressed design.
+:::
+</TabItem>
+</Tabs>

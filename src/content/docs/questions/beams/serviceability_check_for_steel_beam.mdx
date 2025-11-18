@@ -1,0 +1,48 @@
+---
+title: Serviceability Check for Steel Beam
+description: Serviceability Check for Steel Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Beams**]
+A W18x35 floor beam ($I_x = 510~\text{in}^4$) spans 28 ft and supports office occupancy. The service live load is 50 psf on a tributary width of 8 ft. Check if the beam meets typical vibration criteria. ($E = 29,000~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Beam Vibration Check**
+
+**Step 1: Calculate live load deflection**
+$w_L = 50 \times 8 = 400~\text{plf} = 33.33~\text{lb/in}$
+
+$\Delta_L = \frac{5wL^4}{384EI} = \frac{5 \times 33.33 \times (336)^4}{384 \times 29,000,000 \times 510}$
+
+Calculate step by step:
+$(336)^4 = 1.274\times10^{10}$
+$5 \times 33.33 \times 1.274\times10^{10} = 2.122\times10^{12}$
+$384 \times 29\times10^6 \times 510 = 384 \times 14.79\times10^9 = 5.679\times10^{12}$
+
+$\Delta_L = \frac{2.122\times10^{12}}{5.679\times10^{12}} = 0.374~\text{in}$
+
+**Step 2: Check deflection criteria**
+$\frac{L}{360} = \frac{336}{360} = 0.933~\text{in} > 0.374~\text{in}$ ✓
+
+**Step 3: Check vibration criteria**
+For office occupancy, typical natural frequency should be > 3-4 Hz
+
+Natural frequency $f = \frac{0.18\sqrt{g}}{\sqrt{\Delta}}$ where $\Delta$ is in inches
+
+Using $\Delta = \Delta_L = 0.374~\text{in}$:
+$f = \frac{0.18\sqrt{386}}{\sqrt{0.374}} = \frac{0.18 \times 19.65}{0.611} = \frac{3.537}{0.611} = 5.79~\text{Hz}$
+
+**Step 4: Evaluate results**
+- Deflection: $L/899$ (well within $L/360$)
+- Natural frequency: 5.79 Hz > 4 Hz
+
+**Beam meets both deflection and vibration criteria for office occupancy**
+:::
+</TabItem>
+</Tabs>

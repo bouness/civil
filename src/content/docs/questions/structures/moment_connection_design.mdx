@@ -1,0 +1,51 @@
+---
+title: Moment Connection Design
+description: Moment Connection Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A **moment connection** must transfer a factored moment of $300~\text{kip-ft}$ and a factored shear of $80~\text{kips}$. The beam is a **W18x50** $d=18.0~\text{in}$, $b_f=7.5~\text{in}$, $t_f=0.57~\text{in}$, $t_w=0.36~\text{in}$.
+Design:
+The required number of **3/4-in A325 bolts** in the tension flange to resist the moment.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Required Number of Bolts**
+The moment is resisted by a couple in the flanges. The tension force $T$ in the flange is:
+
+$$
+T = \frac{M}{d} \approx \frac{300~\text{kip-ft} \times 12~\text{in/ft}}{18.0~\text{in}} = \frac{3600}{18.0} = 200~\text{kips}
+$$
+
+A more precise formula uses $d - t_f$:
+
+$$
+T = \frac{M}{d - t_f} = \frac{3600~\text{kip-in}}{18.0 - 0.57~\text{in}} = \frac{3600}{17.43} = 206.5~\text{kips}
+$$
+
+The design strength of one **3/4-in A325 bolt** in single shear (threads included) is:
+
+$$
+A_b = \frac{\pi (0.75)^2}{4} = 0.4418~\text{in}^2
+$$
+
+
+$$
+\phi F_{nv} A_b = 0.75 \times 54~\text{ksi} \times 0.4418~\text{in}^2 = 17.9~\text{kips per bolt}
+$$
+
+Number of bolts required:
+
+$$
+N = \frac{T}{\phi F_{nv} A_b} = \frac{206.5~\text{kips}}{17.9~\text{kips/bolt}} = 11.5~\text{bolts}
+$$
+
+Use $\mathbf{12~\text{bolts}}$ in the tension flange.
+:::
+</TabItem>
+</Tabs>

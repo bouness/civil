@@ -1,0 +1,79 @@
+---
+title: Masonry Wall Lateral Support Spacing
+description: Masonry Wall Lateral Support Spacing
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Masonry**]
+An 8-inch nominal CMU wall has lateral supports spaced at 18 ft vertically. Per TMS 402, empirical design requires vertical support spacing not to exceed 18 times the wall thickness for running bond. The specified wall thickness is 7.625 in actual. Does the support spacing transgress the empirical design limit?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Masonry Lateral Support Analysis**
+
+**Step 1: Understanding 'transgress'**
+'Transgress' means to **violate**, **exceed**, or **go beyond** a limit.
+
+The question asks: Does the spacing violate the limit?
+
+**Step 2: Calculate maximum allowable spacing**
+Actual wall thickness: $t = 7.625~\text{in}$
+
+Maximum spacing: $h_{max} = 18t = 18(7.625) = 137.25~\text{in} = 11.44~\text{ft}$
+
+**Step 3: Compare provided to maximum**
+Provided spacing: $h = 18~\text{ft} = 216~\text{in}$
+
+Maximum allowed: $h_{max} = 11.44~\text{ft} = 137.25~\text{in}$
+
+$216~\text{in} > 137.25~\text{in}$
+
+**Step 4: Determine if limit is exceeded**
+Provided spacing **EXCEEDS** allowable by:
+$216 - 137.25 = 78.75~\text{in} = 6.56~\text{ft}$ (57% over limit)
+
+Ratio: $\frac{h}{h_{max}} = \frac{216}{137.25} = 1.57$
+
+**Step 5: Answer the question**
+Does the spacing (18 ft) transgress (violate) the limit (11.44 ft)?
+
+**YES** - The support spacing DOES transgress the empirical design limit.
+
+The provided spacing significantly exceeds the maximum allowed, violating the code requirement.
+
+**Common trap:** The numbers are clear (18 ft vs 11.44 ft), but 'transgress' is formal vocabulary that might cause hesitation. Also, seeing '18' in both the spacing (18 ft) and the multiplier (18t) could cause confusion if not reading carefully.
+
+**Step 6: Design implications**
+Violation consequences:
+- Empirical design **CANNOT** be used
+- Must use engineered design with structural analysis
+- May require:
+  - Thicker wall
+  - Closer lateral supports
+  - Reinforced masonry design
+  - Pilasters for intermediate support
+
+**Step 7: Corrective options**
+**Option 1:** Reduce support spacing
+Required: $h \leq 11.44~\text{ft}$
+Use: $h = 10~\text{ft}$ or $11~\text{ft}$ spacing ✓
+
+**Option 2:** Increase wall thickness
+For $h = 18~\text{ft} = 216~\text{in}$:
+$t_{req} = \frac{h}{18} = \frac{216}{18} = 12~\text{in}$
+Use 12-inch CMU (actual $t = 11.625~\text{in}$) ✓
+
+**Option 3:** Use engineered design
+- Perform structural analysis
+- Design for lateral loads
+- Provide reinforcement as required
+- Not limited by empirical rules
+
+**Answer: YES, the support spacing (18 ft = 216 in) transgresses (violates) the empirical limit (11.44 ft = 137.25 in). Empirical design is NOT permitted.**
+:::
+</TabItem>
+</Tabs>

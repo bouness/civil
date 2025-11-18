@@ -1,0 +1,78 @@
+---
+title: Concrete Compression Development Length
+description: Concrete Compression Development Length
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A #10 bar ($d_b = 1.27~\text{in}$) in compression must be developed in normal-weight concrete with $f'_c = 5000~\text{psi}$ and $f_y = 60,000~\text{psi}$. The basic development length is $\ell_{dc} = 0.02d_b f_y/\lambda\sqrt{f'_c} = 21.5~\text{in}$ but not less than $0.0003d_b f_y = 22.9~\text{in}$. An available length of 20 inches is provided. Does the available length suffice to develop the bar in compression?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compression Development Length Analysis**
+
+**Step 1: Understanding 'suffice'**
+'Suffice' means to **be adequate** or **be enough** for a purpose.
+
+The question asks: Is 20 inches adequate?
+
+**Step 2: Determine required development length**
+Calculated: $\ell_{dc,calc} = 21.5~\text{in}$
+
+Minimum: $\ell_{dc,min} = 22.9~\text{in}$
+
+Required: $\ell_{dc} = \max(21.5, 22.9) = 22.9~\text{in}$
+
+Also not less than: $8~\text{in}$ (absolute minimum)
+
+**Step 3: Compare available to required**
+Available length: $\ell_{avail} = 20~\text{in}$
+
+Required length: $\ell_{dc} = 22.9~\text{in}$
+
+$20~\text{in} < 22.9~\text{in}$
+
+**Step 4: Determine adequacy**
+Available length is **INSUFFICIENT** by:
+$22.9 - 20 = 2.9~\text{in}$ (12.7% short)
+
+Ratio: $\frac{\ell_{avail}}{\ell_{dc}} = \frac{20}{22.9} = 0.87 < 1.0$ ✗
+
+**Step 5: Answer the question**
+Does 20 in suffice (is it adequate) to develop the bar?
+
+**NO** - The available length does NOT suffice to develop the bar in compression.
+
+The provided length falls short of the minimum required development length.
+
+**Common trap:** The word 'suffice' is straightforward but formal. The trap here is in the calculation - candidates must recognize that BOTH criteria apply (calculated AND minimum), and the larger value governs. Missing the 0.0003dbfy minimum check leads to wrong conclusion.
+
+**Step 6: Check for modification factors**
+Per ACI 318, compression development length may be multiplied by:
+- Excess reinforcement factor: $\frac{A_{s,required}}{A_{s,provided}}$ (if applicable)
+- Spiral/tie enclosure factor: 0.75 (if enclosed by spiral or ties)
+
+Without information about these conditions, assume no reduction applies.
+
+**Step 7: Required minimum length**
+If ties provide confinement:
+$\ell_{dc,reduced} = 0.75(22.9) = 17.2~\text{in}$
+
+Then $20~\text{in} > 17.2~\text{in}$ ✓
+
+But question doesn't specify confinement, so assume basic case.
+
+**Step 8: Design recommendations**
+- Extend bar additional 3 inches minimum
+- Provide mechanical anchorage
+- Use headed bars or anchor plates
+- Verify tie/spiral confinement for reduction
+
+**Answer: NO, the available length (20 in) does NOT suffice (is not adequate) to develop the #10 bar. Required length is 22.9 in minimum.**
+:::
+</TabItem>
+</Tabs>

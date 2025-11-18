@@ -1,0 +1,37 @@
+---
+title: Minimum Slab Reinforcement per ACI 318
+description: Minimum Slab Reinforcement per ACI 318
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Concrete**]
+According to **ACI 318**, what is the **minimum flexural reinforcement ratio** $\rho_{min}$ for a non-prestressed concrete slab with Grade 60 steel and $f'_c = 4000~\text{psi}$?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Per ACI 318:
+
+$$
+\rho_{min} = \max\left( \frac{3\sqrt{f'_c}}{f_y}, \frac{200}{f_y} \right)
+$$
+
+Substitute values:
+
+$$
+\frac{3\sqrt{4000}}{60,000} = 0.00316
+$$
+
+
+$$
+\frac{200}{60,000} = 0.00333
+$$
+
+Take maximum: $\rho_{min} = 0.00333$
+Thus, **minimum reinforcement ratio = 0.0033 (0.33%)**.
+:::
+</TabItem>
+</Tabs>

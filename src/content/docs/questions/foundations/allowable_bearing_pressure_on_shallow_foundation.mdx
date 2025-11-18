@@ -1,0 +1,42 @@
+---
+title: Allowable Bearing Pressure on Shallow Foundation
+description: Allowable Bearing Pressure on Shallow Foundation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Foundations**]
+A square footing of size $B = 5~\text{ft}$ is placed at a depth $D_f = 3~\text{ft}$ in dense sand with unit weight $\gamma = 120~\text{pcf}$ and angle of internal friction $\phi = 36^\circ$. Using Terzaghi’s bearing capacity factors ($N_q = 41$, $N_\gamma = 45$), determine the **ultimate bearing capacity** $q_u$ and **allowable bearing pressure** assuming a factor of safety of 3.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Terzaghi’s bearing capacity for square footing:**
+
+$$
+q_u = 0.4\gamma B N_\gamma + \gamma D_f N_q
+$$
+
+Substitute values:
+
+$$
+q_u = 0.4(120)(5)(45) + (120)(3)(41)
+$$
+
+
+$$
+q_u = 10,800 + 14,760 = 25,560~\text{psf}
+$$
+
+
+**Allowable bearing pressure:**
+
+$$
+q_{allow} = \frac{q_u}{FS} = \frac{25,560}{3} = 8,520~\text{psf}
+$$
+
+:::
+</TabItem>
+</Tabs>

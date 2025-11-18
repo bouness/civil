@@ -1,0 +1,89 @@
+---
+title: Steel Beam Web Crippling at Support
+description: Steel Beam Web Crippling at Support
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A W16×31 beam ($t_w = 0.275~\text{in}$, $d = 15.9~\text{in}$) bears on a 6-inch wide support plate. The design strength for web local crippling is $\phi R_n = 48~\text{kips}$ based on bearing length $N = 6~\text{in}$. The factored reaction is $R_u = 52~\text{kips}$. Does the factored reaction want for sufficient web crippling resistance?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Web Local Crippling Analysis**
+
+**Step 1: Understanding 'want for'**
+'Want for' is archaic phrasing meaning to **lack** or **be without** sufficient amount.
+
+This OLD English structure is confusing. The question asks: Does the reaction lack sufficient resistance?
+
+**Step 2: Interpret the question structure**
+The question essentially asks:
+'Does the reaction (52 kips) lack sufficient resistance (48 kips)?'
+
+Or more simply: 'Is capacity insufficient for the load?'
+
+**Step 3: Compare demand to capacity**
+Factored reaction (demand): $R_u = 52~\text{kips}$
+
+Design strength (capacity): $\phi R_n = 48~\text{kips}$
+
+$52~\text{kips} > 48~\text{kips}$
+
+**Step 4: Determine adequacy**
+Capacity is **INSUFFICIENT**.
+
+Deficiency: $52 - 48 = 4~\text{kips}$ (8.3% over capacity)
+
+Ratio: $\frac{\phi R_n}{R_u} = \frac{48}{52} = 0.92 < 1.0$ ✗
+
+**Step 5: Answer the question (carefully with archaic phrasing)**
+Does the reaction want for (lack) sufficient resistance?
+
+**YES** - The reaction DOES want for sufficient web crippling resistance.
+
+Using archaic phrasing: Yes, there is a want (lack) of sufficient resistance. The capacity (48 kips) is insufficient for the demand (52 kips).
+
+**Common trap:** 'Want for' is extremely confusing archaic English. Modern phrasing would be 'lacks' or 'is insufficient in.' This vocabulary is intentionally obscure to test whether candidates can parse unusual language under pressure.
+
+**Step 6: Understanding web local crippling**
+Web crippling occurs when:
+- Concentrated load causes local buckling of web
+- Insufficient bearing length
+- Thin web cannot distribute load
+- Compression zone buckles near support
+
+**Step 7: Solutions to increase capacity**
+**Option 1:** Increase bearing length
+For required capacity of 52 kips:
+$N_{req} \approx N \times \frac{52}{48} = 6 \times 1.083 = 6.5~\text{in}$
+
+Use 7-inch bearing plate ✓
+
+**Option 2:** Add bearing stiffeners
+- Weld vertical stiffener plates to web
+- Extend from flange to flange
+- Significantly increases capacity
+- Per AISC J10.8
+
+**Option 3:** Use thicker bearing plate
+- Distribute load over wider area
+- May help if combined with longer plate
+
+**Option 4:** Select deeper beam section
+- Thicker web provides more capacity
+- Try W16×40 ($t_w = 0.305~\text{in}$)
+
+**Step 8: Check if end reaction or interior reaction**
+If end reaction: Check web local yielding also
+If interior: Check web local crippling for interior loading case
+
+Question appears to be end reaction based on context.
+
+**Answer: YES, the factored reaction (52 kips) wants for (lacks) sufficient web crippling resistance (48 kips). The web capacity is inadequate by 4 kips.**
+:::
+</TabItem>
+</Tabs>

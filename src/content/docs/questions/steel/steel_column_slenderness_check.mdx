@@ -1,0 +1,31 @@
+---
+title: Steel Column Slenderness Check
+description: Steel Column Slenderness Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+A W10×49 steel column (A992) has an unbraced length of $L = 12~\text{ft}$ about both axes. Determine the slenderness ratio $KL/r$ for the weak axis if $K = 1.0$. The radius of gyration about the weak axis is $r_y = 1.77~\text{in}$. Check if the column is considered **slender** per AISC 360.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Convert the length to inches:
+
+$$
+L = 12~\text{ft} = 144~\text{in}
+$$
+
+Compute slenderness ratio:
+
+$$
+\frac{KL}{r_y} = \frac{1.0(144)}{1.77} = 81.4
+$$
+
+Per AISC 360, compression members are **non-slender** if $KL/r < 200$. Since $81.4 < 200$, the column is **non-slender** about the weak axis.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,50 @@
+---
+title: Column Splice Design
+description: Column Splice Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A W14x90 column ($A_g = 26.5~\text{in}^2$) is spliced to a W14x68 column ($A_g = 20.0~\text{in}^2$). The factored axial load is $P_u = 600~\text{kips}$. Design a bearing splice using A36 splice plates and A325 bolts.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Splice Design**
+
+**Step 1: Determine load distribution**
+The weaker column (W14x68) governs the design.
+
+**Step 2: Check bearing capacity**
+The columns can share load through bearing if milled surfaces.
+For non-milled surfaces, the splice must transfer the load difference.
+
+Load difference = $P_u \times (1 - \frac{A_{g,smaller}}{A_{g,larger}}) = 600 \times (1 - \frac{20.0}{26.5}) = 600 \times (1 - 0.755) = 147~\text{kips}$
+
+**Step 3: Design splice plates**
+Try two PL 1/2" x 8" plates each side:
+$A_g = 2 \times 2 \times 0.5 \times 8 = 16.0~\text{in}^2$
+
+Tension yielding: $\phi P_n = 0.90 \times 36 \times 16.0 = 518~\text{kips} > 147~\text{kips}$ ✓
+
+**Step 4: Design bolts**
+Try 3/4" A325-N bolts in double shear:
+$\phi r_n = 0.75 \times 2 \times 0.4418 \times 90 = 59.6~\text{kips/bolt}$
+
+Number of bolts = $\frac{147}{59.6} = 2.47$
+
+Use 4 bolts (2 each side)
+
+**Step 5: Check bolt spacing and edge distance**
+Minimum spacing = $2\frac{2}{3}d = 2.67 \times 0.75 = 2.0~\text{in}$
+Minimum edge distance = $1.25~\text{in}$
+
+Use 3 in spacing and 1.5 in edge distance
+
+**Final design: Two PL 1/2" x 8" x 1'-0" with four 3/4" A325-N bolts each side**
+:::
+</TabItem>
+</Tabs>

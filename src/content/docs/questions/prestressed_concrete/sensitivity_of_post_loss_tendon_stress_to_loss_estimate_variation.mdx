@@ -1,0 +1,24 @@
+---
+title: Sensitivity of Post-loss Tendon Stress to Loss Estimate Variation
+description: Sensitivity of Post-loss Tendon Stress to Loss Estimate Variation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+With an initial tendon stress $f_{pi} = 200~\text{ksi}$, compare post-loss stresses if total losses are estimated at 10% (base), 8% (optimistic), and 12% (pessimistic). Report post-loss stresses (ksi) and comment on sensitivity.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Post-loss stresses:
+- Loss 10% → $f_{ps}=200(1-0.10)=180.00~\text{ksi}$.  
+- Loss 8% → $f_{ps}=200(1-0.08)=184.00~\text{ksi}$.  
+- Loss 12% → $f_{ps}=200(1-0.12)=176.00~\text{ksi}$.  
+
+**Comment:** Changing the loss estimate by ±2% changes the post-loss stress by ±4 ksi (≈±2.2%). Designers should quantify and reduce uncertainty in loss estimates for tight serviceability or strength margins.
+:::
+</TabItem>
+</Tabs>

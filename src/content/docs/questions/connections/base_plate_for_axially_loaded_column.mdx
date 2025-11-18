@@ -1,0 +1,48 @@
+---
+title: Base Plate for Axially Loaded Column
+description: Base Plate for Axially Loaded Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A W12x65 column ($d = 12.1~\text{in}$, $b_f = 12.0~\text{in}$) carries a factored axial load $P_u = 450~\text{kips}$. Design a base plate for bearing on a concrete footing with $f'_c = 3000~\text{psi}$. Use A36 steel for the base plate.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Base Plate Design**
+
+**Step 1: Determine required bearing area**
+$\phi P_p = \phi 0.85 f'_c A_1$ for $A_2/A_1 = 1.0$
+$\phi = 0.65$
+
+$A_1 \geq \frac{P_u}{\phi 0.85 f'_c} = \frac{450}{0.65 \times 0.85 \times 3} = \frac{450}{1.658} = 271~\text{in}^2$
+
+**Step 2: Select plate dimensions**
+Try square plate: $B = N = \sqrt{271} = 16.5~\text{in}$
+Use $B = N = 17~\text{in}$
+$A_1 = 17 \times 17 = 289~\text{in}^2$
+
+**Step 3: Calculate required thickness**
+$m = \frac{N - 0.95d}{2} = \frac{17 - 0.95\times12.1}{2} = \frac{17 - 11.5}{2} = 2.75~\text{in}$
+
+$n = \frac{B - 0.80b_f}{2} = \frac{17 - 0.80\times12.0}{2} = \frac{17 - 9.6}{2} = 3.70~\text{in}$
+
+$n' = \frac{\sqrt{db_f}}{4} = \frac{\sqrt{12.1\times12.0}}{4} = \frac{\sqrt{145.2}}{4} = \frac{12.05}{4} = 3.01~\text{in}$
+
+$\ell = \max(m, n, n') = 3.70~\text{in}$
+
+Bearing pressure: $f_p = \frac{P_u}{A_1} = \frac{450}{289} = 1.56~\text{ksi}$
+
+$t_{min} = \ell \sqrt{\frac{2.22 f_p}{F_y}} = 3.70 \times \sqrt{\frac{2.22 \times 1.56}{36}} = 3.70 \times \sqrt{\frac{3.46}{36}} = 3.70 \times \sqrt{0.0961} = 3.70 \times 0.310 = 1.15~\text{in}$
+
+**Step 4: Select plate thickness**
+Use PL $1\frac{1}{4}$~in $\times 17$~in $\times 17$~in
+
+**Final design: $1\frac{1}{4}$-inch thick base plate, 17 in × 17 in**
+:::
+</TabItem>
+</Tabs>

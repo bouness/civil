@@ -1,0 +1,50 @@
+---
+title: Midspan Deflection — One-way Slab Strip
+description: Midspan Deflection — One-way Slab Strip
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A one-foot-wide strip of a simply supported one-way slab spans $L = 15.0~\text{ft}$. The slab thickness is $h = 8~\text{in}$. The unfactored uniform service load on the strip is $w = 1.2~\text{k/ft}$ (includes self-weight and live load). Use $E_c = 57,000\sqrt{f'_c}$ with $f'_c = 4000~\text{psi}$. Compute the midspan deflection (in inches) using the elastic formula for a simply supported beam: 
+$$
+\delta_{max}=\dfrac{5wL^4}{384EI}.
+$$
+ Treat the strip width as $b=12~\text{in}$ and use $I=b h^3/12$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1 — units & properties**
+Convert span to inches: $L=15.0(12)=180~\text{in}$.  
+Strip load: $w=1.2~\text{k/ft}=1200~\text{lb/ft}=100~\text{lb/in}$.  
+$b=12~\text{in}$, $h=8~\text{in}$ so
+
+$$
+I=\frac{b h^3}{12}=\frac{12(8^3)}{12}=8^3=512~\text{in}^4.
+$$
+
+Modulus: $E_c=57,000\sqrt{4000}=57,000(63.2456)=3.604\times10^6~\text{psi}$.
+
+**Step 2 — deflection**
+
+$$
+\delta_{max}=\frac{5(100)(180)^4}{384(3.604\times10^6)(512)}
+$$
+
+Compute numerator and denominator (shown):  
+$180^4=1.04976\times10^9$, so numerator $=5\times100\times1.04976\times10^9=5.2488\times10^{11}$.  
+Denominator $=384\times3.604\times10^6\times512\approx7.1035\times10^{12}$.
+
+
+$$
+\delta_{max}=\frac{5.2488\times10^{11}}{7.1035\times10^{12}}=0.1481~\text{in}
+$$
+
+
+**Answer:** Maximum midspan deflection $\approx 0.148~\text{in}$ (about 0.15 in).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,62 @@
+---
+title: Eccentrically Loaded Bolted Connection
+description: Eccentrically Loaded Bolted Connection
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Connections**]
+A bracket is connected to a W12 column using four 3/4-in diameter A325-N bolts in a 4x4 in pattern. The load $P_u = 30~\text{kips}$ is applied 6 in from the bolt group centroid. Determine if the connection is adequate using the elastic method. (Bolt $F_{nt} = 90~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Eccentric Bolted Connection - Elastic Method**
+
+**Step 1: Calculate direct shear**
+$r_{direct} = \frac{P_u}{n} = \frac{30}{4} = 7.5~\text{kips/bolt}$
+
+**Step 2: Calculate torsional moment and polar moment**
+$M = P_u \times e = 30 \times 6 = 180~\text{kip-in}$
+
+Bolt coordinates (from centroid):
+A: (2, 2), B: (2, -2), C: (-2, 2), D: (-2, -2)
+
+Polar moment of inertia:
+$I_p = \sum (x^2 + y^2) = 4 \times (2^2 + 2^2) = 4 \times 8 = 32~\text{in}^2$
+
+**Step 3: Calculate torsional shear components**
+$r_{torsion} = \frac{M \times r}{I_p}$ where $r = \sqrt{x^2 + y^2}$
+
+For each bolt: $r = \sqrt{4 + 4} = 2.828~\text{in}$
+$r_{torsion} = \frac{180 \times 2.828}{32} = 15.9~\text{kips}$
+
+**Step 4: Resolve vector components for critical bolt**
+Critical bolt is A (top right):
+- Direct shear: $7.5~\text{kips}$ downward
+- Torsional shear: $15.9~\text{kips}$ perpendicular to radius
+
+Angle from horizontal: $\theta = 45^\circ$
+Torsional components:
+$r_{tx} = 15.9 \cos 45^\circ = 11.25~\text{kips}$ (left)
+$r_{ty} = 15.9 \sin 45^\circ = 11.25~\text{kips}$ (up)
+
+**Step 5: Calculate resultant**
+$x$-component: $11.25~\text{kips}$
+$y$-component: $7.5 - 11.25 = -3.75~\text{kips}$
+
+Resultant: $r_{total} = \sqrt{11.25^2 + 3.75^2} = \sqrt{126.6 + 14.1} = \sqrt{140.7} = 11.86~\text{kips}$
+
+**Step 6: Check bolt capacity**
+Bolt tensile stress area: $A_b = 0.4418~\text{in}^2$
+$F_{nt} = 90~\text{ksi}$
+$\phi R_n = 0.75 \times 90 \times 0.4418 = 29.8~\text{kips}$
+
+$r_{total} = 11.86~\text{kips} < 29.8~\text{kips}$ ✓
+
+**Connection is ADEQUATE**
+:::
+</TabItem>
+</Tabs>

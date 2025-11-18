@@ -1,0 +1,25 @@
+---
+title: Service Load Deflection of Reinforced Beam
+description: Service Load Deflection of Reinforced Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A simply supported concrete beam with span $L = 24~\text{ft}$ has a cracking moment $M_{cr} = 50~\text{kip·ft}$ and service moment $M_s = 90~\text{kip·ft}$. If the immediate deflection under sustained load is $0.5~\text{in}$, estimate long-term deflection using ACI multiplier of 2.0 for sustained load.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Long-term deflection = immediate + creep component:
+
+$$
+\Delta_{LT} = 0.5 + (2.0 - 1.0)(0.5) = 1.0~\text{in}
+$$
+
+Total service deflection is **1.0 inch**.
+:::
+</TabItem>
+</Tabs>

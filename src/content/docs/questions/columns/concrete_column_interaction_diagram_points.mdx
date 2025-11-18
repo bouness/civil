@@ -1,0 +1,53 @@
+---
+title: Concrete Column Interaction Diagram Points
+description: Concrete Column Interaction Diagram Points
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Columns**]
+A 16x20 in tied column is reinforced with 8-#8 bars ($A_s = 6.32~\text{in}^2$). $f'_c = 5000~\text{psi}$, $f_y = 60000~\text{psi}$, clear cover = 1.5 in. Calculate three key points for the interaction diagram: pure compression, balanced point, and pure bending.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Interaction Diagram Points**
+
+**Point 1: Pure Compression**
+$A_g = 16 \times 20 = 320~\text{in}^2$
+$A_{st} = 6.32~\text{in}^2$
+
+$\phi P_{n(max)} = 0.80\phi[0.85f'_c(A_g - A_{st}) + f_yA_{st}]$
+$\phi P_{n(max)} = 0.80 \times 0.65[0.85 \times 5 \times (320 - 6.32) + 60 \times 6.32]$
+$\phi P_{n(max)} = 0.52[0.85 \times 5 \times 313.68 + 379.2]$
+$\phi P_{n(max)} = 0.52[1333 + 379.2] = 0.52 \times 1712 = 890~\text{kips}$
+
+**Point 2: Balanced Point**
+$d = 20 - 1.5 - 0.375 - 0.5 = 17.625~\text{in}$
+$c_b = \frac{0.003}{0.003 + 0.00207} \times 17.625 = 0.592 \times 17.625 = 10.43~\text{in}$
+$a_b = 0.80 \times 10.43 = 8.34~\text{in}$
+
+Concrete compression: $C_c = 0.85 \times 5 \times 8.34 \times 16 = 567~\text{kips}$
+
+Steel forces (from extreme compression to tension):
+- Layer 1 (compression): $d' = 2.375~\text{in}$, $\epsilon_s' = 0.00232 > \epsilon_y$, $C_{s1} = 2 \times 1.0 \times (60 - 0.85 \times 5) = 111.5~\text{kips}$
+- Layer 2: $d = 8.0~\text{in}$, $\epsilon_s = 0.00070$, $f_s = 20.3~\text{ksi}$, $C_{s2} = 40.6~\text{kips}$
+- Layer 3: $d = 13.625~\text{in}$, $\epsilon_s = 0.00034$, $f_s = 9.9~\text{ksi}$, $T_{s3} = 19.8~\text{kips}$
+- Layer 4 (tension): $\epsilon_s = 0.00207 = \epsilon_y$, $T_{s4} = 120~\text{kips}$
+
+$P_b = 567 + 111.5 + 40.6 - 19.8 - 120 = 579~\text{kips}$
+
+**Point 3: Pure Bending**
+Assume rectangular stress block, iterate to find neutral axis where $P_n = 0$
+
+Approximate: $a \approx \frac{A_s f_y}{0.85f'_c b} = \frac{6.32 \times 60}{0.85 \times 5 \times 16} = 5.57~\text{in}$
+$c = a/0.80 = 6.96~\text{in}$
+
+Calculate steel strains and forces, then $M_n \approx 480~\text{kip-ft}$
+
+**Key Points:** (1) $P_n = 890~\text{kips}$, $M_n = 0$; (2) $P_n = 579~\text{kips}$, $M_n = 390~\text{kip-ft}$; (3) $P_n = 0$, $M_n = 480~\text{kip-ft}$
+:::
+</TabItem>
+</Tabs>

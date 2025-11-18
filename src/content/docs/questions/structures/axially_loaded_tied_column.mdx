@@ -1,0 +1,61 @@
+---
+title: Axially Loaded Tied Column
+description: Axially Loaded Tied Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A short tied column has a 16 in × 16 in cross-section with 8-#9 bars ($A_s = 8.0~\text{in}^2$). Material properties: $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$.
+
+Determine the maximum factored axial load $P_u$ the column can support per ACI 318.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Calculate gross concrete area**
+
+$$
+A_g = 16 \times 16 = 256~\text{in}^2
+$$
+
+
+**Step 2: Calculate nominal axial capacity**
+
+For tied column:
+
+$$
+P_n = 0.80[0.85f'_c(A_g - A_s) + f_y A_s]
+$$
+
+
+$$
+P_n = 0.80[0.85 \times 4 \times (256 - 8.0) + 60 \times 8.0]
+$$
+
+
+$$
+P_n = 0.80[3.4 \times 248 + 480]
+$$
+
+
+$$
+P_n = 0.80[843.2 + 480] = 0.80 \times 1323.2 = 1058.6~\text{kips}
+$$
+
+
+**Step 3: Apply strength reduction factor**
+
+For compression-controlled members, $\phi = 0.65$ (tied column):
+
+$$
+\phi P_n = 0.65 \times 1058.6 = 688.1~\text{kips}
+$$
+
+
+**Answer:** Maximum factored axial load = **688 kips**
+:::
+</TabItem>
+</Tabs>

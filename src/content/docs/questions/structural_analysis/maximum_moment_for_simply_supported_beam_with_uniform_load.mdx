@@ -1,0 +1,31 @@
+---
+title: Maximum Moment for Simply Supported Beam with Uniform Load
+description: Maximum Moment for Simply Supported Beam with Uniform Load
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Structural Analysis**]
+A simply supported beam span $L = 30~\text{ft}$ carries a uniform load $w = 2.0~\text{k/ft}$ (factored). Compute the maximum bending moment $M_{max}$ in **kip-ft**.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Formula for maximum moment for uniform load:
+
+$$
+M_{max} = \frac{w L^2}{8}
+$$
+
+Substitute $w = 2.0~\text{k/ft}$ and $L = 30~\text{ft}$:
+
+$$
+M_{max} = \frac{2.0(30^2)}{8} = \frac{2.0(900)}{8} = \frac{1800}{8} = 225~\text{kip-ft}
+$$
+
+Thus **$M_{max} = 225~\text{kip-ft}$.**
+:::
+</TabItem>
+</Tabs>

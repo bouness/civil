@@ -1,0 +1,48 @@
+---
+title: Deflection of Simply Supported Beam under Uniform Load
+description: Deflection of Simply Supported Beam under Uniform Load
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structural Analysis**]
+A simply supported beam of span $L = 20~\text{ft}$ carries a uniform load $w = 0.6~\text{k/ft}$. The beam has $E = 29,000~\text{ksi}$ and $I = 300~\text{in}^4$. Determine the **maximum midspan deflection** in inches.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Formula for simply supported beam under uniform load:**
+
+$$
+\delta_{max} = \frac{5wL^4}{384EI}
+$$
+
+Convert units:
+
+$$
+w = 0.6~\text{k/ft} = 600~\text{lb/ft} = 50~\text{lb/in}
+$$
+
+
+$$
+L = 20~\text{ft} = 240~\text{in}
+$$
+
+
+Substitute:
+
+$$
+\delta_{max} = \frac{5(50)(240)^4}{384(29\times10^6)(300)}
+$$
+
+
+$$
+\delta_{max} = \frac{5(50)(3.32\times10^9)}{3.34\times10^{12}} = 0.25~\text{in}
+$$
+
+Thus, **maximum deflection = 0.25 in** at midspan.
+:::
+</TabItem>
+</Tabs>

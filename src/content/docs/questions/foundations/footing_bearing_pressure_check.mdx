@@ -1,0 +1,37 @@
+---
+title: Footing Bearing Pressure Check
+description: Footing Bearing Pressure Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Foundations**]
+A square isolated footing supports a $400~\text{k}$ column load. The footing is $6~\text{ft} \times 6~\text{ft}$ and rests on soil with an allowable bearing capacity of $4~\text{ksf}$. Determine the maximum soil bearing pressure and state whether the design is acceptable.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Footing area:
+
+$$
+A = 6 \times 6 = 36~\text{ft}^2
+$$
+
+Bearing pressure:
+
+$$
+q = \frac{P}{A} = \frac{400}{36} = 11.1~\text{ksf}
+$$
+
+Compare to allowable:
+
+$$
+11.1~\text{ksf} > 4~\text{ksf}
+$$
+
+Thus, **not acceptable**. The footing must be enlarged or load reduced.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,64 @@
+---
+title: Concrete Anchor Bolt Design
+description: Concrete Anchor Bolt Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Connections**]
+Four 3/4-in diameter cast-in anchor bolts are embedded 8 in into a concrete footing ($f'_c = 4000~\text{psi}$). The bolts are arranged in a 6x8 in pattern. Determine the factored tensile capacity per ACI 318 Appendix D. ($F_u = 58~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Anchor Bolt Tensile Capacity**
+
+**Step 1: Steel strength**
+$A_{se} = 0.334~\text{in}^2$ (for 3/4" bolt)
+
+$N_{sa} = A_{se} F_u = 0.334 \times 58 = 19.37~\text{kips/bolt}$
+
+$\phi N_{sa} = 0.75 \times 19.37 = 14.53~\text{kips/bolt}$
+
+**Step 2: Concrete breakout strength**
+$h_{ef} = 8~\text{in}$
+
+$N_b = k_c \lambda \sqrt{f'_c} h_{ef}^{1.5} = 24 \times 1.0 \times \sqrt{4000} \times (8)^{1.5}$
+$N_b = 24 \times 63.25 \times 22.63 = 34,350~\text{lbs} = 34.35~\text{kips}$
+
+**Step 3: Modification factors**
+$A_{Nc} = (1.5h_{ef} + s_1)(1.5h_{ef} + s_2) = (12 + 6)(12 + 8) = 18 \times 20 = 360~\text{in}^2$
+
+$A_{Nco} = 9h_{ef}^2 = 9 \times 64 = 576~\text{in}^2$
+
+$\psi_{ed,N} = 1.0$ (edge distance > 1.5h_{ef})
+$\psi_{c,N} = 1.0$ (cracking expected)
+
+$\psi_{cp,N} = 1.0$ (for cast-in anchors)
+
+**Step 4: Concrete breakout capacity**
+$N_{cbg} = \frac{A_{Nc}}{A_{Nco}} \psi_{ed,N} \psi_{c,N} \psi_{cp,N} N_b = \frac{360}{576} \times 1.0 \times 1.0 \times 1.0 \times 34.35 = 21.47~\text{kips}$
+
+$\phi N_{cbg} = 0.70 \times 21.47 = 15.03~\text{kips}$
+
+**Step 5: Pullout strength**
+For cast-in headed bolts: $N_{pn} = \psi_{c,P} 8 A_{brg} f'_c$
+
+$A_{brg} \approx \frac{\pi}{4}(1.5^2 - 0.75^2) = 0.785(2.25 - 0.5625) = 1.325~\text{in}^2$
+
+$N_{pn} = 1.0 \times 8 \times 1.325 \times 4 = 42.4~\text{kips}$
+
+$\phi N_{pn} = 0.70 \times 42.4 = 29.7~\text{kips}$
+
+**Step 6: Governing capacity**
+The lowest capacity governs:
+- Steel: 14.53 kips/bolt
+- Concrete breakout: 15.03 kips total
+- Pullout: 29.7 kips/bolt
+
+**Factored tensile capacity: 14.5 kips per bolt**
+:::
+</TabItem>
+</Tabs>

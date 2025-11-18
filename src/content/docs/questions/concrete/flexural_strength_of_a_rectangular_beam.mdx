@@ -1,0 +1,47 @@
+---
+title: Flexural Strength of a Rectangular Beam
+description: Flexural Strength of a Rectangular Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A simply supported rectangular beam is reinforced with tension steel only. The beam has a width $b = 12~\text{in}$, effective depth $d = 20~\text{in}$, and contains four #8 bars ($A_s = 4 \times 0.79 = 3.16~\text{in}^2$). The concrete compressive strength is $f'_c = 4000~\text{psi}$ and the steel yield strength is $f_y = 60,000~\text{psi}$. Determine the nominal moment strength $M_n$ and design strength $\phi M_n$ assuming a tension-controlled section.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Given:** $b = 12~\text{in}$, $d = 20~\text{in}$, $A_s = 3.16~\text{in}^2$, $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$.
+
+**Step 1.** Compute neutral axis depth $a$:
+
+$$
+a = \frac{A_s f_y}{0.85 f'_c b} = \frac{3.16(60,000)}{0.85(4000)(12)} = 4.65~\text{in}
+$$
+
+
+**Step 2.** Nominal moment strength:
+
+$$
+M_n = A_s f_y \left( d - \frac{a}{2} \right) = 3.16(60,000)(20 - 2.33) = 3.16(60,000)(17.67) = 3.35 \times 10^6~\text{lb-in}
+$$
+
+
+$$
+M_n = \frac{3.35 \times 10^6}{12} = 279~\text{kip-ft}
+$$
+
+
+**Step 3.** Design strength for tension-controlled section ($\phi = 0.9$):
+
+$$
+\phi M_n = 0.9(279) = 251~\text{kip-ft}
+$$
+
+
+**Answer:** $M_n = 279~\text{kip-ft}$, $\phi M_n = 251~\text{kip-ft}$.
+:::
+</TabItem>
+</Tabs>

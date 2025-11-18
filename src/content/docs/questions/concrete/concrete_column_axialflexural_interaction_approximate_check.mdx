@@ -1,0 +1,33 @@
+---
+title: Concrete Column Axial–Flexural Interaction (Approximate Check)
+description: Concrete Column Axial–Flexural Interaction (Approximate Check)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A short column has gross area $A_g = 400~\text{in}^2$, nominal axial strength (concrete only) $0.85f'_cA_g = 0.85(4,000)(400)$ in-lb units (conceptual). Compute the nominal axial capacity $P_n$ in kips ignoring steel contribution.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute $0.85f'_cA_g$:**
+First compute $f'_c A_g = 4,000 \times 400 = 1,600,000~\text{psi·in}^2$ (units consistent produce lb).
+Multiply by 0.85:
+
+$$
+P_n = 0.85(1,600,000) = 1,360,000~\text{lb}
+$$
+
+Convert to kips:
+
+$$
+P_n = \frac{1,360,000}{1000} = 1,360~\text{kips}
+$$
+
+Thus, **nominal axial capacity (concrete only) = 1,360 kips** (steel ignored; in practice include reinforcement and eccentricity).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,31 @@
+---
+title: Transfer of Development Forces at Hooks
+description: Transfer of Development Forces at Hooks
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A #5 hooked bar is used in a slab edge beam. The designer argues that using a 180° hook **precludes** any need to check side cover or spacing. Is this correct per ACI 318?
+
+A) Yes, because a 180° hook provides complete anchorage regardless of confinement.
+
+B) No, the hook development length is affected by cover and spacing.
+
+C) Yes, provided $f'_c \ge 4000~\text{psi}$.
+
+D) Only for bars in compression.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Correct Answer: B**
+
+Per ACI 318-14 Section 25.4.3, hooked bar development length $l_{dh}$ must be increased by 20% if clear cover $< 2.5~d_b$ or bar spacing $< 3~d_b$. Thus, cover and spacing **directly influence** the required development length.
+
+- **Trap:** The use of *precludes* may trick readers into believing the hook’s bend geometry overrides all confinement effects — it does not.
+:::
+</TabItem>
+</Tabs>

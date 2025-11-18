@@ -1,0 +1,50 @@
+---
+title: Composite Column Design
+description: Composite Column Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Columns**]
+A W12x65 steel column ($A_s = 19.1~\text{in}^2$, $F_y = 50~\text{ksi}$) is filled with concrete ($f'_c = 5000~\text{psi}$). The column is 14 ft long, pinned at both ends. Determine the design compressive strength per AISC.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Composite Column Design**
+
+**Step 1: Section properties**
+W12x65: $d = 12.1~\text{in}$, $b_f = 12.0~\text{in}$, $t_w = 0.390~\text{in}$, $t_f = 0.605~\text{in}$
+
+Concrete area: $A_c = (12.1 - 2\times0.605) \times (12.0 - 2\times0.390) - \text{web area}$
+Better: $A_c = \frac{\pi}{4}(12.1 - 2\times0.605)^2 = 0.785 \times (10.89)^2 = 93.1~\text{in}^2$
+
+**Step 2: Modified yield stress**
+$F_{my} = F_y + 0.7f'_c(\frac{A_c}{A_s}) = 50 + 0.7\times5\times(\frac{93.1}{19.1}) = 50 + 3.5\times4.87 = 50 + 17.05 = 67.05~\text{ksi}$
+
+**Step 3: Modified modulus of elasticity**
+$E_m = E + 0.2E_c(\frac{A_c}{A_s}) = 29,000 + 0.2\times3605\times4.87 = 29,000 + 3510 = 32,510~\text{ksi}$
+
+**Step 4: Slenderness ratio**
+$r_m = \max(r_x, r_y) = \max(5.28, 3.02) = 5.28~\text{in}$
+
+$\frac{KL}{r} = \frac{1.0 \times 14\times12}{5.28} = 31.8$
+
+**Step 5: Critical stress**
+$F_e = \frac{\pi^2 E_m}{(KL/r)^2} = \frac{\pi^2 \times 32,510}{(31.8)^2} = \frac{320,800}{1011} = 317.3~\text{ksi}$
+
+$\frac{F_{my}}{F_e} = \frac{67.05}{317.3} = 0.211$
+
+$F_{cr} = (0.658^{0.211}) \times 67.05 = 0.877 \times 67.05 = 58.8~\text{ksi}$
+
+**Step 6: Nominal strength**
+$P_n = F_{cr} A_s = 58.8 \times 19.1 = 1123~\text{kips}$
+
+$\phi P_n = 0.75 \times 1123 = 842~\text{kips}$
+
+**Design compressive strength: 842 kips**
+:::
+</TabItem>
+</Tabs>

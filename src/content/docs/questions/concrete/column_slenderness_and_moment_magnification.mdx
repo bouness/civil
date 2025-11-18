@@ -1,0 +1,51 @@
+---
+title: Column Slenderness and Moment Magnification
+description: Column Slenderness and Moment Magnification
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+An unbraced concrete column has $k\ell_u/r = 28$. Per ACI 318, slenderness effects may be neglected when $k\ell_u/r \leq 22$ for unbraced columns. Does this column obviate moment magnification analysis?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Slenderness Effects Analysis**
+
+**Step 1: Understanding the question**
+'Obviate' means to **eliminate the need for** or **make unnecessary**.
+
+The question asks: Does this column eliminate the need for moment magnification analysis?
+
+**Step 2: Review criteria**
+Per ACI 318, slenderness effects **may be neglected** when:
+$k\ell_u/r \leq 22$ (for unbraced columns)
+
+Given: $k\ell_u/r = 28$
+
+**Step 3: Compare values**
+$28 > 22$
+
+The column **EXCEEDS** the slenderness limit.
+
+**Step 4: Determine if analysis is required**
+Since $28 > 22$, slenderness effects **CANNOT** be neglected.
+
+Therefore, moment magnification analysis **IS REQUIRED**.
+
+**Step 5: Answer the question**
+Does this column obviate (eliminate the need for) moment magnification analysis?
+
+**NO** - The column does NOT obviate moment magnification analysis.
+
+Because the slenderness ratio exceeds the limit, the analysis **MUST** be performed. The column cannot eliminate the need for something that is required.
+
+**Common trap:** Candidates might see the large slenderness value and think it 'obviates' (mistakenly thinking it means 'triggers' or 'requires') the analysis. The opposite is true - nothing can eliminate a required analysis when conditions demand it.
+
+**Answer: NO, moment magnification analysis is REQUIRED and cannot be obviated.**
+:::
+</TabItem>
+</Tabs>

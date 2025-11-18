@@ -1,0 +1,35 @@
+---
+title: Seismic Design Category Determination
+description: Seismic Design Category Determination
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Seismic**]
+An office building (Risk Category II) is located in a region with $S_{DS} = 0.45$ and $S_{D1} = 0.25$. The building is 40 ft tall. What is the Seismic Design Category (SDC) for this structure per ASCE 7-16?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Seismic Design Category Determination**
+
+Using ASCE 7-16 Table 11.6-1 and 11.6-2:
+
+**Based on $S_{DS} = 0.45$:**
+- Risk Category II: $S_{DS} = 0.45$ falls between 0.33 and 0.50
+- Therefore, SDC = **C** (from Table 11.6-1)
+
+**Based on $S_{D1} = 0.25$:**
+- Risk Category II: $S_{D1} = 0.25$ falls between 0.133 and 0.20
+- Therefore, SDC = **C** (from Table 11.6-2)
+
+**The more restrictive SDC governs.** Both values give SDC = C.
+
+**Final Seismic Design Category: SDC C**
+
+Note: The building height (40 ft) does not affect the basic SDC determination but may impact other seismic design requirements.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,37 @@
+---
+title: Composite Beam Flexural Strength (Plastic) — Simple Estimate
+description: Composite Beam Flexural Strength (Plastic) — Simple Estimate
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A simply supported steel wide-flange beam W12×50 supports a concrete slab that acts compositely (full shear connection). The plastic section modulus of the steel shape about strong axis is $Z_x = 200~\text{in}^3$. The slab contributes a steel-equivalent area such that the composite plastic section modulus increases to $Z_{comp} = 260~\text{in}^3$. With $F_y = 50~\text{ksi}$, compute the nominal plastic moment $M_p$ (in kip-ft) assuming full plasticity.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute plastic moment:**
+
+$$
+M_p = F_y Z_{comp}
+$$
+
+Substitute values (units careful):
+
+$$
+M_p = 50,000~\text{psi} \times 260~\text{in}^3 = 13,000,000~\text{in-lb}
+$$
+
+Convert to kip-ft: 1 kip·ft = 12,000 in·lb, so:
+
+$$
+M_p = \frac{13,000,000}{12,000} = 1,083.333...~\text{kip-ft}
+$$
+
+Round: **$M_p \approx 1,083.3~\text{kip-ft}$.**
+:::
+</TabItem>
+</Tabs>

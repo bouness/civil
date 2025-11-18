@@ -1,0 +1,55 @@
+---
+title: Live Load Reduction Applicability
+description: Live Load Reduction Applicability
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structural Analysis**]
+A floor beam in an office building (unrestricted live load = 50 psf) has a tributary area of 380 sq ft. Per ASCE 7, live load reduction is permitted when the tributary area exceeds 400 sq ft. Does the tributary area exceed the threshold that permits live load reduction?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Live Load Reduction Eligibility Analysis**
+
+**Step 1: Understanding 'exceed'**
+'Exceed' means to **go beyond** or be **greater than** a value.
+
+**Step 2: Given information**
+Tributary area: $A_T = 380~\text{sq ft}$
+
+Threshold for live load reduction: $400~\text{sq ft}$
+
+**Step 3: Compare values**
+$380~\text{sq ft} < 400~\text{sq ft}$
+
+The tributary area is **LESS THAN** the threshold.
+
+**Step 4: Interpretation**
+Does 380 exceed 400?
+
+**NO** - The tributary area does NOT exceed the threshold.
+
+$380 < 400$ means the area is insufficient to permit reduction.
+
+**Step 5: Design implication**
+Live load reduction is **NOT PERMITTED**.
+
+Must use full unreduced live load: $L = 50~\text{psf}$
+
+**Common mistake:** Under time pressure, candidates might quickly see '380' and '400' and think they're close enough, or misread 'exceed' as 'approach' or 'meet'.
+
+**Step 6: If area HAD exceeded threshold**
+If $A_T = 420~\text{sq ft} > 400~\text{sq ft}$:
+
+$L = L_o\left(0.25 + \frac{15}{\sqrt{K_{LL}A_T}}\right) \geq 0.50L_o$
+
+But this does not apply here.
+
+**Answer: NO, the tributary area (380 sq ft) does NOT exceed the threshold (400 sq ft). Live load reduction is NOT PERMITTED.**
+:::
+</TabItem>
+</Tabs>

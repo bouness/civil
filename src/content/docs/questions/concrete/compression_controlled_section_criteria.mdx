@@ -1,0 +1,31 @@
+---
+title: Compression-Controlled Section Criteria
+description: Compression-Controlled Section Criteria
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+An engineer claims a section with a steel strain $\varepsilon_t = 0.002$ is *not tension-controlled* and therefore may be classified as *transition-controlled*. Does ACI 318 **preclude** the use of $\phi = 0.9$ for this case?
+
+A) Yes, ACI 318 precludes it because $\varepsilon_t < 0.005$.
+
+B) No, ACI 318 allows $\phi = 0.9$ when $\varepsilon_t > 0.002$.
+
+C) No, $\phi$ can be linearly interpolated between 0.65 and 0.9.
+
+D) Yes, but only for tied columns.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Correct Answer: C**
+
+Per ACI 318-14 Section 21.2.2, when $\varepsilon_t$ is between 0.002 and 0.005, the section is **transition-controlled**, and $\phi$ is **interpolated linearly** between 0.65 and 0.9. Only when $\varepsilon_t \ge 0.005$ is it fully tension-controlled.
+
+- **Trap:** The question’s wording *preclude the use of $\phi=0.9$* might push test-takers to answer A, but interpolation is permitted — thus $\phi=0.9$ is only **partially precluded**.
+:::
+</TabItem>
+</Tabs>

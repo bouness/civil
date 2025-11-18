@@ -1,0 +1,40 @@
+---
+title: Maximum Deflection of Cantilever
+description: Maximum Deflection of Cantilever
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Structures**]
+A **cantilever beam** of length $L = 15~\text{ft}$ supports a concentrated load $P = 5~\text{kips}$ at its free end. The beam is made of A992 steel $E = 29,000~\text{ksi}$ and has a moment of inertia $I = 400~\text{in}^4$.
+Determine:
+The maximum deflection of the beam.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Maximum Deflection**
+For a cantilever beam with a concentrated load at the free end, the maximum deflection is given by:
+
+$$
+\Delta_{\text{max}} = \frac{PL^3}{3EI}
+$$
+
+Convert units to be consistent: $L = 15~\text{ft} \times 12~\text{in/ft} = 180~\text{in}$.
+Substitute the given values:
+
+$$
+\Delta_{\text{max}} = \frac{(5~\text{kips}) \times (180~\text{in})^3}{3 \times (29,000~\text{ksi}) \times (400~\text{in}^4)}
+$$
+
+
+$$
+\Delta_{\text{max}} = \frac{5 \times 5,832,000}{34,800,000}~\text{in} = \frac{29,160,000}{34,800,000}~\text{in} = 0.838~\text{in}
+$$
+
+The maximum deflection is $0.84~\text{inches}$ (downward).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,74 @@
+---
+title: Steel Beam Lateral-Torsional Buckling
+description: Steel Beam Lateral-Torsional Buckling
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A W21×62 beam ($F_y = 50~\text{ksi}$) spans 28 feet with lateral bracing only at supports and midspan. The beam is subjected to uniform bending about the strong axis.
+
+Given: $S_x = 127~\text{in}^3$, $Z_x = 144~\text{in}^3$, $r_y = 1.77~\text{in}$, $J = 1.83~\text{in}^4$, $C_w = 6300~\text{in}^6$
+
+Determine the available flexural strength $\phi_b M_n$ using AISC 360.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Determine unbraced length**
+
+Lateral bracing at midspan: $L_b = 14~\text{ft} = 168~\text{in}$
+
+**Step 2: Calculate limiting lengths**
+
+$$
+L_p = 1.76 r_y \sqrt{\frac{E}{F_y}} = 1.76 \times 1.77 \times \sqrt{\frac{29000}{50}} = 75.0~\text{in}
+$$
+
+
+For doubly symmetric I-shapes, using simplified equation:
+
+$$
+L_r \approx 300~\text{in}
+$$
+
+
+**Step 3: Determine applicable limit state**
+
+Since $L_p = 75~\text{in} < L_b = 168~\text{in} < L_r = 300~\text{in}$, the beam is in the inelastic LTB range.
+
+$$
+M_n = C_b\left[M_p - (M_p - 0.7F_y S_x)\frac{L_b - L_p}{L_r - L_p}\right] \leq M_p
+$$
+
+
+Assuming $C_b = 1.0$ (conservative for uniform moment):
+
+$$
+M_p = F_y Z_x = 50 \times 144 = 7200~\text{kip-in} = 600~\text{kip-ft}
+$$
+
+
+$$
+M_n = 600 - (600 - 0.7 \times 50 \times 127/12)\frac{168 - 75}{300 - 75}
+$$
+
+
+$$
+M_n = 600 - (600 - 370.8)\frac{93}{225} = 600 - 229.2 \times 0.413 = 505~\text{kip-ft}
+$$
+
+
+**Step 4: Apply resistance factor**
+
+$$
+\phi_b M_n = 0.90 \times 505 = 454.5~\text{kip-ft}
+$$
+
+
+**Answer:** Available flexural strength = **455 kip-ft**
+:::
+</TabItem>
+</Tabs>

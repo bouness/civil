@@ -1,0 +1,66 @@
+---
+title: Lateral Earth Pressure on Retaining Wall
+description: Lateral Earth Pressure on Retaining Wall
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A cantilever retaining wall retains 15 feet of granular backfill. The soil has a unit weight $\gamma = 120~\text{pcf}$ and an internal friction angle $\phi = 32°$. The backfill surface is horizontal.
+
+Determine:
+1. The active earth pressure coefficient $K_a$
+2. The total active force per linear foot of wall
+3. The location of the resultant force from the base
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Calculate active earth pressure coefficient**
+
+Using Rankine's theory:
+
+$$
+K_a = \frac{1 - \sin\phi}{1 + \sin\phi} = \frac{1 - \sin(32°)}{1 + \sin(32°)} = \frac{1 - 0.530}{1 + 0.530} = \frac{0.470}{1.530} = 0.307
+$$
+
+
+**Step 2: Calculate total active force**
+
+The active pressure varies linearly with depth:
+
+$$
+p_a = K_a \gamma H = 0.307 \times 120 \times 15 = 552.6~\text{psf}
+$$
+
+
+Total force per linear foot:
+
+$$
+P_a = \frac{1}{2}\gamma H^2 K_a = \frac{1}{2} \times 120 \times 15^2 \times 0.307 = 4144.5~\text{lb/ft}
+$$
+
+
+$$
+P_a = 4.14~\text{kips/ft}
+$$
+
+
+**Step 3: Location of resultant force**
+
+For triangular distribution, resultant acts at:
+
+$$
+\bar{y} = \frac{H}{3} = \frac{15}{3} = 5.0~\text{ft from base}
+$$
+
+
+**Answers:**
+1. $K_a = 0.307$
+2. $P_a = 4.14~\text{kips/ft}$
+3. Location = **5.0 ft from base**
+:::
+</TabItem>
+</Tabs>

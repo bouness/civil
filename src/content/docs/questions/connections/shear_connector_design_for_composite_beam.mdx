@@ -1,0 +1,48 @@
+---
+title: Shear Connector Design for Composite Beam
+description: Shear Connector Design for Composite Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Connections**]
+A W21x62 steel beam is made composite with a 6-inch concrete slab ($f'_c = 4000~\text{psi}$). The total horizontal shear force to be transferred is $V' = 450~\text{kips}$. Determine the number of $\frac{3}{4}$-in diameter x 4-in long headed studs required. (Stud $F_u = 65~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Shear Connector Design**
+
+**Step 1: Calculate nominal strength of one stud**
+Per AISC I3.2d, for studs in solid slab:
+
+$Q_n = 0.5A_{sc}\sqrt{f'_c E_c} \leq R_g R_p A_{sc} F_u$
+
+$A_{sc} = \frac{\pi (0.75)^2}{4} = 0.4418~\text{in}^2$
+
+$E_c = w_c^{1.5} \sqrt{f'_c} = (145)^{1.5} \sqrt{4000} = 1746 \times 63.25 = 110,400~\text{psi} = 110.4~\text{ksi}$
+
+$Q_n = 0.5 \times 0.4418 \times \sqrt{4000 \times 110.4\times1000} = 0.2209 \times \sqrt{441,600,000}$
+
+$Q_n = 0.2209 \times 21,015 = 4,640~\text{lbs} = 4.64~\text{kips}$
+
+**Step 2: Check upper limit**
+$R_g = 1.0$ (for deck perpendicular), $R_p = 0.75$ (for solid slab)
+
+Upper limit = $R_g R_p A_{sc} F_u = 1.0 \times 0.75 \times 0.4418 \times 65 = 21.5~\text{kips}$
+
+$4.64~\text{kips} < 21.5~\text{kips}$ ✓
+
+**Step 3: Calculate number of studs required**
+$\phi Q_n = 0.75 \times 4.64 = 3.48~\text{kips/stud}$
+
+$N = \frac{V'}{\phi Q_n} = \frac{450}{3.48} = 129.3$
+
+Use 130 studs total, or 65 studs per half-span
+
+**Required: 130 studs total (65 each side of midspan)**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,84 @@
+---
+title: Reinforced Concrete T-Beam Design
+description: Reinforced Concrete T-Beam Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A reinforced concrete T-beam has a flange width of 48 inches, flange thickness of 4 inches, web width of 14 inches, and total depth of 24 inches. The beam is subjected to a factored moment of $M_u = 450~\text{kip-ft}$.
+
+Given: $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$, effective depth $d = 21.5~\text{in}$
+
+Determine the required area of tensile reinforcement.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Assume neutral axis is in flange**
+
+Check if moment capacity with NA in flange is sufficient.
+
+Maximum compression force in flange:
+
+$$
+C = 0.85 f'_c b_f t_f = 0.85 \times 4 \times 48 \times 4 = 652.8~\text{kips}
+$$
+
+
+Assuming $a \approx t_f = 4~\text{in}$:
+
+$$
+M_n = C(d - a/2) = 652.8(21.5 - 2)/12 = 1061~\text{kip-ft}
+$$
+
+
+Since $M_n > M_u$, neutral axis is in flange, so analyze as rectangular beam.
+
+**Step 2: Calculate required reinforcement**
+
+$$
+M_u = 450~\text{kip-ft} = 5400~\text{kip-in}
+$$
+
+
+$$
+R_n = \frac{M_u}{\phi b d^2} = \frac{5400}{0.9 \times 48 \times 21.5^2} = 0.273~\text{ksi}
+$$
+
+
+$$
+\rho = \frac{0.85 f'_c}{f_y}\left(1 - \sqrt{1 - \frac{2R_n}{0.85f'_c}}\right)
+$$
+
+
+$$
+\rho = \frac{0.85 \times 4}{60}\left(1 - \sqrt{1 - \frac{2 \times 0.273}{0.85 \times 4}}\right)
+$$
+
+
+$$
+\rho = 0.0567\left(1 - \sqrt{1 - 0.161}\right) = 0.0567(1 - 0.916) = 0.00476
+$$
+
+
+**Step 3: Calculate required steel area**
+
+$$
+A_s = \rho b d = 0.00476 \times 48 \times 21.5 = 4.91~\text{in}^2
+$$
+
+
+**Step 4: Verify assumption**
+
+$$
+a = \frac{A_s f_y}{0.85 f'_c b} = \frac{4.91 \times 60}{0.85 \times 4 \times 48} = 1.80~\text{in} < t_f = 4~\text{in}
+$$
+ ✓
+
+**Answer:** Required reinforcement = **4.91 in²** (Use 5-#9 bars, $A_s = 5.0~\text{in}^2$)
+:::
+</TabItem>
+</Tabs>

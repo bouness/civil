@@ -1,0 +1,51 @@
+---
+title: Masonry Wall Out-of-Plane Load
+description: Masonry Wall Out-of-Plane Load
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Masonry**]
+An 8-in concrete masonry wall is 12 ft high and simply supported at top and bottom. The wall must resist a factored out-of-plane wind pressure of 30 psf. $f'_m = 2000~\text{psi}$, $f_y = 60000~\text{psi}$. Determine the required vertical reinforcement spacing.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Masonry Wall Out-of-Plane Design**
+
+**Step 1: Calculate design moment**
+For simply supported wall with uniform load:
+$M_u = \frac{w_u h^2}{8} = \frac{30 \times (12)^2}{8} = \frac{30 \times 144}{8} = 540~\text{lb-ft/ft} = 6480~\text{lb-in/ft}$
+
+**Step 2: Assume reinforcement and calculate capacity**
+Try #4 bars: $A_s = 0.20~\text{in}^2$
+Assume $d = 3.81~\text{in}$ (half wall thickness)
+
+$a = \frac{A_s f_y}{0.80f'_m b} = \frac{0.20 \times 60,000}{0.80 \times 2000 \times 12} = \frac{12,000}{19,200} = 0.625~\text{in}$
+
+**Step 3: Calculate nominal moment capacity**
+$M_n = A_s f_y (d - \frac{a}{2}) = 0.20 \times 60,000 \times (3.81 - 0.3125)$
+
+$M_n = 12,000 \times 3.4975 = 41,970~\text{lb-in/ft}$
+
+**Step 4: Apply strength reduction factor**
+$\phi = 0.90$ for flexure
+$\phi M_n = 0.90 \times 41,970 = 37,773~\text{lb-in/ft}$
+
+**Step 5: Check adequacy**
+$M_u = 6480~\text{lb-in/ft} < \phi M_n = 37,773~\text{lb-in/ft}$ ✓
+
+**Step 6: Determine maximum spacing**
+Minimum reinforcement: $A_{s,min} = 0.0007 \times b \times t = 0.0007 \times 12 \times 7.625 = 0.064~\text{in}^2/ft$
+
+For #4 bars: $A_s = 0.20~\text{in}^2$ per bar
+Spacing required for minimum: $s = \frac{0.20}{0.064} = 3.125~\text{ft} = 37.5~\text{in}$
+
+Maximum spacing: $\min(48t, 120~\text{in}) = \min(366, 120) = 120~\text{in}$
+
+**Use #4 @ 32 in spacing** (provides $A_s = 0.075~\text{in}^2/ft > 0.064~\text{in}^2/ft$)
+:::
+</TabItem>
+</Tabs>

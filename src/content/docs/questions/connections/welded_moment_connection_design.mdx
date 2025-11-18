@@ -1,0 +1,54 @@
+---
+title: Welded Moment Connection Design
+description: Welded Moment Connection Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Connections**]
+A W21x62 beam ($d = 20.99~\text{in}$, $b_f = 8.24~\text{in}$, $t_f = 0.615~\text{in}$) is connected to a column flange using a welded flange plate connection. The factored moment is $M_u = 350~\text{kip-ft}$. Design the flange plate and welds using E70XX electrodes. ($F_y = 50~\text{ksi}$, $F_u = 65~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Welded Moment Connection Design**
+
+**Step 1: Calculate flange force**
+$M_u = 350 \times 12 = 4200~\text{kip-in}$
+Lever arm ≈ $d - t_f = 20.99 - 0.615 = 20.38~\text{in}$
+
+$T_u = C_u = \frac{M_u}{d - t_f} = \frac{4200}{20.38} = 206~\text{kips}$
+
+**Step 2: Design flange plate**
+Try PL 3/4" x 8"
+$A_g = 0.75 \times 8 = 6.0~\text{in}^2$
+
+Check tension yielding: $\phi T_n = 0.90 \times F_y \times A_g = 0.90 \times 50 \times 6.0 = 270~\text{kips} > 206~\text{kips}$ ✓
+
+Check tension rupture: $A_n = A_g = 6.0~\text{in}^2$ (no holes)
+$\phi T_n = 0.75 \times F_u \times A_n = 0.75 \times 65 \times 6.0 = 293~\text{kips} > 206~\text{kips}$ ✓
+
+**Step 3: Design welds**
+Use fillet welds on both sides of plate
+Total weld length = $2 \times 8 = 16~\text{in}$
+
+Required weld size:
+$\phi R_n = 0.75 \times 0.6 \times F_{EXX} \times A_w$
+$206 = 0.75 \times 0.6 \times 70 \times (0.707 \times a \times 16)$
+$206 = 0.75 \times 0.6 \times 70 \times 11.31a$
+$206 = 356a$
+$a = 0.58~\text{in}$
+
+Use 5/8" fillet welds
+
+**Step 4: Check beam flange**
+Beam flange force capacity:
+$A_f = b_f \times t_f = 8.24 \times 0.615 = 5.07~\text{in}^2$
+$\phi T_n = 0.90 \times 50 \times 5.07 = 228~\text{kips} > 206~\text{kips}$ ✓
+
+**Design: PL 3/4" x 8" with 5/8" fillet welds each side**
+:::
+</TabItem>
+</Tabs>

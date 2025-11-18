@@ -1,0 +1,21 @@
+---
+title: Friction Losses for Post-tensioning — Simple Estimate
+description: Friction Losses for Post-tensioning — Simple Estimate
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Prestressed Concrete**]
+A post-tensioning tendon passes through 3 significant curvature regions and you estimate a 2% loss in each region. Estimate the cumulative percent loss due to those curvature-related friction losses (approximate multiplicative effect).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Assuming multiplicative retention per bend: retained fraction after 3 bends = $(1-0.02)^3$.
+Cumulative loss = $1-(1-0.02)^3 = 1 - 0.98^3 = 1 - 0.94118 = 0.05882 = 5.882\%.$
+**Answer:** ≈ **5.88%** cumulative loss from the three bends (approx).
+:::
+</TabItem>
+</Tabs>

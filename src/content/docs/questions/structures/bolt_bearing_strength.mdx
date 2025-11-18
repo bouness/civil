@@ -1,0 +1,38 @@
+---
+title: Bolt Bearing Strength
+description: Bolt Bearing Strength
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A **3/4-inch-diameter A325 bolt** in a double-shear connection passes through a **1/2-in thick gusset plate** and two **3/8-in thick web plates**. The bolt hole is a standard size. The connected material is A36 steel $F_u = 58~\text{ksi}$.
+Calculate:
+The nominal bearing strength of the bolt (in kips) based on the gusset plate.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Nominal Bearing Strength**
+The nominal bearing strength per bolt is given by:
+
+$$
+R_n = 2.4 \times d \times t \times F_u
+$$
+
+Where:
+$d = 0.75~\text{in}$
+$t = 0.5~\text{in}$ (thickness of the gusset plate, the thinner part in this load direction)
+$F_u = 58~\text{ksi}$
+Substitute the values:
+
+$$
+R_n = 2.4 \times 0.75~\text{in} \times 0.5~\text{in} \times 58~\text{ksi} = 2.4 \times 0.375 \times 58 = 52.2~\text{kips}
+$$
+
+The nominal bearing strength is $52.2~\text{kips}$.
+:::
+</TabItem>
+</Tabs>

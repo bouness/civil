@@ -1,0 +1,52 @@
+---
+title: Bolt Spacing and Edge Distance
+description: Bolt Spacing and Edge Distance
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Steel**]
+A bolted connection uses 7/8-in diameter bolts with 1-in diameter holes. The minimum edge distance provided is 1.5 in from the center of the hole to the edge of the plate. Per AISC, the minimum edge distance for a 7/8-in bolt is 1-1/8 in. Does the provided edge distance satisfy the minimum requirement?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Bolt Edge Distance Check**
+
+**Step 1: Understanding 'satisfy'**
+'Satisfy' means to **meet** or **fulfill** a requirement.
+
+This seems straightforward, but the trap is in the comparison.
+
+**Step 2: Given information**
+Provided edge distance: $L_e = 1.5~\text{in}$
+
+Minimum required edge distance: $L_{e,min} = 1.125~\text{in}$ (or $1\frac{1}{8}~\text{in}$)
+
+**Step 3: Compare values**
+$1.5~\text{in} > 1.125~\text{in}$
+
+Provided distance **EXCEEDS** minimum requirement.
+
+**Step 4: Conclusion**
+Does 1.5 in satisfy the minimum of 1.125 in?
+
+**YES** - The provided edge distance DOES satisfy (meet) the requirement.
+
+$1.5 > 1.125$ ✓ (Adequate)
+
+**Common trap:** The simple language and clear numbers might make test-takers second-guess themselves or look for a hidden complexity. Sometimes NCEES includes straightforward questions among tricky ones to test if candidates overthink.
+
+**Step 5: Additional check - Maximum edge distance**
+Per AISC, maximum edge distance = $12t$ or $6~\text{in}$ (for painted steel)
+
+This would need plate thickness to verify, but the question only asks about minimum.
+
+**Answer: YES, the provided edge distance (1.5 in) satisfies the minimum requirement (1.125 in).**
+
+**Key lesson:** Not every question is tricky, but knowing vocabulary like 'satisfy,' 'exceed,' 'preclude,' and 'obviate' prevents errors on questions that ARE tricky.
+:::
+</TabItem>
+</Tabs>

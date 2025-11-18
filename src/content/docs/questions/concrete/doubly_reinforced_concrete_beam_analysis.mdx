@@ -1,0 +1,67 @@
+---
+title: Doubly Reinforced Concrete Beam Analysis
+description: Doubly Reinforced Concrete Beam Analysis
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A rectangular concrete beam with $b = 14~\text{in}$ and $d = 20~\text{in}$ is reinforced with 3-#8 bars in tension ($A_s = 2.37~\text{in}^2$) and 2-#7 bars in compression ($A_s' = 1.20~\text{in}^2$). $d' = 2.5~\text{in}$, $f'_c = 4000~\text{psi}$, $f_y = 60000~\text{psi}$. Calculate the design moment capacity $\phi M_n$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Doubly Reinforced Beam Capacity**
+
+**Step 1: Assume compression steel yields**
+Assume $f_s' = f_y = 60~\text{ksi}$
+
+Total compressive force: $C = 0.85f'_c b a + A_s'(f_y - 0.85f'_c)$
+Tensile force: $T = A_s f_y = 2.37 \times 60 = 142.2~\text{kips}$
+
+**Step 2: Solve for neutral axis depth**
+$C = T$
+$0.85 \times 4 \times 14 \times a + 1.20 \times (60 - 0.85 \times 4) = 142.2$
+$47.6a + 1.20 \times 56.6 = 142.2$
+$47.6a + 67.9 = 142.2$
+$47.6a = 74.3$
+$a = 1.56~\text{in}$
+
+**Step 3: Check if compression steel yields**
+$c = \frac{a}{\beta_1} = \frac{1.56}{0.85} = 1.84~\text{in}$
+$\epsilon_s' = 0.003 \times \frac{c - d'}{c} = 0.003 \times \frac{1.84 - 2.5}{1.84} = \text{negative}$
+
+**Compression steel does NOT yield.**
+
+**Step 4: Recalculate with actual compression steel stress**
+$C = 0.85f'_c b a + A_s' f_s'$
+$f_s' = E_s \epsilon_s' = 29000 \times 0.003 \times \frac{c - 2.5}{c} = 87 \times \frac{c - 2.5}{c}$
+
+$C = 0.85 \times 4 \times 14 \times (0.85c) + 1.20 \times 87 \times \frac{c - 2.5}{c}$
+$C = 40.46c + 104.4 \times \frac{c - 2.5}{c}$
+
+$T = 142.2~\text{kips}$
+
+**Step 5: Solve for c**
+$40.46c + 104.4 - \frac{261}{c} = 142.2$
+$40.46c - \frac{261}{c} = 37.8$
+Multiply by c: $40.46c^2 - 37.8c - 261 = 0$
+
+Solving quadratic: $c = 3.12~\text{in}$
+
+**Step 6: Calculate moment capacity**
+$a = \beta_1 c = 0.85 \times 3.12 = 2.65~\text{in}$
+$f_s' = 87 \times \frac{3.12 - 2.5}{3.12} = 17.3~\text{ksi}$
+
+$M_n = 0.85f'_c b a (d - \frac{a}{2}) + A_s' f_s' (d - d')$
+$M_n = 0.85 \times 4 \times 14 \times 2.65 \times (20 - 1.325) + 1.20 \times 17.3 \times (20 - 2.5)$
+$M_n = 126.1 \times 18.675 + 20.76 \times 17.5 = 2355 + 363 = 2718~\text{kip-in}$
+
+$\phi M_n = 0.90 \times 2718 = 2446~\text{kip-in} = 204~\text{kip-ft}$
+
+**Design moment capacity: 204 kip-ft**
+:::
+</TabItem>
+</Tabs>

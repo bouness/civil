@@ -1,0 +1,40 @@
+---
+title: Load Combinations for Strength Design
+description: Load Combinations for Strength Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+Which of the following ASCE 7-16 load combinations for Strength Design is **NOT** correct?
+
+A) $1.4D$  
+B) $1.2D + 1.6L + 0.5(L_r \text{ or } S \text{ or } R)$  
+C) $1.2D + 1.6(L_r \text{ or } S \text{ or } R) + (0.5L \text{ or } 0.5W)$  
+D) $0.9D + 1.6W$
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Answer: D**
+
+According to ASCE 7-16 Section 2.3.2, the basic load combinations for Strength Design are:
+
+1. $1.4D$  
+2. $1.2D + 1.6L + 0.5(L_r \text{ or } S \text{ or } R)$  
+3. $1.2D + 1.6(L_r \text{ or } S \text{ or } R) + (1.0L \text{ or } 0.5W)$  
+4. $1.2D + 1.0W + 1.0L + 0.5(L_r \text{ or } S \text{ or } R)$  
+5. $0.9D + 1.0W$
+
+Let's evaluate each option:
+- **A)** $1.4D$ is correct (Combination 1).
+- **B)** $1.2D + 1.6L + 0.5(L_r \text{ or } S \text{ or } R)$ is correct (Combination 2).
+- **C)** $1.2D + 1.6(L_r \text{ or } S \text{ or } R) + (0.5L \text{ or } 0.5W)$ is **incorrect**. The factor on $L$ in this combination should be $1.0$, not $0.5$.
+- **D)** $0.9D + 1.6W$ is **incorrect**. The factor on $W$ in this combination should be $1.0$, not $1.6$.
+
+The question asks for the one that is **NOT** correct. While both C and D are technically wrong, option D represents a more fundamental and common error in applying the wind load factor for the stability check combination. It is the clearest and most incorrect answer based on the provided choices.
+:::
+</TabItem>
+</Tabs>

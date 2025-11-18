@@ -1,0 +1,63 @@
+---
+title: Timber Beam Design
+description: Timber Beam Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Timber**]
+Design a sawn lumber beam for a simple span of 16 ft carrying a dead load of 30 psf and a live load of 60 psf on joists spaced 16 in on center. Use Douglas Fir-Larch, Select Structural grade. Assume normal load duration, dry service conditions, and no lateral bracing. Check bending and shear.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Timber Beam Design per NDS**
+
+**Step 1: Calculate loads**
+Tributary width: $b = 16~\text{in} = 1.33~\text{ft}$
+
+$w_D = 30(1.33) = 40~\text{lbs/ft}$
+$w_L = 60(1.33) = 80~\text{lbs/ft}$
+$w_T = 40 + 80 = 120~\text{lbs/ft}$ (ASD load combination)
+
+$M_{max} = \frac{w_T L^2}{8} = \frac{120(16)^2}{8} = 3840~\text{lb-ft} = 46,080~\text{lb-in}$
+
+$V_{max} = \frac{w_T L}{2} = \frac{120(16)}{2} = 960~\text{lbs}$
+
+**Step 2: Try 2×10 member**
+Douglas Fir-Larch, Select Structural:
+$F_b = 1500~\text{psi}$, $F_v = 180~\text{psi}$, $E = 1,900,000~\text{psi}$
+
+$S = 21.4~\text{in}^3$, $A = 13.88~\text{in}^2$, $b = 1.5~\text{in}$, $d = 9.25~\text{in}$
+
+**Step 3: Calculate adjustment factors**
+$C_D = 1.0$ (normal load duration)
+$C_M = 1.0$ (dry service)
+$C_t = 1.0$ (temperature)
+$C_F = 1.2$ (size factor for Select Structural 2×10)
+$C_r = 1.0$ (repetitive member, 3+ members)
+$C_L = 1.0$ (assume bracing provided for now)
+
+$F'_b = F_b C_D C_M C_t C_F C_L C_r = 1500(1.0)(1.0)(1.0)(1.2)(1.0)(1.0) = 1800~\text{psi}$
+
+**Step 4: Check bending**
+$f_b = \frac{M}{S} = \frac{46,080}{21.4} = 2153~\text{psi} > F'_b = 1800~\text{psi}$ ✗
+
+**Step 5: Try 2×12**
+$S = 31.6~\text{in}^3$, $A = 16.88~\text{in}^2$, $d = 11.25~\text{in}$
+$C_F = 1.1$ (size factor)
+$F'_b = 1500(1.0)(1.0)(1.0)(1.1)(1.0)(1.0) = 1650~\text{psi}$
+
+$f_b = \frac{46,080}{31.6} = 1458~\text{psi} < 1650~\text{psi}$ ✓
+
+**Step 6: Check shear**
+$F'_v = F_v C_D C_M C_t = 180(1.0)(1.0)(1.0) = 180~\text{psi}$
+
+$f_v = \frac{3V}{2bd} = \frac{3(960)}{2(1.5)(11.25)} = \frac{2880}{33.75} = 85~\text{psi} < 180~\text{psi}$ ✓
+
+**Use 2×12 Douglas Fir-Larch, Select Structural**
+:::
+</TabItem>
+</Tabs>

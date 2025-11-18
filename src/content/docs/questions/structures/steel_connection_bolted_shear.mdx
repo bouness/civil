@@ -1,0 +1,64 @@
+---
+title: Steel Connection - Bolted Shear
+description: Steel Connection - Bolted Shear
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A double-shear bolted connection uses six 7/8-inch diameter A325-N bolts (threads not excluded from shear plane) to connect two plates. The connection transfers a factored load of $P_u = 180~\text{kips}$.
+
+Determine if the connection is adequate for shear per AISC 360.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Determine nominal shear strength per bolt**
+
+For A325-N bolts (threads not excluded), $F_{nv} = 48~\text{ksi}$
+
+Bolt area:
+
+$$
+A_b = \frac{\pi d^2}{4} = \frac{\pi (0.875)^2}{4} = 0.601~\text{in}^2
+$$
+
+
+Nominal shear strength per shear plane:
+
+$$
+r_n = F_{nv} A_b = 48 \times 0.601 = 28.8~\text{kips}
+$$
+
+
+**Step 2: Calculate total shear capacity**
+
+For double shear, each bolt has 2 shear planes:
+
+$$
+R_n = n \times m \times r_n = 6 \times 2 \times 28.8 = 345.6~\text{kips}
+$$
+
+
+Where $n = 6$ bolts, $m = 2$ shear planes
+
+**Step 3: Apply resistance factor**
+
+$$
+\phi R_n = 0.75 \times 345.6 = 259.2~\text{kips}
+$$
+
+
+**Step 4: Check adequacy**
+
+$$
+\frac{P_u}{\phi R_n} = \frac{180}{259.2} = 0.69 < 1.0
+$$
+ ✓
+
+**Conclusion:** The connection is **ADEQUATE** with a utilization ratio of 69%.
+:::
+</TabItem>
+</Tabs>

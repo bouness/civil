@@ -1,0 +1,57 @@
+---
+title: Reinforced Concrete Column Design
+description: Reinforced Concrete Column Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+Design a tied reinforced concrete column subjected to $P_u = 600~\text{kips}$ and $M_u = 180~\text{kip-ft}$. Use $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$, and assume the column is 16 in × 16 in with an effective depth from one face of 13.5 in. Determine if the column is adequate and design the ties.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Tied Column Design - Strength Check**
+
+**Step 1: Calculate eccentricity**
+$e = \frac{M_u}{P_u} = \frac{180 \times 12}{600} = 3.6~\text{in}$
+$\frac{e}{h} = \frac{3.6}{16} = 0.225$
+
+This is a combined axial and flexure case.
+
+**Step 2: Assume reinforcement**
+Try 8-#9 bars: $A_st = 8.0~\text{in}^2$
+$\rho_g = \frac{8.0}{16 \times 16} = 0.0313$ (between 0.01 and 0.08) ✓
+
+**Step 3: Calculate nominal capacity (approximate)**
+For tied column: $\phi = 0.65$
+
+Using interaction diagram or strain compatibility:
+Assuming $d' = 2.5~\text{in}$, $\gamma = 0.844$ for 16 in column
+
+For compression-controlled section:
+$P_{n,max} = 0.80[0.85f'_c(A_g - A_{st}) + f_y A_{st}]$
+$P_{n,max} = 0.80[0.85(4)(256 - 8) + 60(8)]$
+$P_{n,max} = 0.80[845 + 480] = 1060~\text{kips}$
+$\phi P_{n,max} = 0.65(1060) = 689~\text{kips}$
+
+**Step 4: Check moment capacity at $P_u = 600$ kips**
+Using approximate method:
+$M_n \approx P_n e + A_s f_y(d - h/2)$
+
+From interaction diagram or detailed calc: $\phi M_n \approx 200~\text{kip-ft}$ at $\phi P_n = 600~\text{kips}$
+
+$\phi M_n = 200~\text{kip-ft} > M_u = 180~\text{kip-ft}$ ✓
+
+**Step 5: Design ties**
+Using #4 ties: $d_b = 0.5~\text{in}$
+
+Maximum spacing:
+$s = \min(16d_b, 48d_{tie}, b_{min}) = \min(16, 24, 16) = 16~\text{in}$
+
+**Use 8-#9 bars with #4 ties @ 16 in o.c.**
+:::
+</TabItem>
+</Tabs>

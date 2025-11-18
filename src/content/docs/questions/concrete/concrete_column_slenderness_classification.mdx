@@ -1,0 +1,76 @@
+---
+title: Concrete Column Slenderness Classification
+description: Concrete Column Slenderness Classification
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A concrete column in a braced frame has $k = 0.85$, unbraced length $\ell_u = 14~\text{ft}$, and radius of gyration $r = 4.5~\text{in}$. Per ACI 318, a column is considered short when $k\ell_u/r \leq 34 - 12(M_1/M_2)$ for braced frames. Given $M_1/M_2 = 0.5$, does the column's slenderness ratio preclude classification as a short column?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Slenderness Classification**
+
+**Step 1: Understanding 'preclude classification as'**
+'Preclude' means to **prevent** or **make impossible**.
+
+The question asks: Does the ratio prevent the column from being classified as short?
+
+This is a NEGATIVE question structure - asking if something prevents a classification.
+
+**Step 2: Calculate slenderness ratio**
+$\frac{k\ell_u}{r} = \frac{0.85(14 \times 12)}{4.5} = \frac{0.85(168)}{4.5} = \frac{142.8}{4.5} = 31.7$
+
+**Step 3: Calculate limit for short columns**
+$\lambda_{limit} = 34 - 12\left(\frac{M_1}{M_2}\right) = 34 - 12(0.5) = 34 - 6 = 28$
+
+**Step 4: Compare values**
+Actual slenderness: $\frac{k\ell_u}{r} = 31.7$
+
+Limit for short column: $\lambda_{limit} = 28$
+
+$31.7 > 28$
+
+The column **EXCEEDS** the short column limit.
+
+**Step 5: Determine classification**
+Since $31.7 > 28$, the column does NOT qualify as a short column.
+
+It must be classified as a **slender column** requiring moment magnification.
+
+**Step 6: Answer the question carefully**
+Does the slenderness ratio (31.7) preclude (prevent) classification as a short column?
+
+**YES** - The slenderness ratio DOES preclude classification as a short column.
+
+Because 31.7 > 28, the column cannot be classified as short. The excessive slenderness prevents (precludes) short column classification.
+
+**Common trap:** The double-negative structure ('preclude classification as short') requires careful reading. Break it down:
+- Can it be classified as short? NO (because 31.7 > 28)
+- Does this prevent short classification? YES
+- Therefore: YES, it precludes short classification
+
+**Step 7: Design implications**
+As a slender column:
+- Must apply moment magnification: $\delta = \frac{C_m}{1 - P_u/0.75P_c} \geq 1.0$
+- Design for $M_c = \delta M_2$
+- Cannot use simplified design approach
+- More conservative design required
+
+**Step 8: Limit check**
+By how much does it exceed?
+$31.7 - 28 = 3.7$ (exceeds by 13%)
+
+If column could be modified:
+- Reduce $k$ (improve end restraint)
+- Reduce $\ell_u$ (add intermediate support)
+- Increase $r$ (larger cross-section)
+
+**Answer: YES, the slenderness ratio (31.7) precludes (prevents) classification as a short column because 31.7 > 28. The column is SLENDER.**
+:::
+</TabItem>
+</Tabs>

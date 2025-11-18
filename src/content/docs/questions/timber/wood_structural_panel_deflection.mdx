@@ -1,0 +1,62 @@
+---
+title: Wood Structural Panel Deflection
+description: Wood Structural Panel Deflection
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Timber**]
+A wood structural panel floor system has a calculated deflection under live load of $\Delta_L = 0.42~\text{in}$ over a span of $L = 16~\text{ft}$. The deflection limit is $L/240$. Does the calculated deflection comport with deflection criteria?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Wood Panel Deflection Check**
+
+**Step 1: Understanding 'comport with'**
+'Comport with' means to **agree with**, **comply with**, or **conform to**.
+
+The question asks: Does the deflection comply with the criteria?
+
+**Step 2: Calculate allowable deflection**
+$\Delta_{allow} = \frac{L}{240} = \frac{16 \times 12}{240} = \frac{192}{240} = 0.80~\text{in}$
+
+**Step 3: Compare actual to allowable**
+Actual deflection: $\Delta_L = 0.42~\text{in}$
+
+Allowable deflection: $\Delta_{allow} = 0.80~\text{in}$
+
+$0.42~\text{in} < 0.80~\text{in}$
+
+**Step 4: Determine compliance**
+The actual deflection is **LESS THAN** the allowable limit.
+
+Deflection is **ACCEPTABLE**.
+
+**Step 5: Answer the question**
+Does 0.42 in comport with (comply with) the 0.80 in limit?
+
+**YES** - The calculated deflection DOES comport with deflection criteria.
+
+The deflection is within acceptable limits and complies with the requirement.
+
+**Step 6: Safety margin**
+Margin: $0.80 - 0.42 = 0.38~\text{in}$
+
+Percentage used: $\frac{0.42}{0.80} = 52.5\%$ of allowable
+
+Significant margin remains (47.5% unused capacity).
+
+**Step 7: Practical considerations**
+For wood floors:
+- $L/240$ is common for residential
+- $L/360$ may be required for tile finishes or sensitive occupancies
+- Calculated deflection is comfortable within limit
+- Unlikely to cause cracking or occupant complaints
+
+**Answer: YES, the deflection (0.42 in) comports with (complies with) the criteria (0.80 in limit). The floor system is acceptable.**
+:::
+</TabItem>
+</Tabs>

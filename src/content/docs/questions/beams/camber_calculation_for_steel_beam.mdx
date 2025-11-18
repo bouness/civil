@@ -1,0 +1,45 @@
+---
+title: Camber Calculation for Steel Beam
+description: Camber Calculation for Steel Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Beams**]
+A W24x76 beam ($I_x = 2100~\text{in}^4$) spans 40 ft and carries a total service dead load of 1.8 kips/ft. Determine the recommended camber for the beam. ($E = 29,000~\text{ksi}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Beam Camber Calculation**
+
+**Step 1: Calculate dead load deflection**
+$w_D = 1.8~\text{kips/ft} = 150~\text{lb/in}$
+
+$\Delta_D = \frac{5wL^4}{384EI} = \frac{5 \times 150 \times (480)^4}{384 \times 29,000,000 \times 2100}$
+
+Calculate numerator: $(480)^4 = 53.0\times10^9$
+$5 \times 150 \times 53.0\times10^9 = 39.75\times10^{12}$
+
+Calculate denominator: $384 \times 29\times10^6 \times 2100 = 384 \times 60.9\times10^9 = 23.4\times10^{12}$
+
+$\Delta_D = \frac{39.75\times10^{12}}{23.4\times10^{12}} = 1.70~\text{in}$
+
+**Step 2: Determine recommended camber**
+Common practice is to camber for a portion of the dead load deflection:
+- For beams: camber = $\frac{3}{4}$ to $\frac{5}{6}$ of dead load deflection
+- For girders: camber = $\frac{1}{2}$ to $\frac{3}{4}$ of dead load deflection
+
+For this beam, use $\frac{3}{4}$ of dead load deflection:
+
+Camber = $0.75 \times 1.70 = 1.28~\text{in}$
+
+**Step 3: Round to practical dimension**
+Use $1\frac{1}{4}$-in camber
+
+**Recommended camber: $1\frac{1}{4}$ inches**
+:::
+</TabItem>
+</Tabs>

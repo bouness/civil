@@ -1,0 +1,38 @@
+---
+title: Combined Axial and Bending Stress
+description: Combined Axial and Bending Stress
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A **W12x65** steel column $A = 19.1~\text{in}^2$, $S_x = 87.9~\text{in}^3$ is subjected to an axial compressive load of $P = 200~\text{kips}$ and a bending moment about the strong axis of $M_x = 150~\text{kip-ft}$.
+Determine:
+The total maximum compressive stress in the column.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Total Maximum Compressive Stress**
+The total stress is the sum of the axial and bending stresses.
+
+$$
+f_{\text{axial}} = \frac{P}{A} = \frac{200~\text{kips}}{19.1~\text{in}^2} = 10.47~\text{ksi}
+$$
+
+
+$$
+f_{\text{bending}} = \frac{M_x}{S_x} = \frac{150~\text{kip-ft} \times 12~\text{in/ft}}{87.9~\text{in}^3} = \frac{1800}{87.9} = 20.48~\text{ksi}
+$$
+
+
+$$
+f_{\text{total}} = f_{\text{axial}} + f_{\text{bending}} = 10.47~\text{ksi} + 20.48~\text{ksi} = 30.95~\text{ksi}
+$$
+
+The total maximum compressive stress is $31.0~\text{ksi}$.
+:::
+</TabItem>
+</Tabs>

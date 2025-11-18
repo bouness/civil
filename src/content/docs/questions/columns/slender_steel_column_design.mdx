@@ -1,0 +1,49 @@
+---
+title: Slender Steel Column Design
+description: Slender Steel Column Design
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Columns**]
+A W12x65 column of A992 steel ($F_y = 50~\text{ksi}$) has an unbraced length of 24 ft about both axes. The column is pinned at both ends. Determine the design compressive strength $\phi P_n$. Section properties: $A_g = 19.1~\text{in}^2$, $r_x = 5.28~\text{in}$, $r_y = 3.02~\text{in}$, $b_f/2t_f = 9.9$, $h/t_w = 18.1$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Slender Column Design**
+
+**Step 1: Check local buckling**
+Flange: $b_f/2t_f = 9.9$
+Limit for noncompact: $0.56\sqrt{E/F_y} = 0.56\sqrt{29000/50} = 13.5$
+$9.9 < 13.5$ ∴ Flange is compact
+
+Web: $h/t_w = 18.1$
+Limit for noncompact: $1.49\sqrt{E/F_y} = 1.49\sqrt{29000/50} = 35.9$
+$18.1 < 35.9$ ∴ Web is compact
+
+**Step 2: Calculate slenderness ratios**
+$KL_x = 1.0 \times 24 \times 12 = 288~\text{in}$
+$KL_y = 1.0 \times 24 \times 12 = 288~\text{in}$
+
+$\frac{KL}{r_x} = \frac{288}{5.28} = 54.5$
+$\frac{KL}{r_y} = \frac{288}{3.02} = 95.4$ (governs)
+
+**Step 3: Calculate flexural buckling stress**
+$F_e = \frac{\pi^2 E}{(KL/r)^2} = \frac{\pi^2 \times 29000}{(95.4)^2} = \frac{286,200}{9100} = 31.4~\text{ksi}$
+
+$F_{cr} = [0.658^{F_y/F_e}]F_y = [0.658^{50/31.4}] \times 50 = [0.658^{1.59}] \times 50 = 0.483 \times 50 = 24.2~\text{ksi}$
+
+**Step 4: Calculate nominal strength**
+$P_n = F_{cr} A_g = 24.2 \times 19.1 = 462~\text{kips}$
+
+**Step 5: Apply resistance factor**
+$\phi = 0.90$
+$\phi P_n = 0.90 \times 462 = 416~\text{kips}$
+
+**Design compressive strength: 416 kips**
+:::
+</TabItem>
+</Tabs>

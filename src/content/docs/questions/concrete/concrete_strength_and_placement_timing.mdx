@@ -1,0 +1,41 @@
+---
+title: Concrete Strength and Placement Timing
+description: Concrete Strength and Placement Timing
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A concrete slab is required to achieve a compressive strength of 3000 psi before formwork removal. Cylinders tested at 7 days show an average strength of 2400 psi. The specified 28-day strength is $f'_c = 4000~\text{psi}$. Does this preclude removing the formwork at 7 days?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Analysis of Formwork Removal Requirements**
+
+**Step 1: Understanding 'preclude'**
+The word 'preclude' means to **prevent** or **make impossible**. It does NOT mean to allow or include.
+
+**Step 2: Analyze the given data**
+- Required strength before removal: 3000 psi
+- Actual strength at 7 days: 2400 psi
+- Specified 28-day strength: 4000 psi
+
+**Step 3: Compare values**
+$2400~\text{psi} < 3000~\text{psi}$
+
+The concrete has NOT achieved the required strength of 3000 psi.
+
+**Step 4: Conclusion**
+**YES**, this **precludes** (prevents/prohibits) removing the formwork at 7 days.
+
+The formwork CANNOT be removed because the concrete strength is insufficient. The word 'preclude' means the low strength **prevents** the action from occurring.
+
+**Note:** The 28-day design strength of 4000 psi is irrelevant to this question. What matters is whether the actual 7-day strength meets the minimum required strength for formwork removal.
+
+**Answer: Yes, formwork removal is precluded (prohibited) at 7 days.**
+:::
+</TabItem>
+</Tabs>

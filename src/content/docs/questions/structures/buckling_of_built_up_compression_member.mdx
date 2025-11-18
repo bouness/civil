@@ -1,0 +1,70 @@
+---
+title: Buckling of Built-Up Compression Member
+description: Buckling of Built-Up Compression Member
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A built-up column consists of two C12x25 channels, 10 ft long, placed back-to-back with a 1/2" gap. The channels are latticed together. The column is pinned at both ends. Material is A36 steel.
+
+Given: $A_g = 14.7~\text{in}^2$ total, $I_x = 443~\text{in}^4$, $I_y = 10.1~\text{in}^4$ per channel. The centroid is 0.674 in from the back of the web.
+
+Determine the governing slenderness ratio for axial compression.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Governing Slenderness Ratio**
+
+**Step 1: Moment of Inertia about each axis**
+- **X-X Axis (Strong Axis):** The channels are separated, so we use the parallel axis theorem.
+  
+$$
+I_x^{total} = 2 \times I_x = 2 \times 443 = 886~\text{in}^4
+$$
+
+
+- **Y-Y Axis (Weak Axis):** The channels are 1/2" apart, plus the distance from the centroid to the back of the web.
+  Distance between centroids, $a = 0.5 + 2\times0.674 = 1.848~\text{in}$
+  
+$$
+I_y^{total} = 2 \times [I_y + A_g \times (a/2)^2] = 2 \times [10.1 + 7.35 \times (0.924)^2]
+$$
+
+  
+$$
+I_y^{total} = 2 \times [10.1 + 7.35 \times 0.854] = 2 \times [10.1 + 6.28] = 2 \times 16.38 = 32.76~\text{in}^4
+$$
+
+
+**Step 2: Radius of Gyration**
+
+$$
+r_x = \sqrt{\frac{I_x^{total}}{A_{total}}} = \sqrt{\frac{886}{14.7}} = 7.76~\text{in}
+$$
+
+
+$$
+r_y = \sqrt{\frac{I_y^{total}}{A_{total}}} = \sqrt{\frac{32.76}{14.7}} = 1.49~\text{in}
+$$
+
+
+**Step 3: Slenderness Ratios**
+
+$$
+\frac{KL}{r_x} = \frac{1.0 \times (10\times12)}{7.76} = \frac{120}{7.76} = 15.5
+$$
+
+
+$$
+\frac{KL}{r_y} = \frac{1.0 \times (10\times12)}{1.49} = \frac{120}{1.49} = 80.5
+$$
+
+
+**The governing slenderness ratio is 80.5 (weak axis).**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,31 @@
+---
+title: Lateral–Torsional Buckling Nominal Moment Capacity
+description: Lateral–Torsional Buckling Nominal Moment Capacity
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A simply supported wide-flange beam with unbraced length $L_b = 16~\text{ft}$ has plastic section modulus $Z_x = 150~\text{in}^3$ and $F_y = 50~\text{ksi}$. Using a simplified check, if the lateral-torsional buckling reduced moment capacity is approximated by $M_{cr} = C_b \pi^2 E I_t / (L_b^2)$ (conceptual), explain factors that increase $M_{cr}$ and whether increasing $C_b$ above 1.0 helps.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Conceptual answer:**
+From the simplified expression:
+
+$$
+M_{cr} \propto \frac{C_b E I_t}{L_b^2}
+$$
+
+So $M_{cr}$ increases with:
+- Larger lateral torsional stiffness $I_t$ (torsional/stiffness properties).  
+- Larger bending modification factor $C_b$ (moment gradient factor; $C_b>1$ for favorable moment gradients).  
+- Larger modulus of elasticity $E$.  
+- Smaller unbraced length $L_b$ (note $L_b^2$ in denominator).
+Therefore **increasing $C_b$ above 1.0 does increase $M_{cr}$** — it accounts for nonuniform moment distribution that raises critical moment compared to uniform moment. In design, use appropriate $C_b$ from code to avoid unconservative assumptions.
+:::
+</TabItem>
+</Tabs>

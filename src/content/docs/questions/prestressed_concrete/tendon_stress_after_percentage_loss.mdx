@@ -1,0 +1,39 @@
+---
+title: Tendon Stress After Percentage Loss
+description: Tendon Stress After Percentage Loss
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+A prestressing tendon was tensioned to an initial stress $f_{pi} = 180~\text{ksi}$ (steel), and total losses (elastic, creep, shrinkage, relaxation, friction where applicable) are estimated as $8\%$ of the initial stress. Compute the tendon stress after losses $f_{p,\text{service}}$ (ksi) and the corresponding force in a single tendon having steel area $A_p = 0.30~\text{in}^2$ (kips).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Loss amount (ksi):
+
+$$
+\Delta f = 0.08 \times 180 = 14.4~\text{ksi}.
+$$
+
+Tendon stress after losses:
+
+$$
+f_{p,service} = 180 - 14.4 = 165.6~\text{ksi}.
+$$
+
+Force in tendon:
+
+$$
+P = f_{p,service} A_p = 165.6(0.30) = 49.68~\text{ksi·in}^2 = 49.68~\text{kips}.
+$$
+
+(1 ksi·in^2 = 1 kip)
+
+**Answer:** $f_{p,service}=165.6\ \text{ksi}$; $P\approx49.68\ \text{kips}$.
+:::
+</TabItem>
+</Tabs>

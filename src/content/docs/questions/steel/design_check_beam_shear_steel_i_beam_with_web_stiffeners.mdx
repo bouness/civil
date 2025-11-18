@@ -1,0 +1,32 @@
+---
+title: Design Check — Beam Shear (Steel I-Beam with Web Stiffeners)
+description: Design Check — Beam Shear (Steel I-Beam with Web Stiffeners)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+A simply supported W14×22 beam carries a factored shear at support $V_u = 45~\text{kips}$. The shear area (web) is $A_v = 4.0~\text{in}^2$ (gross web area used). With $F_y = 50~\text{ksi}$ and resistance factor $\phi = 0.9$ (LRFD-style), check if shear strength $\phi V_n$ exceeds $V_u$ using $V_n = 0.6 F_y A_v$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute nominal shear strength:**
+
+$$
+V_n = 0.6 F_y A_v = 0.6(50,000)(4.0) = 0.6 \times 200,000 = 120,000~\text{lb}
+$$
+
+Convert to kips: $120,000/1000 = 120~\text{kips}$.
+Apply resistance factor $\phi = 0.9$:
+
+$$
+\phi V_n = 0.9(120) = 108~\text{kips}
+$$
+
+Compare with $V_u = 45~\text{kips}$: **$108 > 45$**, so **shear strength is adequate** with large margin.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,27 @@
+---
+title: Detailed Sequential Loss Example — Worked
+description: Detailed Sequential Loss Example — Worked
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+Compute sequential losses for initial tendon stress $f_{pi}=200~\text{ksi}$ if the following sequential losses apply: 3.0% elastic shortening, 2.0% relaxation, 5.0% creep, and 1.0% shrinkage (each applied to the stress remaining after the previous loss). Provide the remaining stress after each step and the final post-loss stress.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Start: $f_{pi} = 200.00~\text{ksi}$.
+
+Apply sequential losses (loss = percent × current stress):
+- 3.0% loss → lost = 6.00 ksi, remaining = 194.00 ksi.  
+- 2.0% loss → lost = 3.88 ksi, remaining = 190.12 ksi.  
+- 5.0% loss → lost = 9.51 ksi, remaining = 180.61 ksi.  
+- 1.0% loss → lost = 1.81 ksi, remaining = **178.80 ksi**.
+
+**Answer:** Remaining stresses after each step ≈ 194.00, 190.12, 180.61, and final **178.80 ksi**.
+:::
+</TabItem>
+</Tabs>

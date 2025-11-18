@@ -1,0 +1,28 @@
+---
+title: Seismic Load Combination Check
+description: Seismic Load Combination Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Seismic**]
+Using ASCE 7 load combinations, identify which load combination includes the **lowest factor for dead load** when seismic load $E$ is considered.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Per ASCE 7-16, seismic load combinations include:
+- $1.2D + E + L + 0.2S$
+- $0.9D + E$
+The **lowest dead load factor** occurs in:
+
+$$
+0.9D + E
+$$
+
+This combination checks **uplift or overturning** cases.
+:::
+</TabItem>
+</Tabs>

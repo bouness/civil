@@ -1,0 +1,40 @@
+---
+title: Flexural Strength of a Reinforced Concrete Beam
+description: Flexural Strength of a Reinforced Concrete Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A rectangular concrete beam $b = 12~\text{in}$ and $d = 20~\text{in}$ is reinforced with 3 #8 bars ($A_s = 2.37~\text{in}^2$). Concrete strength $f'_c = 4000~\text{psi}$, steel yield strength $f_y = 60,000~\text{psi}$. Determine the nominal moment capacity $M_n$ and the design strength $\phi M_n$ ($\phi = 0.9$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Assume tension-controlled section. Compute steel strain to confirm:
+
+$$
+a = \frac{A_s f_y}{0.85 f'_c b} = \frac{2.37(60,000)}{0.85(4000)(12)} = 3.48~\text{in}
+$$
+
+
+$$
+c = \frac{a}{\beta_1} = \frac{3.48}{0.85} = 4.09~\text{in}
+$$
+
+
+$$
+M_n = A_s f_y (d - a/2) = 2.37(60,000)(20 - 1.74) = 2.37(60,000)(18.26) = 2.60\times10^6~\text{in·lb} = 217~\text{kip·ft}
+$$
+
+
+$$
+\phi M_n = 0.9(217) = 195~\text{kip·ft}
+$$
+
+Thus, $\phi M_n = 195~\text{kip·ft}$.
+:::
+</TabItem>
+</Tabs>

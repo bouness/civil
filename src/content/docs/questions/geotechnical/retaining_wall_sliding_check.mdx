@@ -1,0 +1,31 @@
+---
+title: Retaining Wall Sliding Check
+description: Retaining Wall Sliding Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Geotechnical**]
+A vertical cantilever retaining wall resists an active lateral earth thrust of $P_a = 18~\text{kips/ft}$ (per unit length). The base friction coefficient between concrete and soil is $\mu = 0.4$. The vertical overburden (including self-weight and surcharge) produces a normal force $N = 50~\text{kips/ft}$ at the base. Determine the factor of safety against sliding: $FS = \frac{\mu N}{P_a}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute resisting frictional force:**
+
+$$
+R = \mu N = 0.4(50) = 20~\text{kips/ft}
+$$
+
+**Factor of safety:**
+
+$$
+FS = \frac{R}{P_a} = \frac{20}{18} = 1.111...
+$$
+
+Round reasonably: **$FS \approx 1.11$ (acceptable usually if >1.5; here it is low).**
+:::
+</TabItem>
+</Tabs>

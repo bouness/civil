@@ -1,0 +1,52 @@
+---
+title: Cracking Moment $M_{cr}$ for Rectangular Section
+description: Cracking Moment $M_{cr}$ for Rectangular Section
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+Estimate the cracking moment $M_{cr}$ for a rectangular 12 in × 6 in concrete strip (b × h), with $f'_c = 4000~\text{psi}$. Use modulus of rupture approximation 
+$$
+f_r = 7.5\sqrt{f'_c}
+$$
+ (psi) and section modulus about extreme fiber 
+$$
+S=\dfrac{b h^2}{6}
+$$
+. Give $M_{cr}$ in kip-ft.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Compute $\sqrt{f'_c}=63.2456$.  
+
+$$
+f_r=7.5(63.2456)=474.34~\text{psi}.
+$$
+  
+Section modulus:
+
+$$
+S=\frac{12(6^2)}{6}=\frac{12\times36}{6}=72~\text{in}^3.
+$$
+  
+Cracking moment (in-lb):
+
+$$
+M_{cr}=f_r S = 474.34\times72 = 34,157~\text{in-lb}.
+$$
+  
+Convert to kip-ft: divide by 12,000:  
+
+$$
+M_{cr}=\frac{34,157}{12,000}=2.846~\text{kip-ft}.
+$$
+  
+
+**Answer:** $M_{cr}\approx2.85~\text{kip-ft}$. 
+:::
+</TabItem>
+</Tabs>

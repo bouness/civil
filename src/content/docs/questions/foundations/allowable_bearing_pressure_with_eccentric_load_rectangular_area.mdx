@@ -1,0 +1,23 @@
+---
+title: Allowable Bearing Pressure with Eccentric Load (Rectangular Area)
+description: Allowable Bearing Pressure with Eccentric Load (Rectangular Area)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Foundations**]
+A rectangular footing 6 ft × 8 ft carries factored vertical load $P_u = 120~\text{kips}$ applied with eccentricity $e_x = 1.0~\text{ft}$ along the 6 ft dimension (so about centroid in the 8 ft). Determine whether the eccentricity results in any tensile edge (use $e_x < B/6$ criterion where $B$ is in direction of eccentricity).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Check allowable eccentricity for full compression:**
+For a rectangular footing, if $e_x < B/6$ (where $B$ is footing width in direction of eccentricity), the stress distribution remains compressive across the entire base.
+Here $B = 6~\text{ft}$, so $B/6 = 1.0~\text{ft}$. Given $e_x = 1.0~\text{ft}$, this equals $B/6$.
+When $e_x = B/6$, the resultant lies on the edge of the middle third — stress at one edge becomes zero but not tensile.
+**Conclusion:** No tensile edge (just reaches zero) — acceptable for full compression but verify edge stresses. 
+:::
+</TabItem>
+</Tabs>

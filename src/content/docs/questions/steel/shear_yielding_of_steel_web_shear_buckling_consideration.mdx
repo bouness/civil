@@ -1,0 +1,37 @@
+---
+title: Shear Yielding of Steel Web (Shear Buckling Consideration)
+description: Shear Yielding of Steel Web (Shear Buckling Consideration)
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A steel I-beam has web depth $h_w = 12~\text{in}$ and web thickness $t_w = 0.5~\text{in}$. For design we compare shear yielding $V_y = 0.6 F_y A_w$ where $A_w = h_w t_w$ (approx) with $F_y = 50~\text{ksi}$. Compute $V_y$ (kips).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute web area:**
+
+$$
+A_w = h_w t_w = 12(0.5) = 6.0~\text{in}^2
+$$
+
+**Shear yielding capacity:**
+
+$$
+V_y = 0.6 F_y A_w = 0.6(50,000)(6.0) = 0.6 \times 300,000 = 180,000~\text{lb}
+$$
+
+Convert to kips:
+
+$$
+V_y = 180,000/1000 = 180~\text{kips}
+$$
+
+Thus, **$V_y = 180~\text{kips}$** (note: check shear buckling limits separately).
+:::
+</TabItem>
+</Tabs>

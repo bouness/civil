@@ -1,0 +1,35 @@
+---
+title: Camber Due to Prestressing — Simple Estimate
+description: Camber Due to Prestressing — Simple Estimate
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+A simply supported pretensioned beam span $L=30~\text{ft}$ has an upward camber due to eccentric prestressing that produces an initial midspan upward deflection (camber) approximated by assuming a uniform upward moment $M$ from eccentric prestress. For a rough estimate, use $\delta_{mid} \approx 5 M L^2/(384 E_c I)$ (same form as uniform load but scaled). Given equivalent constant prestress-induced moment $M= 40~\text{kip·ft}$, $E_c = 3.6\times10^6~\text{psi}$, and $I = 5000~\text{in}^4$, compute camber in inches. (Be careful with units.)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Convert units: $M=40~\text{kip·ft}=40\times12,000=480,000~\text{in·lb}$.  
+$L=30~\text{ft}=360~\text{in}$.  
+Apply formula:
+
+$$
+\delta_{mid}=\frac{5 M L^2}{384 E_c I} = \frac{5(480,000)(360)^2}{384(3.6\times10^6)(5000)}.
+$$
+  
+Compute numerator: $360^2=129,600$.  Then $5\times480,000\times129,600 = 5 \times 480,000 \times 129,600 = 5 \times 62,208,000,000 = 311,040,000,000.$  
+Denominator: $384\times3.6\times10^6\times5000 = 384\times3.6\times10^6\times5,000 = 384\times18\times10^9 = 6,912\times10^9 = 6.912\times10^{12}.$
+Now divide:
+
+$$
+\delta_{mid}=\frac{3.1104\times10^{11}}{6.912\times10^{12}} = 0.0450~\text{in}.
+$$
+
+**Answer:** Camber $\approx 0.045~\text{in}$ (about 0.05 in upward).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,49 @@
+---
+title: Nominal Shear Strength of Reinforced Concrete Beam
+description: Nominal Shear Strength of Reinforced Concrete Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A simply supported concrete beam (normal weight) has $b = 12~\text{in}$, $d = 20~\text{in}$, $f'_c = 4000~\text{psi}$, and $f_y = 60,000~\text{psi}$. The beam contains #3 stirrups spaced at $s = 8~\text{in}$ with two legs.
+Determine the **nominal shear strength $V_n$** using ACI 318 provisions.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1. Compute concrete shear strength:**
+
+$$
+V_c = 2\sqrt{f'_c} b d / 1000
+$$
+
+
+$$
+V_c = 2(\sqrt{4000})(12)(20)/1000 = 2(63.25)(240)/1000 = 30.36~\text{kips}
+$$
+
+
+**Step 2. Compute stirrup shear strength:**
+
+$$
+A_v = 2(0.11) = 0.22~\text{in}^2
+$$
+
+
+$$
+V_s = \frac{A_v f_y d}{s}\frac{1}{1000} = \frac{0.22(60,000)(20)}{8 \times 1000} = 33.0~\text{kips}
+$$
+
+
+**Step 3. Total nominal shear strength:**
+
+$$
+V_n = V_c + V_s = 30.4 + 33.0 = 63.4~\text{kips}
+$$
+
+:::
+</TabItem>
+</Tabs>

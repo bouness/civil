@@ -1,0 +1,68 @@
+---
+title: Footing Size for Service Loads
+description: Footing Size for Service Loads
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A square spread footing must support a total service load of 250 kips (dead + live). The allowable soil bearing pressure is 4000 psf. The footing is 2 ft thick and weighs 150 pcf. Determine the required footing dimensions.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Footing Size Determination**
+
+**Step 1: Calculate total load including footing weight**
+Let $B$ = footing width (ft)
+Footing area = $B^2~\text{ft}^2$
+Footing volume = $B^2 \times 2~\text{ft}^3$
+Footing weight = $B^2 \times 2 \times 150 = 300B^2~\text{lbs}$
+
+Total load on soil = $250,000 + 300B^2~\text{lbs}$
+
+**Step 2: Set up bearing pressure equation**
+Bearing pressure = $\frac{\text{Total Load}}{\text{Area}} \leq 4000~\text{psf}$
+
+
+$$
+\frac{250,000 + 300B^2}{B^2} \leq 4000
+$$
+
+
+**Step 3: Solve for B**
+
+$$
+250,000 + 300B^2 \leq 4000B^2
+$$
+
+
+$$
+250,000 \leq 3700B^2
+$$
+
+
+$$
+B^2 \geq \frac{250,000}{3700} = 67.57
+$$
+
+
+$$
+B \geq \sqrt{67.57} = 8.22~\text{ft}
+$$
+
+
+**Step 4: Select practical dimension**
+Use $B = 8.25~\text{ft}$ (8 ft 3 in)
+
+**Check:**
+Footing weight = $300 \times (8.25)^2 = 300 \times 68.06 = 20,418~\text{lbs}$
+Total load = $250,000 + 20,418 = 270,418~\text{lbs}$
+Bearing pressure = $\frac{270,418}{68.06} = 3973~\text{psf} < 4000~\text{psf}$ ✓
+
+**Required footing size: 8 ft 3 in × 8 ft 3 in**
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,56 @@
+---
+title: Soil Bearing Capacity and Footing Size
+description: Soil Bearing Capacity and Footing Size
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Geotechnical**]
+A square footing must support a column load of 280 kips (service load). The allowable soil bearing pressure is 4000 psf. A 9 ft × 9 ft footing is proposed. Does the footing size suffice for the given load and soil conditions?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Footing Bearing Pressure Analysis**
+
+**Step 1: Understanding 'suffice'**
+'Suffice' means to be **enough** or **adequate** for a purpose.
+
+The question asks: Is the footing size adequate?
+
+**Step 2: Calculate required footing area**
+$A_{req} = \frac{P}{q_{allow}} = \frac{280,000~\text{lbs}}{4000~\text{psf}} = 70~\text{sq ft}$
+
+**Step 3: Calculate provided footing area**
+$A_{prov} = 9 \times 9 = 81~\text{sq ft}$
+
+**Step 4: Compare areas**
+$81~\text{sq ft} > 70~\text{sq ft}$
+
+Provided area **EXCEEDS** required area.
+
+**Step 5: Calculate actual bearing pressure**
+$q_{actual} = \frac{P}{A_{prov}} = \frac{280,000}{81} = 3457~\text{psf}$
+
+$3457~\text{psf} < 4000~\text{psf}$ ✓
+
+**Step 6: Answer the question**
+Does the 9 ft × 9 ft footing suffice (is it adequate)?
+
+**YES** - The footing size DOES suffice for the given conditions.
+
+The footing provides 81 sq ft when only 70 sq ft is required, and the actual bearing pressure (3457 psf) is less than allowable (4000 psf).
+
+**Common trap:** The straightforward word 'suffice' is less tricky, but NCEES tests whether candidates actually perform the calculation rather than assuming the given size is inadequate because the question is asked.
+
+**Step 7: Design margin**
+Area margin: $\frac{81 - 70}{70} = 15.7\%$ excess capacity
+
+Pressure margin: $\frac{4000 - 3457}{4000} = 13.6\%$ unused capacity
+
+**Answer: YES, the 9 ft × 9 ft footing suffices (is adequate) because 81 sq ft > 70 sq ft required and 3457 psf < 4000 psf allowable.**
+:::
+</TabItem>
+</Tabs>

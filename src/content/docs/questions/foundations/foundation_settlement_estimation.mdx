@@ -1,0 +1,59 @@
+---
+title: Foundation Settlement Estimation
+description: Foundation Settlement Estimation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Foundations**]
+A 6 ft square footing carries a net pressure of 3000 psf. The soil profile consists of 10 ft of sand ($E_s = 20~\text{tsf}$) over 20 ft of clay ($E_s = 50~\text{tsf}$, $C_c = 0.25$, $e_0 = 0.8$). Estimate the total settlement using elastic theory for sand and consolidation for clay.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Foundation Settlement Estimation**
+
+**Step 1: Immediate settlement in sand**
+Using elastic solution for flexible square footing:
+
+$S_i = qB\frac{1-\mu^2}{E_s}I_s$
+
+Assume $\mu = 0.3$ for sand
+$I_s = 0.82$ for center of square footing
+
+$S_i = 1.5\times6\times\frac{1-0.3^2}{20}\times0.82 = 9\times\frac{0.91}{20}\times0.82 = 9\times0.0455\times0.82 = 0.336~\text{ft} = 4.03~\text{in}$
+
+**Step 2: Consolidation settlement in clay**
+Divide clay layer into 2 sublayers of 10 ft each
+
+**Sublayer 1 (10-20 ft depth):**
+Average stress increase: $\Delta \sigma = q\times I_\sigma$
+At depth 15 ft: $m = n = \frac{B/2}{z} = \frac{3}{15} = 0.2$
+$I_\sigma \approx 0.02$ (from Boussinesq chart)
+
+$\Delta \sigma_1 = 1.5\times0.02 = 0.03~\text{tsf}$
+
+Initial effective stress: $\sigma'_0 = 10\times0.12 + 5\times0.06 = 1.2 + 0.3 = 1.5~\text{tsf}$
+
+$S_c = \frac{C_c H}{1+e_0}\log(\frac{\sigma'_0 + \Delta \sigma}{\sigma'_0}) = \frac{0.25\times10}{1.8}\log(\frac{1.5 + 0.03}{1.5})$
+
+$S_c = 1.389\times\log(1.02) = 1.389\times0.0086 = 0.012~\text{ft} = 0.14~\text{in}$
+
+**Sublayer 2 (20-30 ft depth):**
+At depth 25 ft: $m = n = 3/25 = 0.12$, $I_\sigma \approx 0.005$
+
+$\Delta \sigma_2 = 1.5\times0.005 = 0.0075~\text{tsf}$
+
+$\sigma'_0 = 1.5 + 10\times0.06 = 2.1~\text{tsf}$
+
+$S_c = 1.389\times\log(\frac{2.1075}{2.1}) = 1.389\times0.0015 = 0.0021~\text{ft} = 0.025~\text{in}$
+
+**Step 3: Total settlement**
+$S_{total} = S_i + S_{c1} + S_{c2} = 4.03 + 0.14 + 0.025 = 4.20~\text{in}$
+
+**Estimated total settlement: 4.2 inches**
+:::
+</TabItem>
+</Tabs>

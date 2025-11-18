@@ -1,0 +1,31 @@
+---
+title: ASCE 7 Wind Pressure on Low-Rise Building
+description: ASCE 7 Wind Pressure on Low-Rise Building
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Wind**]
+Use the simplified equation to estimate the **basic wind pressure** at the windward face for a building exposed to a 3-second gust wind speed $V = 110~\text{mph}$ (ASCE 7-like). Use the basic velocity pressure formula $q = 0.00256 V^2$ (psf). Determine $q$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute velocity pressure:**
+
+$$
+q = 0.00256 V^2 = 0.00256(110^2)
+$$
+
+Calculate $110^2 = 12,100$. Then:
+
+$$
+q = 0.00256 \times 12,100 = 30.976~\text{psf}
+$$
+
+Thus, **$q = 30.98~\text{psf}$ (approximately)**.
+:::
+</TabItem>
+</Tabs>

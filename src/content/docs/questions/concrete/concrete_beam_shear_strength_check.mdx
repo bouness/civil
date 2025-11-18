@@ -1,0 +1,37 @@
+---
+title: Concrete Beam Shear Strength Check
+description: Concrete Beam Shear Strength Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A simply supported concrete beam (normal weight) with $b = 12~\text{in}$ and $d = 18~\text{in}$ carries a factored shear $V_u = 25~\text{kips}$. Concrete strength $f'_c = 4000~\text{psi}$. No shear reinforcement is provided. Check if concrete shear strength $\phi V_c$ is adequate ($\phi = 0.75$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Per ACI 318:
+
+$$
+V_c = 2\sqrt{f'_c} b d / 1000 = 2\sqrt{4000}(12)(18)/1000 = 2(63.25)(216)/1000 = 27.3~\text{kips}
+$$
+
+Design strength:
+
+$$
+\phi V_c = 0.75(27.3) = 20.5~\text{kips}
+$$
+
+Compare:
+
+$$
+V_u = 25~\text{kips} > 20.5~\text{kips}
+$$
+
+→ Beam **requires shear reinforcement**.
+:::
+</TabItem>
+</Tabs>

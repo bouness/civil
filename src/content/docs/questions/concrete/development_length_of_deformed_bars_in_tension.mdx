@@ -1,0 +1,31 @@
+---
+title: Development Length of Deformed Bars in Tension
+description: Development Length of Deformed Bars in Tension
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A #6 deformed bar ($d_b = 0.75~\text{in}$) is placed in normal-weight concrete $f'_c = 5000~\text{psi}$, with $f_y = 60,000~\text{psi}$. The bar is not epoxy-coated, not a top bar, and is well confined. Compute the required development length $l_d$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** ACI 318 formula for tension development length:
+
+$$
+l_d = \frac{3}{40} \cdot \frac{f_y d_b}{\sqrt{f'_c}}
+$$
+
+
+$$
+l_d = \frac{3}{40} \cdot \frac{60,000(0.75)}{\sqrt{5000}} = 0.075 \cdot \frac{45,000}{70.7} = 47.7~\text{in}
+$$
+
+
+**Answer:** $l_d = 47.7~\text{inches}$
+:::
+</TabItem>
+</Tabs>

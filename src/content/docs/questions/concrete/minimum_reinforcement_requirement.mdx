@@ -1,0 +1,28 @@
+---
+title: Minimum Reinforcement Requirement
+description: Minimum Reinforcement Requirement
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Concrete**]
+For a 12-inch wide concrete beam with effective depth $d = 20~\text{in}$, determine the minimum area of tension steel $A_{s,min}$ per ACI 318 when $f'_c = 4000~\text{psi}$ and $f_y = 60,000~\text{psi}$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+ACI 318 gives:
+
+$$
+A_{s,min} = \max\left( \frac{3\sqrt{f'_c}}{f_y} b d, \frac{200 b d}{f_y} \right)
+$$
+
+Compute both terms:
+1️⃣ $\frac{3\sqrt{4000}}{60000}(12)(20) = 0.252~\text{in}^2$
+2️⃣ $\frac{200(12)(20)}{60000} = 0.8~\text{in}^2$
+Take maximum → $A_{s,min} = 0.8~\text{in}^2$.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,39 @@
+---
+title: Concrete Tension Lap Splice Length
+description: Concrete Tension Lap Splice Length
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+Two #5 bars are lap spliced in tension in $f'_c = 4000~\text{psi}$ concrete. Using ACI-type empirical formula $l_s = 0.08 f_y d_b / \sqrt{f'_c}$ with $f_y = 60~\text{ksi}$ and $d_b = 0.625~\text{in}$ (#5), compute $l_s$ (in inches).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute $\sqrt{f'_c}$:**
+
+$$
+\sqrt{4000} = 63.2455532...
+$$
+
+Now compute numerator:
+
+$$
+0.08 f_y d_b = 0.08(60,000)(0.625)
+$$
+
+Calculate step-by-step:
+$60,000 \times 0.625 = 37,500$. Then $0.08 \times 37,500 = 3,000$.
+Divide by $\sqrt{f'_c}$:
+
+$$
+l_s = \frac{3000}{63.2455532} = 47.4341649...~\text{in}
+$$
+
+Round: **$l_s \approx 47.4~\text{in}$** (approx 4.0 ft).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,53 @@
+---
+title: Development Length and Bar Cutoff
+description: Development Length and Bar Cutoff
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A continuous beam has #8 bottom bars that must be developed at a point of maximum positive moment. The required development length is $\ell_d = 48~\text{in}$. The point of maximum moment is located 8 ft from the face of support, and bars extend 3 ft beyond this point before termination. Does the available length obviate the need for hooks at the bar termination?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Development Length Analysis**
+
+**Step 1: Understanding 'obviate'**
+The word 'obviate' means to **remove the need for** or **make unnecessary**. This is sophisticated vocabulary that can be confusing under exam pressure.
+
+**Step 2: Calculate available development length**
+Bars must develop at point of maximum moment.
+
+Distance available beyond max moment point: $3~\text{ft} = 36~\text{in}$
+
+Required development length: $\ell_d = 48~\text{in}$
+
+**Step 3: Compare available vs. required**
+$36~\text{in} < 48~\text{in}$
+
+Available length is **INSUFFICIENT**.
+
+**Step 4: Interpretation**
+Does the available length (36 in) obviate (eliminate the need for) hooks?
+
+**NO** - The available length does NOT obviate the need for hooks.
+
+Since only 36 inches are available but 48 inches are required, the bars are **NOT** fully developed. Therefore, hooks or other measures **ARE REQUIRED**.
+
+**Common error:** Thinking 'obviate' means 'require' or 'create a need for' when it means the opposite.
+
+**Step 5: Additional consideration**
+Per ACI 318, bars terminated in a tension zone require either:
+- Full development length, OR  
+- Standard hooks, OR
+- Mechanical anchorage
+
+Since full development cannot be achieved, hooks are needed.
+
+**Answer: NO, the available length does NOT obviate (eliminate) the need for hooks. Hooks ARE REQUIRED.**
+:::
+</TabItem>
+</Tabs>

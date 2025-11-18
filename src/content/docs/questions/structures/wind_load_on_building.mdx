@@ -1,0 +1,73 @@
+---
+title: Wind Load on Building
+description: Wind Load on Building
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A rectangular building is 120 ft × 80 ft in plan and 40 ft tall. The building is located in flat terrain with basic wind speed $V = 115~\text{mph}$ (Risk Category II). The building is classified as enclosed with Exposure Category C.
+
+Using ASCE 7 simplified procedure, determine the design wind pressure on the windward wall at roof level.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Check if simplified procedure applies**
+
+Requirements:
+- Building height ≤ 60 ft ✓ (40 ft)
+- Regular shape ✓
+- No unusual response ✓
+
+Simplified procedure is applicable.
+
+**Step 2: Determine velocity pressure exposure coefficient**
+
+At height $z = 40~\text{ft}$ for Exposure C (ASCE 7 Table):
+
+$$
+K_z = 0.98
+$$
+
+
+**Step 3: Calculate velocity pressure**
+
+$$
+q_z = 0.00256 K_z K_{zt} K_d V^2
+$$
+
+
+Where:
+- $K_{zt} = 1.0$ (flat terrain, no topographic effects)
+- $K_d = 0.85$ (standard buildings)
+
+$$
+q_z = 0.00256 \times 0.98 \times 1.0 \times 0.85 \times 115^2 = 29.4~\text{psf}
+$$
+
+
+**Step 4: Determine external pressure coefficient**
+
+For windward wall: $C_p = 0.8$ (ASCE 7)
+
+**Step 5: Calculate design wind pressure**
+
+$$
+p = q \times G \times C_p
+$$
+
+
+Where $G = 0.85$ (gust effect factor):
+
+$$
+p = 29.4 \times 0.85 \times 0.8 = 20.0~\text{psf}
+$$
+
+
+**Answer:** Design wind pressure on windward wall at roof level = **20.0 psf**
+:::
+</TabItem>
+</Tabs>

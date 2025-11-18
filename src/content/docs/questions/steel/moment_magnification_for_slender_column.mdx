@@ -1,0 +1,38 @@
+---
+title: Moment Magnification for Slender Column
+description: Moment Magnification for Slender Column
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A steel column (A992) with $L = 20~\text{ft}$, $r = 3~\text{in}$, and pinned-pinned end conditions supports $P_u = 120~\text{kips}$. Determine whether **second-order (P–Δ) effects** must be considered per AISC 360.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compute slenderness ratio:**
+
+$$
+\frac{KL}{r} = \frac{1.0(240)}{3} = 80
+$$
+
+**Critical stress:**
+For $KL/r = 80$, inelastic buckling may occur; check moment magnification:
+
+$$
+\frac{P_u}{P_{cr}} > 0.05?
+$$
+
+
+$$
+P_{cr} = \frac{\pi^2 E A}{(KL)^2}
+$$
+ (conceptually)
+For typical columns, if $P_u/P_{cr} > 0.05$, **second-order effects must be considered.**
+Thus, this column is slender and **moment magnification is required** per AISC 360-16, Eq. C2-2.
+:::
+</TabItem>
+</Tabs>

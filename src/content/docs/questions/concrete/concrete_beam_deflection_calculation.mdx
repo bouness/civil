@@ -1,0 +1,62 @@
+---
+title: Concrete Beam Deflection Calculation
+description: Concrete Beam Deflection Calculation
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A rectangular concrete beam $b = 14~\text{in}$, $h = 24~\text{in}$, $d = 21.5~\text{in}$ is reinforced with 3-#8 bars ($A_s = 2.37~\text{in}^2$). The beam spans 28 ft and carries service live load $w_L = 1.2~\text{kips/ft}$ and dead load $w_D = 1.8~\text{kips/ft}$. $f'_c = 4000~\text{psi}$, $n = 8$. Calculate the immediate live load deflection using the effective moment of inertia method.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Concrete Beam Deflection Calculation**
+
+**Step 1: Calculate cracking moment**
+$f_r = 7.5\lambda\sqrt{f'_c} = 7.5\times1.0\times\sqrt{4000} = 474~\text{psi}$
+
+$I_g = \frac{bh^3}{12} = \frac{14\times(24)^3}{12} = \frac{14\times13824}{12} = 16,128~\text{in}^4$
+
+$y_t = 12~\text{in}$
+
+$M_{cr} = \frac{f_r I_g}{y_t} = \frac{474\times16128}{12} = 637,000~\text{lb-in} = 53.1~\text{kip-ft}$
+
+**Step 2: Calculate service moment**
+$w_{total} = w_D + w_L = 1.8 + 1.2 = 3.0~\text{kips/ft}$
+
+$M_a = \frac{wL^2}{8} = \frac{3.0\times(28)^2}{8} = 294~\text{kip-ft}$
+
+**Step 3: Calculate cracked moment of inertia**
+Locate neutral axis: $\frac{1}{2}bx^2 = nA_s(d-x)$
+
+$\frac{1}{2}\times14\times x^2 = 8\times2.37\times(21.5-x)$
+$7x^2 = 18.96\times(21.5-x)$
+$7x^2 = 407.6 - 18.96x$
+$7x^2 + 18.96x - 407.6 = 0$
+
+Solving: $x = 6.2~\text{in}$
+
+$I_{cr} = \frac{1}{3}bx^3 + nA_s(d-x)^2 = \frac{1}{3}\times14\times(6.2)^3 + 18.96\times(15.3)^2$
+$I_{cr} = 1112 + 4440 = 5552~\text{in}^4$
+
+**Step 4: Calculate effective moment of inertia**
+$I_e = (\frac{M_{cr}}{M_a})^3 I_g + [1 - (\frac{M_{cr}}{M_a})^3] I_{cr}$
+
+$I_e = (\frac{53.1}{294})^3\times16128 + [1 - (0.181)^3]\times5552$
+$I_e = (0.00593)\times16128 + (1 - 0.00593)\times5552$
+$I_e = 95.6 + 5520 = 5616~\text{in}^4$
+
+**Step 5: Calculate live load deflection**
+$E_c = 57,000\sqrt{f'_c} = 57,000\times63.25 = 3,605,000~\text{psi}$
+
+$\Delta_L = \frac{5w_L L^4}{384E_c I_e} = \frac{5\times1.2\times(28\times12)^4}{384\times3,605,000\times5616}$
+
+$\Delta_L = \frac{5\times1.2\times(56,022,000)}{384\times3.605\times10^6\times5616} = \frac{336,132,000}{7.76\times10^{12}} = 0.0433~\text{in}$
+
+**Immediate live load deflection: 0.043 in ($L/7760$, well within limits)**
+:::
+</TabItem>
+</Tabs>

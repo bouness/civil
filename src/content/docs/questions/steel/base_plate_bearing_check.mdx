@@ -1,0 +1,37 @@
+---
+title: Base Plate Bearing Check
+description: Base Plate Bearing Check
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Steel**]
+A W10×49 column transfers $P_u = 200~\text{kips}$ to a base plate on concrete with $f'_c = 4~\text{ksi}$. Determine the **required plate area** using AISC 360 assuming the plate is uniformly loaded.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**AISC bearing limit on concrete:**
+
+$$
+R_n = 0.85\sqrt{f'_c}A_1
+$$
+
+Factored strength: $\phi R_n = 0.65 R_n$
+Set $P_u = \phi R_n$:
+
+$$
+A_1 = \frac{P_u}{0.65(0.85\sqrt{f'_c})}
+$$
+
+
+$$
+A_1 = \frac{200}{0.5525(63.25)} = \frac{200}{34.9} = 5.73~\text{in}^2
+$$
+
+Thus, required plate area = **5.73 in²**, adopt slightly larger plate (e.g., 8×8).
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,48 @@
+---
+title: Steel Section Compactness Criteria
+description: Steel Section Compactness Criteria
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Steel**]
+A W16×26 beam ($b_f/2t_f = 8.7$, $h/t_w = 56.8$) is used in a flexural application with $F_y = 50~\text{ksi}$. Per AISC, for compact flanges: $\lambda_p = 0.38\sqrt{E/F_y} = 9.15$ and for compact webs: $\lambda_p = 3.76\sqrt{E/F_y} = 90.6$. Does the web slenderness exceed the limit for a compact section?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Compactness Classification Analysis**
+
+**Step 1: Understanding 'exceed'**
+The word 'exceed' means to go **beyond** or be **greater than** a limit. This is a critical distinction.
+
+**Step 2: Given values**
+Web slenderness: $\frac{h}{t_w} = 56.8$
+
+Compact web limit: $\lambda_p = 90.6$
+
+**Step 3: Compare web slenderness to limit**
+$56.8 < 90.6$
+
+The web slenderness is **LESS THAN** the compact limit.
+
+**Step 4: Interpretation of 'exceed'**
+Does 56.8 exceed 90.6?
+
+**NO** - The web slenderness does NOT exceed the limit.
+
+Because the actual slenderness (56.8) is less than the limit (90.6), the web **qualifies as compact**.
+
+**Common mistake:** People might think 'exceed' means 'meet or achieve' but it actually means 'go beyond/surpass'.
+
+**Step 5: Check flange (for completeness)**
+$\frac{b_f}{2t_f} = 8.7 < \lambda_p = 9.15$ ✓ (compact)
+
+**Answer: NO, the web slenderness does NOT exceed the compact limit. The section has a compact web.**
+
+**The section is fully compact for flexure.**
+:::
+</TabItem>
+</Tabs>

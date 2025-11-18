@@ -1,0 +1,25 @@
+---
+title: Unless Otherwise Required by Code vs Unless Required by Code
+description: Unless Otherwise Required by Code vs Unless Required by Code
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Vocabulary**]
+Compare these two notes and identify which one allows the more permissive design approach:
+
+1) "Provide fireproofing minimum 1 in, unless otherwise required by code."  
+2) "Provide fireproofing minimum 1 in, unless required by code."  
+Which is more permissive and why?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Correct answer: **(1) is more permissive.**
+
+**Why:** Note (1) sets a default minimum (1 in) but allows the code to override that **if the code requires something else** — i.e., it defers to the code when the code's requirements differ. Note (2) reads oddly: "unless required by code" could be interpreted to mean you only provide something if the code requires it (which would be less clear). The conventional clearer phrasing is (1): provide 1 in minimum, except when the code requires a different (usually larger) amount. The trap is subtle wording that flips the deference to code obligations.
+:::
+</TabItem>
+</Tabs>

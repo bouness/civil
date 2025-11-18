@@ -1,0 +1,34 @@
+---
+title: Nominal Shear Strength with Stirrups
+description: Nominal Shear Strength with Stirrups
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Concrete**]
+A rectangular beam $b = 12~\text{in}$, $d = 22~\text{in}$ has #3 closed stirrups at 8 in spacing. Each leg area $A_v = 0.11~\text{in}^2$ (2 legs). Concrete $f'_c = 4000~\text{psi}$. Compute total nominal shear strength $V_n = V_c + V_s$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Per ACI 318:
+
+$$
+V_c = 2\sqrt{f'_c} b d / 1000 = 2(63.25)(12)(22)/1000 = 33.4~\text{kips}
+$$
+
+
+$$
+V_s = \frac{A_v f_y d}{s} = \frac{(0.22)(60,000)(22)}{8} / 1000 = 36.3~\text{kips}
+$$
+
+
+$$
+V_n = 33.4 + 36.3 = 69.7~\text{kips}
+$$
+
+:::
+</TabItem>
+</Tabs>

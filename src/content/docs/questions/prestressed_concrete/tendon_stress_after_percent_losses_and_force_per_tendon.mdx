@@ -1,0 +1,37 @@
+---
+title: Tendon Stress after Percent Losses and Force per Tendon
+description: Tendon Stress after Percent Losses and Force per Tendon
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+A tendon was tensioned to an initial steel stress $f_{pi} = 200~\text{ksi}$. Total losses are estimated as $12\%$. Tendon steel area is $A_p = 0.30~\text{in}^2$. Compute the tendon stress after losses (ksi) and the corresponding tendon force (kips).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Loss amount:
+
+$$
+\Delta f = 0.12(200) = 24.0~\text{ksi}.
+$$
+
+Post-loss tendon stress:
+
+$$
+f_{p,service} = 200 - 24 = 176.0~\text{ksi}.
+$$
+
+Force per tendon:
+
+$$
+P = f_{p,service}A_p = 176.0\times0.30 = 52.8~\text{kips}.
+$$
+
+**Answer:** $f_{p,service}=176.0~\text{ksi}$, $P=52.8~\text{kips}$. 
+:::
+</TabItem>
+</Tabs>

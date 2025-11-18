@@ -1,0 +1,83 @@
+---
+title: Prestressed Concrete Beam Stresses
+description: Prestressed Concrete Beam Stresses
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A pretensioned concrete beam has a rectangular cross-section 12 in wide × 24 in deep. The prestressing force after losses is $P_e = 180~\text{kips}$ located 6 inches below the centroid. The beam supports a superimposed dead load moment of $M_D = 150~\text{kip-ft}$ and live load moment of $M_L = 200~\text{kip-ft}$.
+
+Given: $f'_c = 5000~\text{psi}$
+
+Determine the stress at the bottom fiber under full service loads.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Calculate section properties**
+
+$$
+A = 12 \times 24 = 288~\text{in}^2
+$$
+
+
+$$
+I = \frac{12 \times 24^3}{12} = 13,824~\text{in}^4
+$$
+
+
+$$
+c_b = 12~\text{in}
+$$
+
+
+Eccentricity: $e = 6~\text{in}$ (below centroid, positive for bottom fiber stress)
+
+**Step 2: Calculate stress due to prestressing**
+
+Axial component:
+
+$$
+f_1 = \frac{P_e}{A} = \frac{180,000}{288} = 625~\text{psi}
+$$
+ (compression)
+
+Bending component at bottom fiber:
+
+$$
+f_2 = \frac{P_e \cdot e \cdot c_b}{I} = \frac{180,000 \times 6 \times 12}{13,824} = 938~\text{psi}
+$$
+ (compression)
+
+**Step 3: Calculate stress due to applied loads**
+
+Total moment:
+
+$$
+M = M_D + M_L = 150 + 200 = 350~\text{kip-ft} = 4200~\text{kip-in}
+$$
+
+
+Stress at bottom fiber (tension):
+
+$$
+f_3 = \frac{M \cdot c_b}{I} = \frac{4200 \times 12}{13,824} = 3,646~\text{psi}
+$$
+ (tension)
+
+**Step 4: Calculate net stress**
+
+Net stress at bottom fiber:
+
+$$
+f_{bottom} = -625 - 938 + 3646 = 2083~\text{psi}
+$$
+ (tension)
+
+**Answer:** Stress at bottom fiber = **2083 psi tension**
+:::
+</TabItem>
+</Tabs>

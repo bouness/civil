@@ -1,0 +1,31 @@
+---
+title: Relaxation Loss Example
+description: Relaxation Loss Example
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Prestressed Concrete**]
+If the initial tendon stress is $f_{pi} = 190~\text{ksi}$ and relaxation is estimated at 3% of the initial stress, compute the tendon stress after relaxation alone.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Relaxation loss:
+
+$$
+\Delta f = 0.03(190) = 5.7~\text{ksi}.
+$$
+
+Post-relaxation stress:
+
+$$
+f_{p,after} = 190 - 5.7 = 184.30~\text{ksi}.
+$$
+
+**Answer:** $184.30~\text{ksi}$ after relaxation.
+:::
+</TabItem>
+</Tabs>

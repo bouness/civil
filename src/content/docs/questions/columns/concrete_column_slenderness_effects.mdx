@@ -1,0 +1,53 @@
+---
+title: Concrete Column Slenderness Effects
+description: Concrete Column Slenderness Effects
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Columns**]
+A 16x16 in tied column is 14 ft long, pinned at both ends. The factored axial load is $P_u = 400~\text{kips}$ with equal end moments $M_1 = M_2 = 75~\text{kip-ft}$. $f'_c = 5000~\text{psi}$, $f_y = 60000~\text{psi}$. Determine if slenderness effects must be considered and calculate the magnified moment.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Column Slenderness Analysis**
+
+**Step 1: Check slenderness ratio**
+$k = 1.0$ (pinned-pinned)
+$L_u = 14~\text{ft} = 168~\text{in}$
+$r = 0.3h = 0.3\times16 = 4.8~\text{in}$
+
+$\frac{kl_u}{r} = \frac{1.0\times168}{4.8} = 35.0$
+
+**Step 2: Check slenderness limits**
+$34 - 12(\frac{M_1}{M_2}) = 34 - 12(1.0) = 22$
+
+Since $35.0 > 22$, slenderness effects must be considered.
+
+**Step 3: Calculate moment magnification factor**
+$\beta_{dns} = \frac{1.2D}{1.2D + 1.6L} \approx 0.75$ (assumed)
+
+$E_c = 57,000\sqrt{f'_c} = 57,000\times70.7 = 4,030,000~\text{psi}$
+
+$I_g = \frac{bh^3}{12} = \frac{16\times(16)^3}{12} = \frac{16\times4096}{12} = 5461~\text{in}^4$
+
+$EI = \frac{0.4E_c I_g}{1 + \beta_{dns}} = \frac{0.4\times4,030,000\times5461}{1 + 0.75} = \frac{8.80\times10^9}{1.75} = 5.03\times10^9$
+
+**Step 4: Calculate critical buckling load**
+$P_c = \frac{\pi^2 EI}{(kl_u)^2} = \frac{\pi^2\times5.03\times10^9}{(168)^2} = \frac{49.6\times10^9}{28,224} = 1,757,000~\text{lbs} = 1757~\text{kips}$
+
+**Step 5: Calculate moment magnification**
+$C_m = 0.6 + 0.4(\frac{M_1}{M_2}) = 0.6 + 0.4(1.0) = 1.0$
+
+$\delta_{ns} = \frac{C_m}{1 - \frac{P_u}{0.75P_c}} = \frac{1.0}{1 - \frac{400}{0.75\times1757}} = \frac{1.0}{1 - \frac{400}{1318}} = \frac{1.0}{1 - 0.303} = 1.434$
+
+**Step 6: Calculate magnified moment**
+$M_c = \delta_{ns} M_2 = 1.434\times75 = 107.6~\text{kip-ft}$
+
+**Slenderness must be considered. Magnified moment: 108 kip-ft**
+:::
+</TabItem>
+</Tabs>

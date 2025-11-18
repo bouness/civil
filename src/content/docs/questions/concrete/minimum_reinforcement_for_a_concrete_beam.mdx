@@ -1,0 +1,39 @@
+---
+title: Minimum Reinforcement for a Concrete Beam
+description: Minimum Reinforcement for a Concrete Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::note[Difficulty: **Easy** - Category: **Concrete**]
+A 12-inch-wide, 24-inch-deep concrete beam uses $f_y = 60,000~\text{psi}$ steel and $f'_c = 4000~\text{psi}$. Determine the minimum required steel area $A_{s,\text{min}}$ for flexure per ACI 318.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Formula (ACI 318-14, Eq. 9.6.1.2):**
+
+$$
+A_{s,\text{min}} = \max \left( 3\sqrt{f'_c} \frac{b d}{f_y}, \frac{200 b d}{f_y} \right)
+$$
+
+Given $b = 12~\text{in}$, $d = 24~\text{in}$, $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$.
+
+Compute both terms:
+
+$$
+A_{s1} = 3\sqrt{4000}\frac{12(24)}{60,000} = 3(63.25)(288)/60,000 = 0.91~\text{in}^2
+$$
+
+
+$$
+A_{s2} = \frac{200(12)(24)}{60,000} = 0.96~\text{in}^2
+$$
+
+
+**Answer:** $A_{s,\text{min}} = 0.96~\text{in}^2$
+:::
+</TabItem>
+</Tabs>

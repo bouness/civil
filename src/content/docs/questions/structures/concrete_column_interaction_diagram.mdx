@@ -1,0 +1,97 @@
+---
+title: Concrete Column Interaction Diagram
+description: Concrete Column Interaction Diagram
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A short, tied rectangular column ($b=16~\text{in}$, $h=20~\text{in}$) is reinforced with 4-#9 bars ($A_s=1.0~\text{in}^2$ each), one in each corner. $f'_c = 5,000~\text{psi}$ and $f_y = 60,000~\text{psi}$. Clear cover to #3 ties is 1.5 in.
+
+What is the **balanced point** axial load $P_b$ and moment $M_b$? (Assume a compressive stress block with $\beta_1=0.80$).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Balanced Point Calculation**
+
+**Step 1: Determine neutral axis depth $c_b$**
+At the balanced condition, the extreme tension steel yields just as the concrete reaches its crushing strain $(\epsilon_c=0.003)$.
+
+$$
+c_b = \left(\frac{0.003}{0.003 + \epsilon_y}\right) d
+$$
+
+
+$$
+\epsilon_y = f_y/E_s = 60,000/29,000,000 = 0.00207
+$$
+
+
+$$
+c_b = \left(\frac{0.003}{0.003 + 0.00207}\right) d = \left(\frac{0.003}{0.00507}\right) d = 0.592d
+$$
+
+$d = h - \text{cover} - d_{tie} - 0.5d_b = 20 - 1.5 - 0.375 - 0.5\times1.128 \approx 17.56~\text{in}$
+
+$$
+c_b = 0.592 \times 17.56 = 10.39~\text{in}
+$$
+
+
+**Step 2: Determine stress block depth $a$**
+
+$$
+a = \beta_1 c_b = 0.80 \times 10.39 = 8.31~\text{in}
+$$
+
+
+**Step 3: Calculate concrete compressive force $C_c$**
+
+$$
+C_c = 0.85 f'_c a b = 0.85 \times 5 \times 8.31 \times 16 = 565~\text{kips}
+$$
+
+
+**Step 4: Calculate steel forces**
+- Compression steel (2-#9): $d' = 1.5 + 0.375 + 0.5\times1.128 = 2.44~\text{in}$
+  Strain: $\epsilon_s' = 0.003 \times (c_b - d')/c_b = 0.003 \times (10.39-2.44)/10.39 = 0.00230 > \epsilon_y$, so $f_s' = f_y$.
+  Force: $C_s = A_s'(f_y - 0.85f'_c) = 2.0 \times (60 - 0.85\times5) = 2.0 \times 55.75 = 111.5~\text{kips}$
+
+- Tension steel (2-#9): $f_s = f_y = 60~\text{ksi}$
+  Force: $T_s = A_s f_y = 2.0 \times 60 = 120~\text{kips}$
+
+**Step 5: Calculate $P_b$ and $M_b$**
+
+$$
+P_b = C_c + C_s - T_s = 565 + 111.5 - 120 = 556.5~\text{kips}
+$$
+
+
+To find $M_b$, take moments about the plastic centroid (center of column):
+- $C_c$ acts at $h/2 - a/2 = 10 - 4.155 = 5.845~\text{in}$ from center.
+- $C_s$ acts at $h/2 - d' = 10 - 2.44 = 7.56~\text{in}$ from center.
+- $T_s$ acts at $d - h/2 = 17.56 - 10 = 7.56~\text{in}$ from center.
+
+
+$$
+M_b = C_c \times 5.845 + C_s \times 7.56 + T_s \times 7.56
+$$
+
+
+$$
+M_b = 565 \times 5.845 + 111.5 \times 7.56 + 120 \times 7.56
+$$
+
+
+$$
+M_b = 3302 + 843 + 907 = 5052~\text{kip-in} = 421~\text{kip-ft}
+$$
+
+
+**Balanced Point: $P_b = 557~\text{kips}$, $M_b = 421~\text{kip-ft}$**
+:::
+</TabItem>
+</Tabs>

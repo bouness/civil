@@ -1,0 +1,56 @@
+---
+title: Concrete Crack Control and Bar Spacing
+description: Concrete Crack Control and Bar Spacing
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A concrete beam has #7 bars spaced at 8 inches on center in the tension zone with 2 inches of clear cover. Per ACI 318, crack control is deemed satisfactory when bar spacing does not exceed $s = 540/(f_s) - 2.5c_c$, where $f_s = 36~\text{ksi}$ and $c_c$ is clear cover. Does the provided spacing comport with crack control provisions?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Crack Control Analysis**
+
+**Step 1: Understanding 'comport'**
+'Comport' means to **agree with**, **comply with**, or **conform to** a requirement.
+
+This is uncommon vocabulary that can cause confusion.
+
+**Step 2: Calculate maximum permitted spacing**
+$s_{max} = \frac{540}{f_s} - 2.5c_c$
+
+Given:
+- $f_s = 36~\text{ksi}$
+- $c_c = 2~\text{in}$ (clear cover)
+
+$s_{max} = \frac{540}{36} - 2.5(2) = 15 - 5 = 10~\text{in}$
+
+**Step 3: Compare provided spacing to maximum**
+Provided spacing: $s = 8~\text{in}$
+
+Maximum permitted: $s_{max} = 10~\text{in}$
+
+$8~\text{in} < 10~\text{in}$ ✓
+
+**Step 4: Interpretation**
+Does the spacing (8 in) comport with (comply with) the provisions?
+
+**YES** - The provided spacing DOES comport with crack control provisions.
+
+The actual spacing is less than the maximum allowed, therefore it complies with the requirement.
+
+**Common trap:** The unusual word 'comport' might make candidates pause or misinterpret. Under stress, unfamiliar vocabulary can lead to errors even with correct calculations.
+
+**Step 5: Alternative check (ACI 318-14 and later)**
+Newer codes use skin reinforcement and different spacing criteria, but the principle remains: provided spacing must not exceed maximum permitted.
+
+**Answer: YES, the spacing (8 in) comports with (complies with) crack control provisions because 8 in < 10 in maximum.**
+
+**Vocabulary note:** Other NCEES synonyms for 'comply': comport, conform, satisfy, meet, fulfill, accord with.
+:::
+</TabItem>
+</Tabs>

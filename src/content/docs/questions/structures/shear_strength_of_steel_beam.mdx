@@ -1,0 +1,66 @@
+---
+title: Shear Strength of Steel Beam
+description: Shear Strength of Steel Beam
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Structures**]
+A W18x50 ($t_w = 0.355~\text{in}$, $h/t_w = 45.1$) beam of A992 steel ($F_y = 50~\text{ksi}$) is subject to a factored shear force $V_u = 180~\text{kips}$. Determine if the beam is adequate for shear per AISC 360.
+
+*Hint: The shear strength $V_n$ is given by $V_n = 0.6F_yA_wC_v$.*
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Shear Strength Check**
+
+**Step 1: Determine $C_v$**
+For rolled I-shapes with $h/t_w \leq 2.24\sqrt{E/F_y}$:
+
+$$
+2.24\sqrt{E/F_y} = 2.24\sqrt{29000/50} = 2.24\times24.08 = 53.9
+$$
+
+Given $h/t_w = 45.1 \leq 53.9$, therefore $C_v = 1.0$.
+
+**Step 2: Calculate web area $A_w$**
+
+$$
+A_w = d \times t_w
+$$
+
+From section properties, $d \approx 18.0~\text{in}$ for W18x50.
+
+$$
+A_w = 18.0 \times 0.355 = 6.39~\text{in}^2
+$$
+
+
+**Step 3: Calculate nominal shear strength $V_n$**
+
+$$
+V_n = 0.6F_yA_wC_v = 0.6 \times 50 \times 6.39 \times 1.0 = 191.7~\text{kips}
+$$
+
+
+**Step 4: Calculate design shear strength $\phi V_n$**
+
+$$
+\phi V_n = 1.0 \times 191.7 = 191.7~\text{kips}
+$$
+ (Since $\phi = 1.0$ for shear in AISC)
+
+**Step 5: Check adequacy**
+
+$$
+V_u = 180~\text{kips} < \phi V_n = 191.7~\text{kips}
+$$
+
+
+**The beam is ADEQUATE in shear.**
+:::
+</TabItem>
+</Tabs>

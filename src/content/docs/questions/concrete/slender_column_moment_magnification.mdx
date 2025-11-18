@@ -1,0 +1,64 @@
+---
+title: Slender Column Moment Magnification
+description: Slender Column Moment Magnification
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+A column 12 ft tall is pinned at both ends and carries an axial load of $P_u = 200~\text{kips}$. The factored end moments are $M_1 = 10~\text{kip-ft}$ and $M_2 = 30~\text{kip-ft}$. The column is $12 \times 18~\text{in}$ with $f'_c = 4000~\text{psi}$, $f_y = 60,000~\text{psi}$, and reinforcement ratio $\rho = 1.5\%$. Determine the moment magnification factor $\delta$ using ACI 318 approximate method (non-sway).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1.** Compute effective length and slenderness ratio:
+
+$$
+kL_u/r = \frac{1.0(12 \times 12)}{r}
+$$
+
+For rectangular section, $r = 0.3h = 0.3(18) = 5.4~\text{in}$.
+
+$$
+kL_u/r = \frac{144}{5.4} = 26.7 < 34
+$$
+
+
+Since $kL_u/r < 34$, slenderness effects are small, but ACI allows approximate magnification:
+
+$$
+\delta = \frac{1}{1 - P_u/P_{cr}}
+$$
+
+
+**Step 2.** Compute $P_{cr}$:
+
+$$
+P_{cr} = \frac{\pi^2 E I_g}{(kL_u)^2}
+$$
+
+Take $E = 57,000\sqrt{f'_c} = 57,000(63.25) = 3.6 \times 10^6~\text{psi}$.
+
+$$
+I_g = \frac{b h^3}{12} = \frac{12(18^3)}{12} = 5832~\text{in}^4
+$$
+
+
+$$
+P_{cr} = \frac{\pi^2 (3.6 \times 10^6)(5832)}{144^2} = 3.2 \times 10^6~\text{lb} = 3200~\text{kips}
+$$
+
+
+**Step 3.** Compute $\delta$:
+
+$$
+\delta = \frac{1}{1 - (200/3200)} = 1.07
+$$
+
+
+**Answer:** $\delta = 1.07$ — small magnification; column is effectively short.
+:::
+</TabItem>
+</Tabs>

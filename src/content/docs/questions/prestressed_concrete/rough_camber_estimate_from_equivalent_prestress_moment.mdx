@@ -1,0 +1,31 @@
+---
+title: Rough Camber Estimate from Equivalent Prestress Moment
+description: Rough Camber Estimate from Equivalent Prestress Moment
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::caution[Difficulty: **Medium** - Category: **Prestressed Concrete**]
+A pretensioned beam has an equivalent constant upward prestress-induced moment $M = 30~\text{kip·ft}$ (apparent to the beam). For a span $L = 28.0~\text{ft}$, $E_c = 3.6\times10^6~\text{psi}$ and $I = 8000~\text{in}^4$, estimate the midspan camber (in inches) using the simplified relation 
+$$
+\delta_{mid}\approx\dfrac{5 M L^2}{384 E_c I}
+$$
+ (use consistent units).
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+Convert units: $M = 30~\text{kip·ft} = 30\times12{,}000 = 360{,}000~\text{in·lb}$, $L = 28~\text{ft} = 336~\text{in}$.
+
+Compute
+
+$$
+\delta_{mid}=\frac{5(360{,}000)(336)^2}{384(3.6\times10^6)(8{,}000)} \approx 0.0184~\text{in}.
+$$
+
+**Answer:** Midspan camber ≈ **0.018 in** (about 0.02 in).
+:::
+</TabItem>
+</Tabs>

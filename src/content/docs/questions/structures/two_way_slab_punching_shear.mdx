@@ -1,0 +1,70 @@
+---
+title: Two-Way Slab Punching Shear
+description: Two-Way Slab Punching Shear
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Structures**]
+A 9-inch thick flat plate slab ($f'_c = 5000~\text{psi}$) supports an interior column measuring 20 in × 20 in. The factored column load is $P_u = 320~\text{kips}$. The slab has an effective depth $d = 7.5~\text{in}$.
+
+Determine if the slab is adequate for two-way shear (punching shear) per ACI 318. Assume normal-weight concrete and $\lambda = 1.0$.
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Step 1: Determine critical perimeter**
+
+Critical section is at $d/2$ from column face:
+
+$$
+b_o = 4(c + d) = 4(20 + 7.5) = 110~\text{in}
+$$
+
+
+**Step 2: Calculate nominal shear strength**
+
+Per ACI 318, $v_n$ is the smallest of:
+
+a) $v_n = \left(2 + \frac{4}{\beta}\right)\lambda\sqrt{f'_c}$
+
+Where $\beta = 1.0$ (square column):
+
+$$
+v_n = (2 + 4)(1.0)\sqrt{5000} = 424.3~\text{psi}
+$$
+
+
+b) $v_n = \left(2 + \frac{\alpha_s d}{b_o}\right)\lambda\sqrt{f'_c}$
+
+Where $\alpha_s = 40$ (interior column):
+
+$$
+v_n = \left(2 + \frac{40 \times 7.5}{110}\right)(1.0)\sqrt{5000} = (2 + 2.727)\sqrt{5000} = 334.3~\text{psi}
+$$
+
+
+c) $v_n = 4\lambda\sqrt{f'_c} = 4(1.0)\sqrt{5000} = 282.8~\text{psi}$
+
+**Controlling value:** $v_n = 282.8~\text{psi}$
+
+**Step 3: Calculate design shear strength**
+
+$$
+\phi v_n = 0.75 \times 282.8 = 212.1~\text{psi}
+$$
+
+
+**Step 4: Calculate applied shear stress**
+
+$$
+v_u = \frac{P_u}{b_o \cdot d} = \frac{320,000}{110 \times 7.5} = 388.0~\text{psi}
+$$
+
+
+**Conclusion:** Since $v_u = 388.0~\text{psi} > \phi v_n = 212.1~\text{psi}$, the slab is **NOT adequate** for punching shear. Shear reinforcement or column capital is required.
+:::
+</TabItem>
+</Tabs>

@@ -1,0 +1,51 @@
+---
+title: Concrete Two-Way Slab Punching Shear
+description: Concrete Two-Way Slab Punching Shear
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::danger[Difficulty: **Hard** - Category: **Concrete**]
+An interior flat plate slab ($f'_c = 4000~\text{psi}$) is 8 in thick with #5 bars. The service dead load is 120 psf and live load is 80 psf. A 16x16 in column supports the slab. Check punching shear at the critical section. ($d = 6.5~\text{in}$)
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+**Punching Shear Check**
+
+**Step 1: Calculate factored load**
+$w_u = 1.2D + 1.6L = 1.2 \times 120 + 1.6 \times 80 = 144 + 128 = 272~\text{psf}$
+
+**Step 2: Determine critical perimeter**
+$b_0 = 4(c + d) = 4(16 + 6.5) = 4 \times 22.5 = 90~\text{in}$
+
+**Step 3: Calculate shear force**
+Tributary area = $(16/12 + 6.5/12)^2 = (1.33 + 0.54)^2 = (1.87)^2 = 3.50~\text{ft}^2$
+
+$V_u = w_u \times (\text{Tributary Area} - \text{Column Area})$
+$V_u = 272 \times (3.50 - 1.78) = 272 \times 1.72 = 468~\text{lbs}$
+
+Wait - this seems too small. Let's use typical bay size:
+Assume 20 ft bay spacing:
+Tributary area = $20 \times 20 = 400~\text{ft}^2$
+Column area = $1.33 \times 1.33 = 1.78~\text{ft}^2$
+
+$V_u = 272 \times (400 - 1.78) = 272 \times 398.22 = 108,300~\text{lbs} = 108.3~\text{kips}$
+
+**Step 4: Calculate concrete shear capacity**
+$\phi V_c = \phi 4\lambda\sqrt{f'_c} b_0 d$
+$\phi V_c = 0.75 \times 4 \times 1.0 \times \sqrt{4000} \times 90 \times 6.5$
+$\phi V_c = 0.75 \times 4 \times 63.25 \times 90 \times 6.5 / 1000$
+$\phi V_c = 0.75 \times 147,900 / 1000 = 111~\text{kips}$
+
+**Step 5: Check adequacy**
+$V_u = 108.3~\text{kips} < \phi V_c = 111~\text{kips}$ ✓
+
+**Punching shear is ADEQUATE**
+
+Note: For interior column without moments, $V_c = 4\lambda\sqrt{f'_c} b_0 d$
+:::
+</TabItem>
+</Tabs>

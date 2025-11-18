@@ -1,0 +1,21 @@
+---
+title: Minimum Eccentricity Check for Columns
+description: Minimum Eccentricity Check for Columns
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+<TabItem label='Question'>
+:::tip[Difficulty: **Conceptual** - Category: **Concrete**]
+ACI 318 requires all compression members to be designed for a minimum moment to account for accidental eccentricity. What is the minimum eccentricity provision for tied columns according to ACI 318?
+:::
+</TabItem>
+
+<TabItem label='Solution'>
+:::tip[Solution]
+ACI 318-14 Section 10.3.5 requires that **compression members shall be designed for a minimum eccentricity** $e = 0.05h$, where $h$ is the dimension of the column in the direction of bending. This ensures no purely axial design is permitted.
+
+Thus, even for concentric axial loads, a minimum bending moment corresponding to $M_u = P_u e$ must be applied.
+:::
+</TabItem>
+</Tabs>
