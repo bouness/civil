@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "cachyos-starlight",
+      "name": "civil-starlight",
       "dependencies": {
         "@astrojs/check": "^0.9.5",
         "@astrojs/react": "^4.4.2",

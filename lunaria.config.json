@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@lunariajs/core/config.schema.json",
   "repository": {
-    "name": "CachyOS/wiki",
+    "name": "Civil/wiki",
     "branch": "next"
   },
   "files": [
@@ -13,13 +13,13 @@
     }
   ],
   "dashboard": {
-    "title": "CachyOS Wiki Localization Status",
-    "description": "Localization status dashboard for the CachyOS Wiki.",
+    "title": "Civil Wiki Status",
+    "description": "Localization status dashboard for the Civil Wiki.",
     "basesToHide": ["src/content/docs/"],
     "favicon": {
       "external": [
         {
-          "link": "https://wiki.cachyos.org/favicon.svg",
+          "link": "https://bouness.github.io/civil/favicon.svg",
           "type": "image/svg+xml"
         }
       ]
