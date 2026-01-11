@@ -1,11 +1,14 @@
 ---
-import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/PageFrame.astro';
 
 const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f30820822991';
 ---
 
-<Default {...Astro.props}>  
+<Default {...Astro.props}>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+  
   <div id="password-gate" class="password-gate">
     <div class="password-container">
       <div class="logo">
@@ -37,10 +40,6 @@ const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f3082
       </form>
     </div>
   </div>
-
-  <slot name="header" slot="header" />
-  <slot name="sidebar" slot="sidebar" />
-  <slot />
 </Default>
 
 <style is:global>
@@ -177,40 +176,46 @@ const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f3082
 </style>
 
 <script define:vars={{ PASSWORD_HASH }}>
-  const hashPassword = async (password) => {
+  /**
+  * @param {string | undefined} password
+  */
+  async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hash = await crypto.subtle.digest('SHA-256', data);
     return Array.from(new Uint8Array(hash))
       .map(b => b.toString(16).padStart(2, '0'))
       .join('');
-  };
+  }
 
-  const checkAuth = () => {
-    const isUnlocked = sessionStorage.getItem('wiki_unlocked');
+  function checkAuth() {
+    const isUnlocked = sessionStorage.getItem('civil_unlocked');
     const gate = document.getElementById('password-gate');
     if (isUnlocked === 'true' && gate) {
       gate.style.display = 'none';
     } else if (gate) {
       gate.style.display = 'flex';
     }
-  };
+  }
 
-  const showContent = () => {
+  function showContent() {
     const gate = document.getElementById('password-gate');
     if (gate) {
       gate.style.display = 'none';
     }
-  };
+  }
 
-  const handleSubmit = async (e) => {
+  /**
+  * @param {{ preventDefault: () => void; }} e
+  */
+  async function handleSubmit(e) {
     e.preventDefault();
     
-    const input = document.getElementById('password-input');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnLoading = document.getElementById('btn-loading');
-    const errorMessage = document.getElementById('error-message');
+    const input = /** @type {HTMLInputElement} */ (document.getElementById('password-input'));
+    const submitBtn = /** @type {HTMLButtonElement} */ (document.getElementById('submit-btn'));
+    const btnText = /** @type {HTMLElement} */ (document.getElementById('btn-text'));
+    const btnLoading = /** @type {HTMLElement} */ (document.getElementById('btn-loading'));
+    const errorMessage = /** @type {HTMLElement} */ (document.getElementById('error-message'));
     
     const password = input.value;
     if (!password) return;
@@ -224,7 +229,7 @@ const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f3082
       const hashedPassword = await hashPassword(password);
       
       if (hashedPassword === PASSWORD_HASH) {
-        sessionStorage.setItem('wiki_unlocked', 'true');
+        sessionStorage.setItem('civil_unlocked', 'true');
         showContent();
       } else {
         errorMessage.textContent = 'Invalid password';
@@ -239,7 +244,7 @@ const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f3082
       btnText.style.display = 'inline-block';
       btnLoading.style.display = 'none';
     }
-  };
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
