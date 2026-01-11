@@ -35,6 +35,9 @@ export default defineConfig({
   integrations: [
     react(),
     starlight({
+      components: {
+        PageFrame: './src/components/PageFrame.astro',
+      },
       plugins,
       routeMiddleware,
       lastUpdated: true,

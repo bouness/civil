@@ -1,0 +1,251 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+
+const PASSWORD_HASH = '1d88206cb6d89a6d50d0a06a756537e87f030177ff192cb4a4e7f30820822991';
+---
+
+<Default {...Astro.props}>  
+  <div id="password-gate" class="password-gate">
+    <div class="password-container">
+      <div class="logo">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M12 7v5m0 3h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2>Access Denied</h2>
+      <p>Enter password to gain full access</p>
+      <form id="password-form">
+        <input
+          type="password"
+          id="password-input"
+          placeholder="Enter password"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" id="submit-btn">
+          <span id="btn-text">Unlock</span>
+          <span id="btn-loading" style="display: none;">
+            <svg class="spinner" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"/>
+              <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div id="error-message" class="error-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</Default>
+
+<style is:global>
+  .password-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+  }
+
+  .password-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .password-gate .logo {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .password-gate h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    color: #2d3748;
+  }
+
+  .password-gate p {
+    margin: 0 0 2rem 0;
+    color: #718096;
+    font-size: 0.95rem;
+  }
+
+  .password-gate form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .password-gate input {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    outline: none;
+  }
+
+  .password-gate input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .password-gate button {
+    padding: 0.875rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .password-gate button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+
+  .password-gate button:active {
+    transform: translateY(0);
+  }
+
+  .password-gate button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .password-gate .spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .password-gate .error-message {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    min-height: 1.25rem;
+    margin-top: -0.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .password-container {
+      background: #1a202c;
+    }
+
+    .password-gate h2 {
+      color: #f7fafc;
+    }
+
+    .password-gate p {
+      color: #a0aec0;
+    }
+
+    .password-gate input {
+      background: #2d3748;
+      border-color: #4a5568;
+      color: #f7fafc;
+    }
+
+    .password-gate input:focus {
+      border-color: #667eea;
+      background: #2d3748;
+    }
+  }
+</style>
+
+<script define:vars={{ PASSWORD_HASH }}>
+  const hashPassword = async (password) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hash = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hash))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  };
+
+  const checkAuth = () => {
+    const isUnlocked = sessionStorage.getItem('wiki_unlocked');
+    const gate = document.getElementById('password-gate');
+    if (isUnlocked === 'true' && gate) {
+      gate.style.display = 'none';
+    } else if (gate) {
+      gate.style.display = 'flex';
+    }
+  };
+
+  const showContent = () => {
+    const gate = document.getElementById('password-gate');
+    if (gate) {
+      gate.style.display = 'none';
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const input = document.getElementById('password-input');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+    const errorMessage = document.getElementById('error-message');
+    
+    const password = input.value;
+    if (!password) return;
+    
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-block';
+    errorMessage.textContent = '';
+    
+    try {
+      const hashedPassword = await hashPassword(password);
+      
+      if (hashedPassword === PASSWORD_HASH) {
+        sessionStorage.setItem('wiki_unlocked', 'true');
+        showContent();
+      } else {
+        errorMessage.textContent = 'Invalid password';
+        input.value = '';
+        input.focus();
+      }
+    } catch (err) {
+      errorMessage.textContent = 'Error occurred';
+      console.error(err);
+    } finally {
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline-block';
+      btnLoading.style.display = 'none';
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    checkAuth();
+    const form = document.getElementById('password-form');
+    if (form) {
+      form.addEventListener('submit', handleSubmit);
+    }
+  });
+</script>
